@@ -42,7 +42,23 @@
         </aside>
       </div>
     </div>
+    <script src='dist/seajs-3.0.0/dist/sea.js'></script>
+    <script>
+      seajs.config({
+        base: "dist/",
+        alias: {
+          "jquery": "jquery/dist/jquery.min.js"
+        },
+        paths: {
+          "dist": ""
+        }
+      });
 
-  
+      // 加载入口模块
+      seajs.use("main", function(data){
+        // data();
+        console.log(data);
+      });
+    </script>
   </body>
 </html>
