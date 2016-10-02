@@ -5,24 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="dist/css/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="dist/css/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="dist/css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="../dist/css/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../dist/css/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../dist/css/print.css" media="print">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <script src='dist/vue/dist/vue.min.js'></script>
+    <script src='../dist/vue/dist/vue.min.js'></script>
 
     <title>林富翔的博客</title>
   </head>
 
-  <body>
+  <body id="index-vue">
     <header>
       <div class="inner">
         <h1>林富翔的博客</h1>
-        <h2>my blog</h2>
+        <h2>前端小白一名</h2>
         <a href="https://github.com/linfuxiang" class="button"><small>Follow me on</small> GitHub</a>
       </div>
     </header>
@@ -30,7 +30,7 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <p>欢迎来到我的博客.</p>
+          <h1>小一本，学前端一年。</h1>
         </section>
 
         <aside id="sidebar">
@@ -42,22 +42,12 @@
         </aside>
       </div>
     </div>
-    <script src='dist/seajs-3.0.0/dist/sea.js'></script>
+    <script src='../dist/seajs-3.0.0/dist/sea.js'></script>
+    <script src='../dist/scripts/sea-config.js'></script>
     <script>
-      seajs.config({
-        base: "dist/",
-        alias: {
-          "jquery": "jquery/dist/jquery.min.js"
-        },
-        paths: {
-          "dist": ""
-        }
-      });
-
       // 加载入口模块
-      seajs.use("main", function(data){
-        // data();
-        console.log(data);
+      seajs.use("scripts/main", function(data){
+        data.init();
       });
     </script>
   </body>
