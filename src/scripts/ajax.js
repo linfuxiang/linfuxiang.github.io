@@ -16,7 +16,7 @@ define(function(require, exports, module) {
 	});
 
 	$.ajax({
-		type: 'post',
+		type: 'get',
 		url: '../article/main.txt',
 		success: function(d){
 			var converter = new Markdown.Converter();
