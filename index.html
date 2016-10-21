@@ -8,21 +8,22 @@
     <link rel="stylesheet" type="text/css" href="dist/css/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="dist/css/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="dist/css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="dist/css/main.css">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <script src='dist/vue/dist/vue.min.js'></script>
+    <!-- <script src='dist/vue/dist/vue.min.js'></script> -->
 
-    <title>林富翔的博客</title>
+    <title>我的博客</title>
   </head>
 
   <body id="index-vue">
     <header>
       <div class="inner">
         <h1>林富翔的博客</h1>
-        <h2>前端小白一名</h2>
+        <h2 v-cloak>前端小白一名{{head}}</h2>
         <a href="https://github.com/linfuxiang" class="button"><small>Follow me on</small> GitHub</a>
       </div>
     </header>
@@ -30,24 +31,25 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1>小一本，学前端一年。</h1>
+          <div></div>
         </section>
 
         <aside id="sidebar">
           <ul>
-            <li><a href='htmls/myRemarks.html'>零散的知识点</a></li>
-            <li><a>vue.js</a></li>
-            <li><a>Sea.js</a></li>
+            <template v-cloak v-for='item in links'>
+              <li><a href='{{item.indexhref}}'>{{item.name}}</a></li>
+            </template>
           </ul>
         </aside>
       </div>
     </div>
     <script src='dist/seajs-3.0.0/dist/sea.js'></script>
-    <script src='dist/scripts/sea-config.js'></script>
+    <script src='dist/scripts/sea-main-config.js'></script>
+
     <script>
       // 加载入口模块
-      seajs.use("scripts/main", function(data){
-        data.init();
+      seajs.use("./dist/scripts/main", function(data){
+        // data.init();
       });
     </script>
   </body>
