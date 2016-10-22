@@ -1,4 +1,4 @@
-原生Ajax：
+# 原生Ajax：
 	
 	function createXHR(){
 		if(typeof XMLHttpRequest != "undefined"){
