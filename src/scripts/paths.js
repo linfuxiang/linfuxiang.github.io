@@ -22,6 +22,10 @@ define(function(require, exports, module) {
         {
           name: '数据绑定',
           href: '?dataBinding'
+        },
+        {
+          name: '计算属性',
+          href: '?computed'
         }
       ]
   	}

@@ -20,6 +20,9 @@ define(function (require, exports, module) {
     details: [{
       name: '数据绑定',
       href: '?dataBinding'
+    }, {
+      name: '计算属性',
+      href: '?computed'
     }]
   }];
   exports.links = a;
