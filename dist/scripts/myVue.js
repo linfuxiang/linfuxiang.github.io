@@ -10,7 +10,7 @@ define(function (require, exports, module) {
 	var vm = new Vue({
 		el: '#main',
 		data: {
-			header: 'Vue',
+			header: 'Vue.js',
 			head: '我是林富翔',
 			article: '',
 			links: links

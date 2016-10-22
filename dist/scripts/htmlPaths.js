@@ -11,9 +11,13 @@ define(function (require, exports, module) {
     indexhref: 'htmls/ajax.html',
     href: 'ajax.html'
   }, {
-    name: 'vue.js',
+    name: 'Vue.js',
     indexhref: 'htmls/vue.html',
-    href: 'vue.html'
+    href: 'vue.html',
+    details: [{
+      name: '数据绑定',
+      href: 'vueDetails/dataBinding.html'
+    }]
   }];
   exports.links = a;
 });

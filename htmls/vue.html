@@ -20,8 +20,8 @@
   <body>
     <header>
       <div class="inner">
-        <h1>林富翔的博客</h1>
-        <h2>my blog</h2>
+        <h1>我的博客</h1>
+        <h2>前端小白一名</h2>
         <a href="https://github.com/linfuxiang" class="button"><small>Follow me on</small> GitHub</a>
       </div>
     </header>
@@ -35,7 +35,14 @@
         <aside id="sidebar">
           <ul>
             <template v-cloak v-for='item in links'>
-              <li><a href='{{item.href}}'>{{item.name}}</a></li>
+              <li>
+              	<a href='{{item.href}}'>{{item.name}}</a>
+              	<ul v-if='header == item.name'>
+              		<template v-cloak v-for='innerItem in item.details'>
+						<li><a href='{{innerItem.href}}'>{{innerItem.name}}</a></li>
+              		</template>
+              	</ul>
+              </li>
             </template>
           </ul>
         </aside>

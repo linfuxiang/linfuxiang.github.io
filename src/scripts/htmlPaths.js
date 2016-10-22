@@ -12,9 +12,15 @@ define(function(require, exports, module) {
   		href: 'ajax.html'
   	},
   	{
-  		name: 'vue.js',
+  		name: 'Vue.js',
   		indexhref: 'htmls/vue.html',
-  		href: 'vue.html'
+  		href: 'vue.html',
+      details: [
+        {
+          name: '数据绑定',
+          href: 'vueDetails/dataBinding.html'
+        }
+      ]
   	}
   ];
   exports.links = a;
