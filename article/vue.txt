@@ -44,3 +44,7 @@
 	vm.$watch('a', function(newVal, oldVal){
 		//在vm.a改变后回调
 	})
+
+## 生命周期  
+#### created => beforeCompile => compiled => ready => beforeDestroy => destroyed
+![Alt text](../dist/images/lifecycle.png)
