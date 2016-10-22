@@ -18,8 +18,7 @@ define(function(require, exports, module) {
 			header: 'Vue.js',
 			head: '我是林富翔',
 			article: '',
-			links: links,
-			aaa: 222
+			links: links
 		}
 	});
 
@@ -30,7 +29,6 @@ define(function(require, exports, module) {
 			var converter = new Markdown.Converter();
 			var htm = converter.makeHtml(d);
 			vm.article = htm;
-			vm.aaa = 111;
 		}
 	});
 
