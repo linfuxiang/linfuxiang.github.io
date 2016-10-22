@@ -3,7 +3,7 @@ define(function(require, exports, module) {
   require('jquery');
   require('vue');
   var links = require('htmlPaths').links;
-  // require('markdown');
+  require('markdown');
 
   var vm = new Vue({
     el: '#index-vue',
@@ -11,6 +11,16 @@ define(function(require, exports, module) {
       head: '我是林富翔',
       article: '',
       links: links
+    }
+  });
+
+  $.ajax({
+    type: 'get',
+    url: 'article/index.txt',
+    success: function(d){
+      var converter = new Markdown.Converter();
+      var htm = converter.makeHtml(d);
+      vm.article = htm;
     }
   });
 

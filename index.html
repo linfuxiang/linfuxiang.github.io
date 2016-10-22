@@ -22,8 +22,8 @@
   <body id="index-vue">
     <header>
       <div class="inner">
-        <h1>林富翔的博客</h1>
-        <h2 v-cloak>前端小白一名{{head}}</h2>
+        <h1>我的博客</h1>
+        <h2>前端小白一名</h2>
         <a href="https://github.com/linfuxiang" class="button"><small>Follow me on</small> GitHub</a>
       </div>
     </header>
@@ -31,7 +31,7 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <div></div>
+          <div v-html="article"></div>
         </section>
 
         <aside id="sidebar">
