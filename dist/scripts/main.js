@@ -4,7 +4,7 @@
 define(function (require, exports, module) {
   require('jquery');
   require('vue');
-  var links = require('scripts/a').links;
+  var links = require('htmlPaths').links;
   // require('markdown');
 
   var vm = new Vue({

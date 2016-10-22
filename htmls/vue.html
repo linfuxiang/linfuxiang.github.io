@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html id="main">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="dist/css/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="dist/css/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="dist/css/print.css" media="print">
-    <link rel="stylesheet" type="text/css" href="dist/css/main.css">
+    <link rel="stylesheet" type="text/css" href="../dist/css/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../dist/css/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../dist/css/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="../dist/css/main.css">
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <!-- <script src='dist/vue/dist/vue.min.js'></script> -->
-
-    <title>我的博客</title>
+    <!-- <script src='../dist/vue/dist/vue.min.js'></script> -->
+    <title>我的博客-{{header}}</title>
   </head>
 
-  <body id="index-vue">
+  <body>
     <header>
       <div class="inner">
         <h1>林富翔的博客</h1>
-        <h2 v-cloak>前端小白一名{{head}}</h2>
+        <h2>my blog</h2>
         <a href="https://github.com/linfuxiang" class="button"><small>Follow me on</small> GitHub</a>
       </div>
     </header>
@@ -31,26 +29,28 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <div></div>
+          <div v-html="article"></div>
         </section>
 
         <aside id="sidebar">
           <ul>
             <template v-cloak v-for='item in links'>
-              <li><a href='{{item.indexhref}}'>{{item.name}}</a></li>
+              <li><a href='{{item.href}}'>{{item.name}}</a></li>
             </template>
           </ul>
         </aside>
       </div>
     </div>
-    <script src='dist/scripts/seajs-3.0.0/dist/sea.js'></script>
-    <script src='dist/scripts/sea-main-config.js'></script>
+
+    <script src='../dist/scripts/seajs-3.0.0/dist/sea.js'></script>
+    <script src='../dist/scripts/sea-config.js'></script>
 
     <script>
       // 加载入口模块
-      seajs.use("./dist/scripts/main", function(data){
+      seajs.use("../dist/scripts/myVue", function(data){
         // data.init();
       });
     </script>
+  
   </body>
 </html>

@@ -13,7 +13,7 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src='../dist/vue/dist/vue.min.js'></script>
+    <!-- <script src='../dist/vue/dist/vue.min.js'></script> -->
     <title>我的博客-{{header}}</title>
   </head>
 
@@ -42,12 +42,12 @@
       </div>
     </div>
 
-    <script src='../dist/seajs-3.0.0/dist/sea.js'></script>
+    <script src='../dist/scripts/seajs-3.0.0/dist/sea.js'></script>
     <script src='../dist/scripts/sea-config.js'></script>
 
     <script>
       // 加载入口模块
-      seajs.use("../dist/scripts/ajax", function(data){
+      seajs.use("../dist/scripts/myAjax", function(data){
         // data.init();
       });
     </script>

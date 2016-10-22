@@ -2,13 +2,13 @@
 define(function(require, exports, module) {
 	require('jquery');
 	require('vue');
-	var links = require('scripts/a').links;
+	var links = require('htmlPaths').links;
 	require('markdown');
 
 	var vm = new Vue({
 		el: '#main',
 		data: {
-			header: 'ajax',
+			header: 'Vue',
 			head: '我是林富翔',
 			article: '',
 			links: links
@@ -17,7 +17,7 @@ define(function(require, exports, module) {
 
 	$.ajax({
 		type: 'get',
-		url: '../article/main.txt',
+		url: '../article/vue.txt',
 		success: function(d){
 			var converter = new Markdown.Converter();
 			var htm = converter.makeHtml(d);

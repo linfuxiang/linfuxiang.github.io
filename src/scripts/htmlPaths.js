@@ -8,8 +8,8 @@ define(function(require, exports, module) {
   	},
   	{
   		name: 'vue.js',
-  		indexhref: '',
-  		href: ''
+  		indexhref: 'htmls/vue.html',
+  		href: 'vue.html'
   	}
   ];
   exports.links = a;
