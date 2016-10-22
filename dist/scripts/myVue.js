@@ -7,6 +7,13 @@ define(function (require, exports, module) {
 	var links = require('paths').links;
 	require('markdown');
 
+	var hash = location.href.split('?')[1];
+	if (hash == undefined) {
+		var url = '/article/vue.txt';
+	} else {
+		var url = '/article/vueDetails/' + hash + '.txt';
+	}
+
 	var vm = new Vue({
 		el: '#main',
 		data: {
@@ -19,7 +26,7 @@ define(function (require, exports, module) {
 
 	$.ajax({
 		type: 'get',
-		url: '/article/vue.txt',
+		url: url,
 		success: function success(d) {
 			var converter = new Markdown.Converter();
 			var htm = converter.makeHtml(d);

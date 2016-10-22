@@ -19,7 +19,7 @@ define(function (require, exports, module) {
     href: '/htmls/vue.html',
     details: [{
       name: '数据绑定',
-      href: '/htmls/vueDetails/dataBinding.html'
+      href: '?dataBinding'
     }]
   }];
   exports.links = a;

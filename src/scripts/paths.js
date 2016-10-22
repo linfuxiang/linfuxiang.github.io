@@ -21,7 +21,7 @@ define(function(require, exports, module) {
       details: [
         {
           name: '数据绑定',
-          href: '/htmls/vueDetails/dataBinding.html'
+          href: '?dataBinding'
         }
       ]
   	}
