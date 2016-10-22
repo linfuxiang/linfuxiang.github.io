@@ -2,7 +2,7 @@
 define(function(require, exports, module) {
 	require('jquery');
 	require('vue');
-	var links = require('htmlPaths').links;
+	var links = require('paths').links;
 	require('markdown');
 
 	var vm = new Vue({
@@ -17,7 +17,7 @@ define(function(require, exports, module) {
 
 	$.ajax({
 		type: 'get',
-		url: '../article/ajax.txt',
+		url: '/article/ajax.txt',
 		success: function(d){
 			var converter = new Markdown.Converter();
 			var htm = converter.makeHtml(d);

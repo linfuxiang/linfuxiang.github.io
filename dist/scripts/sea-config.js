@@ -2,7 +2,7 @@
 
 seajs.config({
     // base: "http://localhost/linfuxiang.github.io/dist",
-    base: "../dist/scripts/",
+    base: "/dist/scripts/",
     // base: "http://linfuxiang.github.io/dist",
     alias: {
         "jquery": "jquery/dist/jquery.min.js",
