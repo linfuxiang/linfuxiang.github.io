@@ -5,19 +5,36 @@ define(function(require, exports, module) {
 	var links = require('paths').links;
 	require('markdown');
 
+	var hash = location.href.split('?')[1], url, m;
+	if(hash != undefined){
+		var h = hash.split('-');
+		if(h[1] == undefined){
+			url = '/article/' + hash + '.txt';
+		}
+		else{
+			url = '/article/' + h[0] + '/' + h[1] + '.txt';
+		}
+		m = h[0];
+	}else{
+		// url = '/article/' + hash + '.txt';
+	}
+
 	var vm = new Vue({
 		el: '#main',
 		data: {
-			header: 'ajax',
+			header: m,
 			head: '我是林富翔',
 			article: '',
 			links: links
+		},
+		methods: {
+			
 		}
 	});
 
 	$.ajax({
 		type: 'get',
-		url: '/article/ajax.txt',
+		url: url,
 		success: function(d){
 			var converter = new Markdown.Converter();
 			var htm = converter.makeHtml(d);

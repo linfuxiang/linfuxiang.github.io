@@ -2,6 +2,7 @@
 define(function(require, exports, module) {
   var js = '/dist/scripts/';
   var css = '/dist/css/';
+  var article = '/htmls/article.html';
   var a = [
     {
       name: '首页',
@@ -10,25 +11,31 @@ define(function(require, exports, module) {
     },
   	{
   		name: 'ajax',
-  		// indexhref: 'htmls/ajax.html',
-  		href: '/htmls/ajax.html',
+  		href: article + '?ajax',
       details: []
   	},
   	{
-  		name: 'Vue.js',
-  		// indexhref: 'htmls/vue.html',
-  		href: '/htmls/vue.html',
+  		name: 'vue',
+  		href: article + '?vue',
       details: [
         {
           name: '数据绑定',
-          href: '?dataBinding'
+          href: '?vue-dataBinding'
         },
         {
           name: '计算属性',
-          href: '?computed'
+          href: '?vue-computed'
+        },
+        {
+          name: '未完待续',
+          href: '?vue-continue'
         }
       ]
-  	}
+  	},
+    {
+      name: 'sea',
+      href: article + '?sea',
+    }
   ];
   exports.links = a;
 

@@ -5,18 +5,6 @@ var watchPath = require('gulp-watch-path');
 var combiner = require('stream-combiner2');
 var gutil = require('gulp-util');
 
-/*gulp.task('default', function(){
-	gulp.src('src/scripts/*.js')
-		.pipe(babel())
-		.pipe(gulp.dest('dist/script'))
-		.src('src/css/*.css')
-		.pipe(autoprefixer({
-			browsers : ['last 2 versions', 'Android >= 4.0'],
-			cascade : true,
-			remove : true
-		}))
-		.pipe(gulp.dest('dist/css'));
-});*/
 var handleError = function(err){
 	var colors = gutil.colors;
 	console.log('\n');
