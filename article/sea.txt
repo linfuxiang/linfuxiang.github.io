@@ -8,4 +8,43 @@
 `Sea.js`还提供常用插件，非常有助于开发调试和性能优化，并具有丰富的可扩展接口。  
 
 ## 怎么使用Sea.js
-#### seajs.config()
+#### seajs.config()  
+对Sea进行配置  
+
+	seajs.config({
+
+		//基础路径
+		base: 'http://localhost/',
+
+		// 路径配置
+		paths: {
+
+		},
+
+		// 别名配置，路径配置
+		alias: {
+
+		},
+		
+		// 变量配置，用{lfx}来表示变量
+		vars: {
+			'lfx': 'watermelon'
+		},
+		
+		// 映射配置
+		map: [
+			[url, anotherUrl]
+		],
+		
+		//预加载项，在普通模块加载前，提前加载某些模块，空字符串将被忽略
+		preload: [
+			Function.prototype.bind ? '' : 'es5-safe',
+	    	this.JSON ? '' : 'json'
+		],
+
+		//调试模式
+		debug: true,
+
+		//文件编码
+		charset: 'utf-8'
+	});
