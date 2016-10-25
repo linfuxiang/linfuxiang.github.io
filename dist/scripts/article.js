@@ -4,8 +4,10 @@
 define(function (require, exports, module) {
 	require('jquery');
 	require('vue');
-	var links = require('paths').links;
+	var links = require('paths');
 	require('markdown');
+
+	// console.log(module.dependencies);
 
 	var hash = location.href.split('?')[1],
 	    url,

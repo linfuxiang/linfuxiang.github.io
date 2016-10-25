@@ -37,6 +37,7 @@ define(function(require, exports, module) {
       href: article + '?sea',
     }
   ];
-  exports.links = a;
+  // exports.links = a;
+  module.exports = a;
 
 });
