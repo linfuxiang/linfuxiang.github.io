@@ -15,7 +15,7 @@ define(function (require, exports, module) {
       links: links
     }
   });
-
+  
   $.ajax({
     type: 'get',
     url: 'article/index.txt',

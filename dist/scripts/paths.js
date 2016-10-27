@@ -29,6 +29,9 @@ define(function (require, exports, module) {
   }, {
     name: 'sea',
     href: article + '?sea'
+  }, {
+    name: 'node',
+    href: article + '?node'
   }];
   // exports.links = a;
   module.exports = a;
