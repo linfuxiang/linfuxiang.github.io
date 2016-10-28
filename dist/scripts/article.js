@@ -30,7 +30,8 @@ define(function (require, exports, module) {
 			header: m,
 			head: '我是林富翔',
 			article: '',
-			links: links
+			links: links,
+			items: [{ m: 1 }, { m: 2 }, { m: 3 }]
 		},
 		methods: {}
 	});

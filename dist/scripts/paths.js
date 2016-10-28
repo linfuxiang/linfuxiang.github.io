@@ -20,11 +20,20 @@ define(function (require, exports, module) {
       name: '数据绑定',
       href: '?vue-dataBinding'
     }, {
-      name: '计算属性',
+      name: '计算属性computed',
       href: '?vue-computed'
     }, {
-      name: '未完待续',
-      href: '?vue-continue'
+      name: 'Class 与 Style',
+      href: '?vue-class'
+    }, {
+      name: '条件渲染',
+      href: '?vue-conditional'
+    }, {
+      name: '列表渲染',
+      href: '?vue-list'
+    }, {
+      name: 'API',
+      href: 'http://cn.vuejs.org/api/'
     }]
   }, {
     name: 'sea',
