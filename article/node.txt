@@ -1,5 +1,14 @@
 # Node.js 
 安装：在[官网](https://nodejs.org/en/)寻找适合的版本安装。  
+## 创建一个最简单的http服务器
+
+	let http = required('http');
+	http.createServer((req, res) => {
+		res.writeHead(200, {'Content-Type': 'text/plain'});
+		res.write('Hello Node.');
+		res.end();
+	}).listen(3000);
+
 ## 最简单的express应用 
 
 	// 创建工程和安装 express 模块
@@ -7,12 +16,12 @@
 	npm install express --save-dev
 
 	// 创建 server.js 
-	var express = require('express');
-	var app = express();
-	app.get('/', function(req, res){
+	let express = require('express');
+	let app = express();
+	app.get('/', (req, res) => {
 		res.send('Hello.');
 	});
-	app.listen(3000, function(){
+	app.listen(3000, () => {
 		console.log('connected.');
 	});
 
@@ -21,6 +30,6 @@
 
 ## 获取url参数和utility模块
 
-	var q = req.query.q;
+	let q = req.query.q;
 	md5Value = utility.md5(q);
 
