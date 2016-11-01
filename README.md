@@ -1,2 +1,2 @@
 # linfuxiang.github.io
-my blog
+安装： npm install
