@@ -35,4 +35,35 @@
 	// 如果不需要debug直接用下面的命令启动
 	npm start
 
-## 
+## express.Router
+创建路由模块router.js
+
+	var express = require('express');
+	var router = express.Router;
+
+	// 路由的中间件
+	router.use(function timeLog(req, res, next){
+		console.log('Time: ', Date.now());
+		next();	
+	});
+	
+	// 主页的路由
+	router.get('/', function(req, res){
+		res.send('homePage');
+	});
+
+	// other页面的路由
+	router.get('/other', function(req, res){
+		res.send('otherPage');
+	});
+
+	module.exports = router;
+
+加载路由模块
+
+	var router = require('./router.js');
+	var express = require('express');
+	var app = express();
+
+	app.use('/', router);
+	app.listen(3000);
