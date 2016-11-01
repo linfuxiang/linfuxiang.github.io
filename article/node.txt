@@ -12,6 +12,8 @@
 ## 最简单的express应用 
 
 	// 创建工程和安装 express 模块
+	mkdir node-test
+	cd node-test
 	npm init
 	npm install express --save-dev
 
@@ -25,11 +27,5 @@
 		console.log('connected.');
 	});
 
-	// 启动服务
-	node server.js
 
-## 获取url参数和utility模块
-
-	let q = req.query.q;
-	md5Value = utility.md5(q);
 
