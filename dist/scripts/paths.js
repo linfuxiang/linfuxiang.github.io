@@ -37,10 +37,15 @@ define(function (require, exports, module) {
     }]
   }, {
     name: 'sea',
-    href: article + '?sea'
+    href: article + '?sea',
+    details: []
   }, {
     name: 'node',
-    href: article + '?node'
+    href: article + '?node',
+    details: [{
+      name: 'Express',
+      href: '?node-express'
+    }]
   }];
   // exports.links = a;
   module.exports = a;
