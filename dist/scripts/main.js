@@ -15,10 +15,10 @@ define(function (require, exports, module) {
       links: links
     }
   });
-  
+
   $.ajax({
     type: 'get',
-    url: 'article/index.txt',
+    url: 'article/index.md',
     success: function success(d) {
       var converter = new Markdown.Converter();
       var htm = converter.makeHtml(d);

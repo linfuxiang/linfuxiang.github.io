@@ -16,7 +16,7 @@ define(function(require, exports, module) {
 
   $.ajax({
     type: 'get',
-    url: 'article/index.txt',
+    url: 'article/index.md',
     success: function(d){
       var converter = new Markdown.Converter();
       var htm = converter.makeHtml(d);

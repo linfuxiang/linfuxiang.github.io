@@ -15,9 +15,9 @@ define(function (require, exports, module) {
 	if (hash != undefined) {
 		var h = hash.split('-');
 		if (h[1] == undefined) {
-			url = '/article/' + hash + '.txt';
+			url = '/article/' + hash + '.md';
 		} else {
-			url = '/article/' + h[0] + '/' + h[1] + '.txt';
+			url = '/article/' + h[0] + '/' + h[1] + '.md';
 		}
 		m = h[0];
 	} else {
