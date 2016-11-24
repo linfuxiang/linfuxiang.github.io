@@ -3,7 +3,7 @@
 ## 在linux上安装 
 解压
 
-	tar xvf node-v6.9.1-linux-x64.tar.xz
+	tar -xvf node-v6.9.1-linux-x64.tar.xz
 
 设置全局变量
 
