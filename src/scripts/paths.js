@@ -63,6 +63,11 @@ define(function(require, exports, module) {
       name: 'mongoDB',
       href: article + '?mongoDB',
       details: []
+    },
+    {
+      name: '小东西',
+      href: article + '?little',
+      details: []
     }
   ];
   // exports.links = a;
