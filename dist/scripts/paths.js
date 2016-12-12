@@ -35,6 +35,12 @@ define(function (require, exports, module) {
             name: '事件处理器',
             href: '?vue-events'
         }, {
+            name: '组件',
+            href: '?vue-components'
+        }, {
+            name: 'vue-cli',
+            href: '?vue-cli'
+        }, {
             name: 'API',
             href: 'http://cn.vuejs.org/api/'
         }]
