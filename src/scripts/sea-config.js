@@ -3,12 +3,12 @@ seajs.config({
     base: "/dist/scripts/",
     // base: "http://linfuxiang.github.io/dist",
     alias: {
-      "jquery": "jquery/dist/jquery.min.js",
-      "vue": "vue/dist/vue.min.js",
-      "markdown": "Markdown.Converter.js"
+        "jquery": "jquery/dist/jquery.min.js",
+        "vue": "vue/dist/vue.min.js",
+        "markdown": "Markdown.Converter.js"
     },
     paths: {
-       // "index-dist": "dist/",
-       // "dist": "http://localhost/linfuxiang.github.io/dist/scripts"
+        // "index-dist": "dist/",
+        // "dist": "http://localhost/linfuxiang.github.io/dist/scripts"
     }
 });
