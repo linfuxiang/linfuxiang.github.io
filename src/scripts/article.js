@@ -1,8 +1,8 @@
 // 所有模块都通过 define 来定义
 define(function(require, exports, module) {
+    var links = require('paths');
     require('jquery');
     require('vue');
-    var links = require('paths');
     require('markdown');
 
     // console.log(module.dependencies);

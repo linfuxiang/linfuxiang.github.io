@@ -2,7 +2,8 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var autoprefixer = require('gulp-autoprefixer');
 var watchPath = require('gulp-watch-path');
-var cleanCss = require('gulp-clean-css');
+var minifyCss = require('gulp-clean-css');
+// var uglifyJs = require('gulp-uglify');
 var combiner = require('stream-combiner2');
 var gutil = require('gulp-util');
 
@@ -21,6 +22,7 @@ gulp.task('default', function(){
 		var combined = combiner.obj([
 			gulp.src(paths.srcPath),
 			babel(),
+			// uglifyJs(),
 			gulp.dest(paths.distDir)
 		]);
 		combined.on('error', handleError);
@@ -34,7 +36,7 @@ gulp.task('default', function(){
 				cascade : true,
 				remove : true
 			}),
-			cleanCss(),
+			minifyCss(),
 			gulp.dest(paths.distDir)
 		]);
 		combined.on('error', handleError);
