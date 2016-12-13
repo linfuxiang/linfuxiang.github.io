@@ -6,7 +6,8 @@ seajs.config({
     // base: "http://linfuxiang.github.io/dist",
     alias: {
         "jquery": "jquery/dist/jquery.min.js",
-        "vue": "vue/dist/vue.min.js",
+        "vue": "vue/dist/vue.js",
+        "vue-resource": "vue/dist/vue-resource.js",
         "markdown": "Markdown.Converter.js"
     },
     paths: {

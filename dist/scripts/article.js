@@ -1,1 +1,54 @@
-"use strict";define(function(require,a,t){var r=require("paths");require("jquery"),require("vue"),require("markdown");var i,n,d=location.href.split("?")[1];if(void 0!=d){var l=d.split("-");i=void 0==l[1]?"/article/"+d+".md":"/article/"+l[0]+"/"+l[1]+".md",n=l[0]}var m=new Vue({el:"#main",data:{header:n,head:"我是林富翔",article:"",links:r,items:[{m:1},{m:2},{m:3}]},methods:{}});$.ajax({type:"get",url:i,success:function(e){var a=new Markdown.Converter,t=a.makeHtml(e);m.article=t}})});
+'use strict';
+
+// 所有模块都通过 define 来定义
+define(function (require, exports, module) {
+    var links = require('paths');
+    require('jquery');
+    require('vue');
+    require('markdown');
+
+    // console.log(module.dependencies);
+
+    var hash = location.href.split('?')[1],
+        url,
+        m;
+    if (hash != undefined) {
+        var h = hash.split('-');
+        if (h[1] == undefined) {
+            url = '/article/' + hash + '.md';
+        } else {
+            url = '/article/' + h[0] + '/' + h[1] + '.md';
+        }
+        m = h[0];
+    } else {
+        // url = '/article/' + hash + '.txt';
+    }
+
+    var vm = new Vue({
+        el: '#main',
+        data: {
+            header: m,
+            head: '我是林富翔',
+            article: '',
+            links: links,
+            items: []
+        },
+        methods: {}
+    });
+
+    $.ajax({
+        type: 'get',
+        url: url,
+        success: function success(d) {
+            var converter = new Markdown.Converter();
+            var htm = converter.makeHtml(d);
+            vm.article = htm;
+        }
+    });
+
+    // 通过 exports 对外提供接口
+    // exports.init = init;
+
+    // 或者通过 module.exports 提供整个接口
+    // module.exports = init; 
+});

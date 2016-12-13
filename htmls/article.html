@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html id="main">
-  <head>
+<html>
+
+<head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -9,55 +10,54 @@
     <link rel="stylesheet" type="text/css" href="/dist/css/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/dist/css/print.css" media="print">
     <link rel="stylesheet" type="text/css" href="/dist/css/main.css">
-
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- <script src='../dist/vue/dist/vue.min.js'></script> -->
     <title>我的博客-{{header}}</title>
-  </head>
+</head>
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>我的博客</h1>
-        <h2></h2>
-        <a href="https://github.com/linfuxiang" class="button"><small>Follow me on</small> GitHub</a>
-      </div>
-    </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <div v-html="article"></div>
-        </section>
-
-        <aside id="sidebar">
-          <ul>
-            <template v-cloak v-for='item in links'>
-              <li>
-              	<a href='{{item.href}}'>{{item.name}}</a>
-              	<ul v-if='header == item.name'>
-              		<template v-cloak v-for='innerItem in item.details'>
-						<li><a href='{{innerItem.href}}'>{{innerItem.name}}</a></li>
-              		</template>
-              	</ul>
-              </li>
-            </template>
-          </ul>
-        </aside>
-      </div>
+<body>
+    <div id="main">
+        <header>
+            <div class="inner">
+                <h1>我的博客</h1>
+                <h2></h2>
+                <a href="https://github.com/linfuxiang" class="button"><small>Follow me on</small> GitHub</a>
+            </div>
+        </header>
+        <div id="content-wrapper">
+            <div class="inner clearfix">
+                <section id="main-content">
+                    <div v-html="article"></div>
+                </section>
+                <aside id="sidebar">
+                    <ul>
+                        <template v-cloak v-for='item in links'>
+                            <li>
+                                <a :href='item.href'>{{item.name}}</a>
+                                <ul v-if='header == item.name'>
+                                    <template v-cloak v-for='innerItem in item.details'>
+                                        <li><a :href='innerItem.href'>{{innerItem.name}}</a></li>
+                                    </template>
+                                </ul>
+                            </li>
+                        </template>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <!-- <div v-for="item of items" track-by="$index">{{item}}{{$index}}</div> -->
+        <!-- <button @click="clickit">a</button> -->
     </div>
-<!-- <div v-for="item of items">{{item.m}}{{$index}}</div> -->
     <script src='/dist/scripts/seajs-3.0.0/dist/sea.js'></script>
     <script src='/dist/scripts/sea-config.js'></script>
-
     <script>
-      // 加载入口模块
-      seajs.use("article", function(data){
+    // 加载入口模块
+    seajs.use("article", function(data) {
         // data.init();
-      });
+    });
     </script>
-  
-  </body>
+</body>
+
 </html>
