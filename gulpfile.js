@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var autoprefixer = require('gulp-autoprefixer');
 var watchPath = require('gulp-watch-path');
+var cleanCss = require('gulp-clean-css');
 var combiner = require('stream-combiner2');
 var gutil = require('gulp-util');
 
@@ -33,6 +34,7 @@ gulp.task('default', function(){
 				cascade : true,
 				remove : true
 			}),
+			cleanCss(),
 			gulp.dest(paths.distDir)
 		]);
 		combined.on('error', handleError);

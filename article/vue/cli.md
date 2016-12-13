@@ -18,3 +18,5 @@
 ## 编译成浏览器可读的代码
 
 	npm run build
+
+[vue-cli#2.0 webpack 配置分析](https://mp.weixin.qq.com/s/jyhOjk4g4jWP-MnsZo1uHA)
