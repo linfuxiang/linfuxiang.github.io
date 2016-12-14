@@ -31,7 +31,8 @@ define(function (require, exports, module) {
             head: '我是林富翔',
             article: '',
             links: links,
-            items: []
+            items: [],
+            aaa: 'abc'
         },
         methods: {}
     });

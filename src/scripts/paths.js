@@ -40,7 +40,8 @@ define(function(require, exports, module) {
             href: '?vue-cli'
         }, {
             name: 'API',
-            href: 'http://cn.vuejs.org/api/'
+            href: 'http://cn.vuejs.org/api/',
+            isBlank: true
         }]
     }, {
         name: 'sea',
