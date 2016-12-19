@@ -59,6 +59,10 @@ define(function(require, exports, module) {
         href: article + '?mongoDB',
         details: []
     }, {
+        name: 'Linux',
+        href: article + '?linux',
+        details: []
+    }, {
         name: 'Sublime Text 3',
         href: article + '?sublime',
         details: []

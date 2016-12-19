@@ -135,6 +135,7 @@ abbr[title] {
 b,
 strong {
     font-weight: bold;
+    color: red;
 }
 
 
@@ -623,7 +624,7 @@ pre {
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-size: 13px;
     /*color: #222;*/
-    color: #e96900;
+    color: green;
 }
 
 code {

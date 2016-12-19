@@ -19,4 +19,7 @@
 
 	npm run build
 
-[vue-cli#2.0 webpack 配置分析](https://mp.weixin.qq.com/s/jyhOjk4g4jWP-MnsZo1uHA)
+## 文章  
+[vue-cli#2.0 webpack 配置分析](https://mp.weixin.qq.com/s/jyhOjk4g4jWP-MnsZo1uHA)  
+[剖析Vue原理&实现双向绑定MVVM](https://segmentfault.com/a/1190000006599500)  
+[基于vue、vuex、vue-router、echarts搭建的数据展示平台](http://hyuhan.com/2016/11/17/A-data-display-platform/)  
