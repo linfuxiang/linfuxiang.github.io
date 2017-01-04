@@ -33,8 +33,7 @@ define(function (require, exports, module) {
             links: links,
             items: [],
             aaa: 'abc'
-        },
-        methods: {}
+        }
     });
 
     $.ajax({

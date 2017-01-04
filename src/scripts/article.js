@@ -32,9 +32,6 @@ define(function(require, exports, module) {
                 
             ],
             aaa: 'abc'
-        },
-        methods: {
-            
         }
     });
 
