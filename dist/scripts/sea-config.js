@@ -11,6 +11,7 @@ seajs.config({
         "markdown": "Markdown.Converter.js"
     },
     paths: {
+        // "weex-html5": "/node_modules/weex-html5/"
         // "index-dist": "dist/",
         // "dist": "http://localhost/linfuxiang.github.io/dist/scripts"
     }

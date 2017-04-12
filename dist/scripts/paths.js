@@ -41,6 +41,9 @@ define(function (require, exports, module) {
             name: 'vue-cli',
             href: '?vue-cli'
         }, {
+            name: 'vue-cli + vue-router + vuex',
+            href: '?vue-pro'
+        }, {
             name: 'API',
             href: 'http://cn.vuejs.org/api/',
             isBlank: true

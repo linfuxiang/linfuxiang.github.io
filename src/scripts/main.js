@@ -4,6 +4,7 @@ define(function(require, exports, module) {
     require('vue');
     let links = require('paths');
     require('markdown');
+    // require('weex-html5/dist/weex.js');
 
     var vm = new Vue({
         el: '#index-vue',
@@ -13,7 +14,6 @@ define(function(require, exports, module) {
             links: links
         }
     });
-
     $.ajax({
         type: 'get',
         url: 'article/index.md',
@@ -23,7 +23,6 @@ define(function(require, exports, module) {
             vm.article = htm;
         }
     });
-
     // 通过 exports 对外提供接口
     // exports.init = init;
 
