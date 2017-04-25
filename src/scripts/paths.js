@@ -1,17 +1,24 @@
 // 所有模块都通过 define 来定义
 define(function(require, exports, module) {
-    var js = '/dist/scripts/';
-    var css = '/dist/css/';
-    var article = '/htmls/article.html';
-    var a = [{
+    let js = '/dist/scripts/';
+    let css = '/dist/css/';
+    let article = '/htmls/article.html';
+    let a = [{
         name: '首页',
         indexhref: './',
         href: '/'
     }, {
-        name: 'ajax',
-        href: article + '?ajax',
+        name: '微信硬件蓝牙api（前端开发）',
+        href: article + '?wxblue',
         details: []
     }, {
+        name: 'vue2',
+        href: article + '?vue2',
+        details: [{
+            name: '2.0与1.0的差异',
+            href: '?vue2-diff'
+        }]
+    },{
         name: 'vue',
         href: article + '?vue',
         details: [{
@@ -43,7 +50,11 @@ define(function(require, exports, module) {
             href: 'http://cn.vuejs.org/api/',
             isBlank: true
         }]
-    }, {
+    },{
+        name: 'ajax',
+        href: article + '?ajax',
+        details: []
+    },  {
         name: 'sea',
         href: article + '?sea',
         details: []
