@@ -5,7 +5,8 @@ seajs.config({
     alias: {
         "jquery": "jquery/dist/jquery.min.js",
         "vue": "vue/dist/vue.min.js",
-        "markdown": "Markdown.Converter.js"
+        "markdown": "Markdown.Converter.js",
+        "echarts": "echarts/dist/echarts.min.js",
     },
     paths: {
         // "index-dist": "dist/",

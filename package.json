@@ -22,5 +22,8 @@
     "sea": "^1.0.2",
     "stream-combiner2": "^1.1.1",
     "vue": "^2.2.6"
+  },
+  "dependencies": {
+    "echarts": "^3.6.2"
   }
 }

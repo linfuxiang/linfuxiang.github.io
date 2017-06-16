@@ -8,10 +8,11 @@ seajs.config({
         "jquery": "jquery/dist/jquery.min.js",
         "vue": "vue/dist/vue.js",
         "vue-resource": "vue/dist/vue-resource.js",
-        "markdown": "Markdown.Converter.js"
+        "markdown": "Markdown.Converter.js",
+        "echarts": "echarts/dist/echarts.min.js"
     },
     paths: {
         // "index-dist": "dist/",
-        // "dist": "http://localhost/linfuxiang.github.io/dist/scripts"
+        // "echarts": "echarts/lib"
     }
 });

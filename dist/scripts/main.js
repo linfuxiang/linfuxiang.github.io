@@ -26,6 +26,44 @@ define(function (require, exports, module) {
         }
     });
 
+    // require('echarts');
+    // let myChart = echarts.init(document.getElementById('main'));
+    // let data = [];
+
+    // for (let i = 0; i <= 100; i++) {
+    //     let theta = i / 100 * 360;
+    //     let r = 5 * (1 + Math.sin(theta / 180 * Math.PI));
+    //     data.push([r, theta]);
+    // }
+
+    // let option = {
+    //     title: {
+    //         // text: 'Heart'
+    //     },
+    //     legend: {
+    //         data: ['心的位置']
+    //     },
+    //     polar: {},
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {
+    //             type: 'cross'
+    //         }
+    //     },
+    //     angleAxis: {
+    //         type: 'value',
+    //         startAngle: 0
+    //     },
+    //     radiusAxis: {},
+    //     series: [{
+    //         coordinateSystem: 'polar',
+    //         name: '心的位置',
+    //         type: 'line',
+    //         data: data
+    //     }]
+    // };
+    // myChart.setOption(option);
+
     // 通过 exports 对外提供接口
     // exports.init = init;
 
