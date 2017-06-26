@@ -31,3 +31,5 @@
 	//裁剪部分距离四条变的距离（上，右，下，左） round 四个角的圆角（上左，上右，下右，下左）
 
 ![image](http://yunkus.com/wp-content/uploads/2016/06/css-clip-path-5.jpg)
+
+PS:参考原文[http://yunkus.com/css-clip-path/](http://yunkus.com/css-clip-path/)
