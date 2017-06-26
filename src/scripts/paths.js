@@ -18,7 +18,45 @@ define(function(require, exports, module) {
             name: '2.0与1.0的差异',
             href: '?vue2-diff'
         }]
-    },{
+    }, {
+        name: 'css3',
+        href: article + '?css3',
+        details: [{
+            name: 'clip-path',
+            href: '?css3-clippath'
+        }]
+    }, {
+        name: 'ajax',
+        href: article + '?ajax',
+        details: []
+    }, {
+        name: 'sea',
+        href: article + '?sea',
+        details: []
+    }, {
+        name: 'node',
+        href: article + '?node',
+        details: [{
+            name: 'Express',
+            href: '?node-express'
+        }]
+    }, {
+        name: 'mongoDB',
+        href: article + '?mongoDB',
+        details: []
+    }, {
+        name: 'Linux',
+        href: article + '?linux',
+        details: []
+    }, {
+        name: 'Sublime Text 3',
+        href: article + '?sublime',
+        details: []
+    }, {
+        name: '小东西',
+        href: article + '?little',
+        details: []
+    }, {
         name: 'vue',
         href: article + '?vue',
         details: [{
@@ -50,38 +88,7 @@ define(function(require, exports, module) {
             href: 'http://cn.vuejs.org/api/',
             isBlank: true
         }]
-    },{
-        name: 'ajax',
-        href: article + '?ajax',
-        details: []
-    },  {
-        name: 'sea',
-        href: article + '?sea',
-        details: []
-    }, {
-        name: 'node',
-        href: article + '?node',
-        details: [{
-            name: 'Express',
-            href: '?node-express'
-        }]
-    }, {
-        name: 'mongoDB',
-        href: article + '?mongoDB',
-        details: []
-    }, {
-        name: 'Linux',
-        href: article + '?linux',
-        details: []
-    }, {
-        name: 'Sublime Text 3',
-        href: article + '?sublime',
-        details: []
-    }, {
-        name: '小东西',
-        href: article + '?little',
-        details: []
-    }];
+    }, ];
     // exports.links = a;
     module.exports = a;
 });

@@ -21,36 +21,11 @@ define(function (require, exports, module) {
             href: '?vue2-diff'
         }]
     }, {
-        name: 'vue',
-        href: article + '?vue',
+        name: 'css3',
+        href: article + '?css3',
         details: [{
-            name: '数据绑定',
-            href: '?vue-dataBinding'
-        }, {
-            name: '计算属性computed',
-            href: '?vue-computed'
-        }, {
-            name: 'Class 与 Style',
-            href: '?vue-class'
-        }, {
-            name: '条件',
-            href: '?vue-conditional'
-        }, {
-            name: '列表',
-            href: '?vue-list'
-        }, {
-            name: '事件处理器',
-            href: '?vue-events'
-        }, {
-            name: '组件',
-            href: '?vue-components'
-        }, {
-            name: 'vue-cli',
-            href: '?vue-cli'
-        }, {
-            name: 'API',
-            href: 'http://cn.vuejs.org/api/',
-            isBlank: true
+            name: 'clip-path',
+            href: '?css3-clippath'
         }]
     }, {
         name: 'ajax',
@@ -83,6 +58,38 @@ define(function (require, exports, module) {
         name: '小东西',
         href: article + '?little',
         details: []
+    }, {
+        name: 'vue',
+        href: article + '?vue',
+        details: [{
+            name: '数据绑定',
+            href: '?vue-dataBinding'
+        }, {
+            name: '计算属性computed',
+            href: '?vue-computed'
+        }, {
+            name: 'Class 与 Style',
+            href: '?vue-class'
+        }, {
+            name: '条件',
+            href: '?vue-conditional'
+        }, {
+            name: '列表',
+            href: '?vue-list'
+        }, {
+            name: '事件处理器',
+            href: '?vue-events'
+        }, {
+            name: '组件',
+            href: '?vue-components'
+        }, {
+            name: 'vue-cli',
+            href: '?vue-cli'
+        }, {
+            name: 'API',
+            href: 'http://cn.vuejs.org/api/',
+            isBlank: true
+        }]
     }];
     // exports.links = a;
     module.exports = a;
