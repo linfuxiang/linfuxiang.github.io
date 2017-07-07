@@ -1,11 +1,7 @@
 // 所有模块都通过 define 来定义
 define(function(require, exports, module) {
     var links = require('paths');
-    require('jquery');
-    require('vue');
     require('markdown');
-
-    // console.log(module.dependencies);
 
     var hash = location.href.split('?')[1],
         url, m;
@@ -29,23 +25,19 @@ define(function(require, exports, module) {
             article: '',
             links: links,
             items: [
-                
-            ],
-            aaa: 'abc'
-        },
-        methods: {
-            
-        }
-    });
 
-    $.ajax({
-        type: 'get',
-        url: url,
-        success: function(d) {
-            var converter = new Markdown.Converter();
-            var htm = converter.makeHtml(d);
-            vm.article = htm;
-        }
+            ],
+        },
+        mounted() {
+            this.$http.get(url).then(function(response) {
+                var converter = new Markdown.Converter();
+                var htm = converter.makeHtml(response.body);
+                vm.article = htm;
+                // 响应成功回调
+            }, function(response) {
+                // 响应错误回调
+            });
+        },
     });
 
     // 通过 exports 对外提供接口

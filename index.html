@@ -15,6 +15,24 @@
     <![endif]-->
     <!-- <script src="dist/vue/dist/vue.min.js"></script> -->
     <title>我的博客</title>
+    <style>
+    div.b-outer,
+    div.b-inner {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        position: absolute;
+    }
+    
+    div.b-inner {
+        background-image: url(https://user-gold-cdn.xitu.io/2017/6/24/d0350f8b7ef2b6dddae1d09c71fd207b);
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-clip-path: circle(0% at 50% 50%);
+        -o-clip-path: circle(0% at 50% 50%);
+        clip-path: circle(0% at 50% 50%);
+    }
+    </style>
 </head>
 
 <body>
@@ -30,7 +48,11 @@
             <div class="inner clearfix">
                 <section id="main-content">
                     <div v-html="article"></div>
-                    <div id="main" style="width: 600px;height:400px;"></div>
+                    <div id="main" style="width: 600px;height:400px;max-width: 100%;position:relative;">
+                        <div class="b-outer">
+                            <div class="b-inner"></div>
+                        </div>
+                    </div>
                 </section>
                 <aside id="sidebar">
                     <ul>
@@ -44,6 +66,8 @@
     </div>
     <script src="/dist/scripts/seajs-3.0.0/dist/sea.js"></script>
     <script src="/dist/scripts/sea-config.js"></script>
+    <script src="/dist/scripts/vue/dist/vue.min.js"></script>
+    <script src="/dist/scripts/vue/dist/vue-resource.min.js"></script>
     <script>
     // 加载入口模块
     seajs.use('main', function(data) {

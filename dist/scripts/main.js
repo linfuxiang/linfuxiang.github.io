@@ -2,8 +2,6 @@
 
 // 所有模块都通过 define 来定义
 define(function (require, exports, module) {
-    require('jquery');
-    require('vue');
     var links = require('paths');
     require('markdown');
 
@@ -13,18 +11,71 @@ define(function (require, exports, module) {
             head: '我是林富翔',
             article: '',
             links: links
+        },
+        mounted: function mounted() {
+            this.$http.get('article/index.md').then(function (response) {
+                var converter = new Markdown.Converter();
+                var htm = converter.makeHtml(response.body);
+                vm.article = htm;
+                // 响应成功回调
+            }, function (response) {
+                // 响应错误回调
+            });
         }
     });
-
-    $.ajax({
-        type: 'get',
-        url: 'article/index.md',
-        success: function success(d) {
-            var converter = new Markdown.Converter();
-            var htm = converter.makeHtml(d);
-            vm.article = htm;
+    var outer = document.querySelector('.b-outer'),
+        inner = document.querySelector('.b-inner');
+    var value = 'clip-path:circle(10% at 50% 50%);';
+    var str = '-webkit-' + value + '-o-' + value + '' + value;
+    inner.style.cssText = str;
+    var getAbsPoint = function getAbsPoint() {
+        //再封装个函数吧。传进来的e可以是字符串类型（即id）,也可以是htmlElement对象。觉得getEL是个累赘的话，就把它删除掉。
+        var e = inner;
+        var x = e.offsetLeft;
+        var y = e.offsetTop;
+        while (e = e.offsetParent) {
+            x += e.offsetLeft;
+            y += e.offsetTop;
         }
-    });
+        return { "x": x, "y": y };
+    };
+    if (!inner.style.cssText) {
+        inner.style.cssText = 'background-image: none;';
+    } else {
+        inner.style.cssText = '';
+        outer.addEventListener('mousemove', function (e) {
+            // console.log(e);
+            // console.log(e.clientX,e.clientY);
+            var getAbsPointe = getAbsPoint();
+            var value = 'clip-path:circle(10% at ' + (e.clientX - getAbsPointe.x) + 'px ' + (e.clientY - getAbsPointe.y) + 'px);';
+            var str = '-webkit-' + value + '-o-' + value + '' + value;
+            inner.style.cssText = str;
+        });
+        outer.addEventListener('mouseout', function (e) {
+            // console.log(e);
+            // console.log(e.clientX,e.clientY);
+            var value = 'clip-path:circle(0% at 50% 50%);';
+            var str = '-webkit-' + value + '-o-' + value + '' + value;
+            inner.style.cssText = str;
+        });
+        outer.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+            // console.log(e.changedTouches[0]);
+            // console.log(e.changedTouches[0].clientX,e.changedTouches[0].clientY);
+            var getAbsPointe = getAbsPoint();
+            var value = 'clip-path:circle(10% at ' + (e.changedTouches[0].clientX - getAbsPointe.x) + 'px ' + (e.changedTouches[0].clientY - getAbsPointe.y) + 'px);';
+            var str = '-webkit-' + value + '-o-' + value + '' + value;
+            inner.style.cssText = str;
+        });
+        outer.addEventListener('touchend', function (e) {
+            e.preventDefault();
+            // console.log(e.changedTouches[0]);
+            // console.log(e.changedTouches[0].clientX,e.changedTouches[0].clientY);
+            var value = 'clip-path:circle(0% at 50% 50%);';
+            var str = '-webkit-' + value + '-o-' + value + '' + value;
+            inner.style.cssText = str;
+        });
+    }
 
     // require('echarts');
     // let myChart = echarts.init(document.getElementById('main'));

@@ -3,11 +3,7 @@
 // 所有模块都通过 define 来定义
 define(function (require, exports, module) {
     var links = require('paths');
-    require('jquery');
-    require('vue');
     require('markdown');
-
-    // console.log(module.dependencies);
 
     var hash = location.href.split('?')[1],
         url,
@@ -31,19 +27,17 @@ define(function (require, exports, module) {
             head: '我是林富翔',
             article: '',
             links: links,
-            items: [],
-            aaa: 'abc'
+            items: []
         },
-        methods: {}
-    });
-
-    $.ajax({
-        type: 'get',
-        url: url,
-        success: function success(d) {
-            var converter = new Markdown.Converter();
-            var htm = converter.makeHtml(d);
-            vm.article = htm;
+        mounted: function mounted() {
+            this.$http.get(url).then(function (response) {
+                var converter = new Markdown.Converter();
+                var htm = converter.makeHtml(response.body);
+                vm.article = htm;
+                // 响应成功回调
+            }, function (response) {
+                // 响应错误回调
+            });
         }
     });
 
