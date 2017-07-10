@@ -14,9 +14,11 @@ define(function (require, exports, module) {
         },
         mounted: function mounted() {
             this.$http.get('article/index.md').then(function (response) {
-                var converter = new Markdown.Converter();
-                var htm = converter.makeHtml(response.body);
-                vm.article = htm;
+                if (typeof response.body === 'string' && response.body !== '') {
+                    var converter = new Markdown.Converter();
+                    var htm = converter.makeHtml(response.body);
+                    vm.article = htm;
+                }
                 // 响应成功回调
             }, function (response) {
                 // 响应错误回调
@@ -30,14 +32,9 @@ define(function (require, exports, module) {
     inner.style.cssText = str;
     var getAbsPoint = function getAbsPoint() {
         //再封装个函数吧。传进来的e可以是字符串类型（即id）,也可以是htmlElement对象。觉得getEL是个累赘的话，就把它删除掉。
-        var e = inner;
-        var x = e.offsetLeft;
-        var y = e.offsetTop;
-        while (e = e.offsetParent) {
-            x += e.offsetLeft;
-            y += e.offsetTop;
+        if (inner.getBoundingClientRect) {
+            return inner.getBoundingClientRect();
         }
-        return { "x": x, "y": y };
     };
     if (!inner.style.cssText) {
         inner.style.cssText = 'background-image: none;';
@@ -47,7 +44,7 @@ define(function (require, exports, module) {
             // console.log(e);
             // console.log(e.clientX,e.clientY);
             var getAbsPointe = getAbsPoint();
-            var value = 'clip-path:circle(10% at ' + (e.clientX - getAbsPointe.x) + 'px ' + (e.clientY - getAbsPointe.y) + 'px);';
+            var value = 'clip-path:circle(10% at ' + (e.clientX - getAbsPointe.left) + 'px ' + (e.clientY - getAbsPointe.top) + 'px);';
             var str = '-webkit-' + value + '-o-' + value + '' + value;
             inner.style.cssText = str;
         });
@@ -63,7 +60,7 @@ define(function (require, exports, module) {
             // console.log(e.changedTouches[0]);
             // console.log(e.changedTouches[0].clientX,e.changedTouches[0].clientY);
             var getAbsPointe = getAbsPoint();
-            var value = 'clip-path:circle(10% at ' + (e.changedTouches[0].clientX - getAbsPointe.x) + 'px ' + (e.changedTouches[0].clientY - getAbsPointe.y) + 'px);';
+            var value = 'clip-path:circle(10% at ' + (e.changedTouches[0].clientX - getAbsPointe.left) + 'px ' + (e.changedTouches[0].clientY - getAbsPointe.top) + 'px);';
             var str = '-webkit-' + value + '-o-' + value + '' + value;
             inner.style.cssText = str;
         });
