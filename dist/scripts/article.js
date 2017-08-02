@@ -5,9 +5,12 @@ define(function (require, exports, module) {
     var links = require('paths');
     require('markdown');
 
+    document.title = '\u6211\u7684\u535A\u5BA2';
+
     var hash = location.href.split('?')[1],
-        url,
-        m;
+        url = void 0,
+        m = void 0,
+        n = void 0;
     if (hash != undefined) {
         var h = hash.split('-');
         if (h[1] == undefined) {
@@ -16,8 +19,22 @@ define(function (require, exports, module) {
             url = '/article/' + h[0] + '/' + h[1] + '.md';
         }
         m = h[0];
+        n = h[1];
     } else {
         // url = '/article/' + hash + '.txt';
+    }
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].name == m) {
+            if (n) {
+                for (var j = 0; j < links[i].details.length; j++) {
+                    if ('?' + m + '-' + n == links[i].details[j].href) {
+                        document.title = '\u6211\u7684\u535A\u5BA2-' + links[i].details[j].name;
+                    }
+                }
+            } else {
+                document.title = '\u6211\u7684\u535A\u5BA2-' + links[i].name;
+            }
+        }
     }
 
     var vm = new Vue({

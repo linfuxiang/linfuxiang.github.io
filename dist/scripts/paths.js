@@ -19,6 +19,9 @@ define(function (require, exports, module) {
         details: [{
             name: '2.0与1.0的差异',
             href: '?vue2-diff'
+        }, {
+            name: 'Vue可组件开发、发布和复用',
+            href: '?vue2-components'
         }]
     }, {
         name: 'css3',

@@ -1,23 +1,39 @@
 // 所有模块都通过 define 来定义
 define(function(require, exports, module) {
-    var links = require('paths');
+    let links = require('paths');
     require('markdown');
 
-    var hash = location.href.split('?')[1],
-        url, m;
+    document.title = `我的博客`;
+
+    let hash = location.href.split('?')[1],
+        url, m, n;
     if (hash != undefined) {
-        var h = hash.split('-');
+        let h = hash.split('-');
         if (h[1] == undefined) {
             url = '/article/' + hash + '.md';
         } else {
             url = '/article/' + h[0] + '/' + h[1] + '.md';
         }
         m = h[0];
+        n = h[1];
     } else {
         // url = '/article/' + hash + '.txt';
     }
+    for(let i = 0; i < links.length; i++) {
+        if(links[i].name == m) {
+            if(n) {
+                for(var j = 0; j < links[i].details.length; j++) {
+                    if(`?${m}-${n}` == links[i].details[j].href) {
+                        document.title = `我的博客-${links[i].details[j].name}`;
+                    }
+                }
+            } else {
+                document.title = `我的博客-${links[i].name}`;
+            }
+        }
+    }
 
-    var vm = new Vue({
+    let vm = new Vue({
         el: '#main',
         data: {
             header: m,
@@ -30,8 +46,8 @@ define(function(require, exports, module) {
         },
         mounted() {
             this.$http.get(url).then(function(response) {
-                var converter = new Markdown.Converter();
-                var htm = converter.makeHtml(response.body);
+                let converter = new Markdown.Converter();
+                let htm = converter.makeHtml(response.body);
                 vm.article = htm;
                 // 响应成功回调
             }, function(response) {
