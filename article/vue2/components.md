@@ -1,7 +1,7 @@
 # Vue插件开发、发布和复用   
 > 本文主要介绍如何开发一个简单的Vue单文件组件，如何作为一个插件发布到npm上，团队或其他小伙伴如何复用此组件
 
-## 如何使用一个插件  
+## 如何使用  
 [官方文档](https://cn.vuejs.org/v2/guide/plugins.html#开发插件)说明，`Vue.js`的插件应当有一个公开方法`install`。这个方法的第一个参数是`Vue`构造器, 第二个参数是一个可选的选项对象。
 
 	// my-plugin.js
@@ -93,6 +93,7 @@
 
 	<my-plugin></my-plugin>
 
+## 如何发布  
 开发完成后，不只是自己一个人使用，这个时候需要发布到npm上，任何人都可以下载使用，但在发布之前需要修改一下`webpack.config.js`和`package.json`：
 
 	// webpack.config.js
@@ -117,7 +118,6 @@
 		"url": "https://github.com/linfuxiang/vue-lfx-test"		// 这是项目的git地址，通过npm安装的时候会从此处下载
 	}
 
-
 现在就真的可以发布了（记得修改一下`readme`，不然别人可看不懂这插件怎么用），这个时候请注册一个`npm`帐号：
 
 	npm adduser
@@ -134,6 +134,7 @@
 
 参考插件例子：  
 [vue-lfx-test](https://github.com/linfuxiang/vue-lfx-test)  
+> PS:例子模板优化中
 
 参考文献：  
 [官方文档](https://cn.vuejs.org/v2/guide/plugins.html#开发插件)  
