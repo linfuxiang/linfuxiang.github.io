@@ -93,7 +93,32 @@
 
 	<my-plugin></my-plugin>
 
-开发完成后，不只是自己一个人使用，这个时候需要发布到npm上，任何人都可以下载使用，这个时候请注册一个`npm`帐号：
+开发完成后，不只是自己一个人使用，这个时候需要发布到npm上，任何人都可以下载使用，但在发布之前需要修改一下`webpack.config.js`和`package.json`：
+
+	// webpack.config.js
+	entry: './src/lib/index.js',		// 修改插件入口为index.js
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        publicPath: '/dist/',
+        filename: 'my-plugin.js',	// 打包后的文件名
+        library: 'myPlugin', // library指定的就是使用require时的模块名，require("myPlugin")
+        libraryTarget: 'umd', // libraryTarget会生成不同umd的代码,可以只是commonjs标准的，也可以是指amd标准的，也可以只是通过script标签引入的。
+        umdNamedDefine: true, // 会对 UMD 的构建过程中的 AMD 模块进行命名。否则就使用匿名的 define。
+    },
+
+    // package.json
+	"version": "1.0.4",		// 每次更新代码的时候记得修改版本号
+    "private": false,		// 必须设为false才可发布
+
+	"license": "MIT",
+	"main": "dist/my-plugin.js",	// 这是入口文件路径
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/linfuxiang/vue-lfx-test"		// 这是项目的git地址，通过npm安装的时候会从此处下载
+	}
+
+
+现在就真的可以发布了（记得修改一下`readme`，不然别人可看不懂这插件怎么用），这个时候请注册一个`npm`帐号：
 
 	npm adduser
 	Username: your name
@@ -105,8 +130,11 @@
 	npm whoami	// 检查是否登录成功
 	npm publish // 发布，每次发布的时候记得检查package.json中的版本号
 
-# 未完待续...	
+> PS:在提交代码到代码库的时候还需要修改.gitignore文件，dist中的文件也要上传。
 
-参考：  
+参考插件例子：  
+[vue-lfx-test](https://github.com/linfuxiang/vue-lfx-test)  
+
+参考文献：  
 [官方文档](https://cn.vuejs.org/v2/guide/plugins.html#开发插件)  
 [vue插件开发与发布](http://www.jianshu.com/p/d6855556cd75)  
