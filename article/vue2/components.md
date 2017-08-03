@@ -130,7 +130,7 @@
 	npm whoami	// 检查是否登录成功
 	npm publish // 发布，每次发布的时候记得检查package.json中的版本号
 
-> PS:在提交代码到代码库的时候还需要修改.gitignore文件，dist中的文件也要上传。
+> PS:在提交代码到代码库的时候还需要修改.gitignore文件，dist中的文件也要上传。本文仅介绍Vue单文件组件式的插件开发，其他如[官方文档](https://cn.vuejs.org/v2/guide/plugins.html#开发插件)中的的插件开发也可通过本文案例举一反三。
 
 参考插件例子：  
 [vue-lfx-test](https://github.com/linfuxiang/vue-lfx-test)  
