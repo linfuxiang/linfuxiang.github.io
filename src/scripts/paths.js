@@ -27,6 +27,9 @@ define(function(require, exports, module) {
         details: [{
             name: 'clip-path',
             href: '?css3-clippath'
+        }, {
+            name: 'grid',
+            href: '?css3-grid'
         }]
     }, {
         name: 'ajax',
