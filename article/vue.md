@@ -3,7 +3,7 @@
 
 #### Vue不像Angular，它不是一个全能的框架，因此它非常容易学习，同时也非常容易与其它库整合或加入到项目之中。
 
-![Alt text](/dist/images/mvvm.png)
+![Alt text](/dist/images/vue/mvvm.png)
 
 #### 上图为Vue的MVVM思想，只要我们创建了绑定，DOM就会和数据保持同步，每当修改了数据，DOM就会更新。因此我们只需要直接修改数据，从而使我们的代码更加容易撰写、理解和维护。
 
@@ -47,4 +47,4 @@
 
 ## 生命周期  
 #### created => beforeCompile => compiled => ready => beforeDestroy => destroyed
-![Alt text](/dist/images/lifecycle.png)
+![Alt text](/dist/images/vue/lifecycle.png)
