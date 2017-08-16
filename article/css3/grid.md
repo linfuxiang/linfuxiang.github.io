@@ -109,22 +109,27 @@
 在通过网格线或者网格区域定位网格时，如果网格重叠了，可设置`z-index`来指定其层级。
 	
 ## 网格项目对齐方式  
-`justify-items`和`justify-self`指定网格项目沿着**行轴**对齐方式，分别应用于**容器和网格项目**上，`align-items`和`align-self`指定网格项目沿着**列轴**对齐方式，分别应用于**容器和网格项目**上。可用属性有：  
+`justify-items`和`justify-self`指定网格项目沿着**行轴**对齐方式，分别在 **容器** 和 **网格项目** 上使用，`align-items`和`align-self`指定网格项目沿着**列轴**对齐方式，两者分别在 **容器** 和 **网格项目** 上使用。可用属性有：  
 
 1.  `auto`  
 2.  `normal`  
 3.  `start`  
 4.  `end`  
 5.  `center`  
-6.  `stretch`  
+6.  `stretch`（默认值）
 7.  `baseline`  
 8.  `first baseline`  
-9.  `last baseline`  
+9.  `last baseline`   
+
+		justify-items: start;
+		align-items: start;
+
+![image](/dist/images/grid/grid7.jpg)
 
 ## 网格轨道对齐方式
-`align-conten`t指定网格轨道沿着行轴对齐方式，`justify-content`指定网格轨道沿着列轴对齐方式。可用属性有：
+`align-content`指定网格轨道沿着行轴对齐方式，`justify-content`指定网格轨道沿着列轴对齐方式。可用属性有：
 
-1.  `normal`
+1.  `normal`（默认值）
 2.  `start`
 3.  `end`
 4.  `center`
@@ -134,8 +139,13 @@
 8.  `space-evenly`
 9.  `baseline`
 10.  `first baseline`
-11.  `last baseline`
+11.  `last baseline`   
 
-# 未完待续.
+		justify-content: end;
+		align-content: end;
+
+![image](/dist/images/grid/grid8.jpg)
+
+**网格轨道对齐方式** 与 **网格项目对齐方式** 的差别在于，前者作用于网格项目整体，后者作用于单个网格项目，可用属性中有些看名字都能看得出效果，有些看不懂的就摸索一下吧
 
 [参考文献](https://www.w3cplus.com/css/learncssgrid.html)
