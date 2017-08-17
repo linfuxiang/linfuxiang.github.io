@@ -18,7 +18,7 @@ define(function(require, exports, module) {
             name: '2.0与1.0的差异',
             href: '?vue2-diff'
         }, {
-            name: 'Vue可组件开发、发布和复用',
+            name: 'Vue插件开发、发布和复用',
             href: '?vue2-components'
         }]
     }, {
@@ -32,9 +32,18 @@ define(function(require, exports, module) {
             href: '?css3-grid'
         }]
     }, {
-        name: 'ajax',
-        href: article + '?ajax',
-        details: []
+        name: 'javascript',
+        href: article + '?javascript',
+        details: [{
+            name: 'promise',
+            href: article + '?javascript-promise',
+        }, {
+            name: 'async',
+            href: article + '?javascript-async',
+        }, {
+            name: 'ajax',
+            href: article + '?javascript-ajax',
+        }]
     }, {
         name: 'sea',
         href: article + '?sea',

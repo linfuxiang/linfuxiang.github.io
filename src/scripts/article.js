@@ -45,12 +45,17 @@ define(function(require, exports, module) {
             ],
         },
         mounted() {
-            this.$http.get(url).then(function(response) {
+            this.$http.get(url).then((response) => {
                 let converter = new Markdown.Converter();
                 let htm = converter.makeHtml(response.body);
                 vm.article = htm;
+                this.$nextTick(()=> {
+                    document.querySelectorAll('#main-content a').forEach(function(item, index){
+                        item.setAttribute('target', '_blank');
+                    });
+                });
                 // 响应成功回调
-            }, function(response) {
+            }, (response) => {
                 // 响应错误回调
             });
         },

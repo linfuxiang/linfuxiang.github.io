@@ -47,10 +47,17 @@ define(function (require, exports, module) {
             items: []
         },
         mounted: function mounted() {
+            var _this = this;
+
             this.$http.get(url).then(function (response) {
                 var converter = new Markdown.Converter();
                 var htm = converter.makeHtml(response.body);
                 vm.article = htm;
+                _this.$nextTick(function () {
+                    document.querySelectorAll('#main-content a').forEach(function (item, index) {
+                        item.setAttribute('target', '_blank');
+                    });
+                });
                 // 响应成功回调
             }, function (response) {
                 // 响应错误回调

@@ -31,7 +31,6 @@ define(function (require, exports, module) {
     var str = '-webkit-' + value + '-o-' + value + '' + value;
     inner.style.cssText = str;
     var getAbsPoint = function getAbsPoint() {
-        //再封装个函数吧。传进来的e可以是字符串类型（即id）,也可以是htmlElement对象。觉得getEL是个累赘的话，就把它删除掉。
         if (inner.getBoundingClientRect) {
             return inner.getBoundingClientRect();
         }
