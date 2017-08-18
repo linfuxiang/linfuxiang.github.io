@@ -19,11 +19,11 @@ define(function(require, exports, module) {
     } else {
         // url = '/article/' + hash + '.txt';
     }
-    for(let i = 0; i < links.length; i++) {
-        if(links[i].name == m) {
-            if(n) {
-                for(var j = 0; j < links[i].details.length; j++) {
-                    if(`?${m}-${n}` == links[i].details[j].href) {
+    for (let i = 0; i < links.length; i++) {
+        if (links[i].name == m) {
+            if (n) {
+                for (var j = 0; j < links[i].details.length; j++) {
+                    if (`?${m}-${n}` == links[i].details[j].href) {
                         document.title = `我的博客-${links[i].details[j].name}`;
                     }
                 }
@@ -49,8 +49,8 @@ define(function(require, exports, module) {
                 let converter = new Markdown.Converter();
                 let htm = converter.makeHtml(response.body);
                 vm.article = htm;
-                this.$nextTick(()=> {
-                    document.querySelectorAll('#main-content a').forEach(function(item, index){
+                this.$nextTick(() => {
+                    document.querySelectorAll('#main-content a').forEach(function(item, index) {
                         item.setAttribute('target', '_blank');
                     });
                 });
@@ -58,13 +58,13 @@ define(function(require, exports, module) {
             }, (response) => {
                 // 响应错误回调
             });
-        },
+
+        }
+        // 通过 exports 对外提供接口
+        // exports.init = init;
+
+        // 或者通过 module.exports 提供整个接口
+        // module.exports = init; 
+
     });
-
-    // 通过 exports 对外提供接口
-    // exports.init = init;
-
-    // 或者通过 module.exports 提供整个接口
-    // module.exports = init; 
-
 });

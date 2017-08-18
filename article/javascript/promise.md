@@ -18,7 +18,7 @@
 		});
 
 #### Promise.all：
-适用于同时进行多个异步操作的情况。
+> 适用于同时进行多个异步操作的情况。
 
 	var p1 = new Promise(function(resolve, reject) {
         setTimeout(() => {

@@ -63,11 +63,11 @@ define(function (require, exports, module) {
                 // 响应错误回调
             });
         }
+        // 通过 exports 对外提供接口
+        // exports.init = init;
+
+        // 或者通过 module.exports 提供整个接口
+        // module.exports = init; 
+
     });
-
-    // 通过 exports 对外提供接口
-    // exports.init = init;
-
-    // 或者通过 module.exports 提供整个接口
-    // module.exports = init; 
 });
