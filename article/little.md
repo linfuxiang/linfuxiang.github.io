@@ -1,12 +1,94 @@
-# 小东西 
+## Javascript黑科技  
+#### +、~~、|
+
+	+ 1.1 	// 1.1
+	+ '1.1'	// 1.1
+	+ '1a'	// NaN
+	~~ 1.1 	// 1
+	~~ '1.1'// 1
+	~~ '1a' // 0
+	1.1 | 0 //1
+	'1.1' | 0 //1
+	'1a' | 0 //0
+
+#### 调试页面
+
+	// 在Chrome控制台输入下列代码，会为每个HTML元素添加一个边框
+	// $$()是Chrome特有的自带方法，相当于document.querySelectorAll(),还可以用document.all代替
+	// 十六进制颜色值从'000000' -> 'ffffff'，转换为二进制即0 -> 1111 1111 1111 1111 1111 1111，十进制即2^24-1
+	// 求随机数，Math.random()*2^24即可
+	// 使用左移运算<<起求2^24，即1<<24
+	// 再使用~~取整
+	// 最后使用toString()方法转换为十六进制
+	[].forEach.call($$("*"),function(a){
+  		a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16);
+	});
+
+[参考](https://sdk.cn/news/3025)
+
+#### 不增加变量互换数值
+
+	// ^ 为异或运算
+	// 假设a = 01，b = 10
+	a ^= b;	// a：01 ^ 10 -> 11
+	b ^= a;	// b：10 ^ 11 -> 01
+	a ^= b;	// c：11 ^ 01 -> 10
+
+	// ES6
+	[a, b] = [b, a];
+
+#### 取最大最小值
+
+	Math.max.apply(Math, []);
+	Math.min.apply(Math, []);
+
+#### 判断数组
+
+	Object.prototype.toString.call(someObj) === '[object Array]';
+
+#### 数组去重
+
+	// ES6
+	[...new Set(arr)]
+
+#### 格式化金钱
+
+	MONEY.toLocaleString('en-US');
+
+	MONEY.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+#### iframe
+
+	// 父元素
+	<iframe src="xxx.html" frameborder="0" id="myIframe"></iframe>
+
+	document.getElementById('myIframe').onload = function(e) {
+        var iframeWindow = document.getElementById("myIframe").contentWindow,	// 子iframe的window对象
+            iframeDocument = iframeWindow.document;								// 子iframe的document对象
+    };
+
+	// 子iframe
+    window.addEventListener('message', function(e) {
+    	window.top;			// 访问父元素
+    });
+
+#### 笔记本
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+	// 单行省略
 	overflow: hidden;
     text-overflow: ellipsis;
    	white-space: nowrap;
 
-## 踩坑日记 
+	// 多行省略
+   	overflow: hidden; 
+	text-overflow: ellipsis;
+	display: -webkit-box; 
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; 	// 行数
+
+#### 踩坑日记 
 1. inline或inline-block的元素，例如img元素会在底部出现小间隙  
 **解决办法：**`display: block;`或者`verticle-align: bottom;`
 
