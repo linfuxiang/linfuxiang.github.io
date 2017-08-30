@@ -18,7 +18,7 @@
     <style>
     #main {
         width: 600px;
-        height: 600px;
+        /*height: 600px;*/
         max-width: 100%;
         position: relative;
         /*display: none;*/
@@ -32,13 +32,19 @@
     }
     
     div.b-inner {
-        background-image: url(./dist/images/raining.jpg);
+        background-image: url(./dist/images/phoenix.jpg);
         background-repeat: no-repeat;
-        background-position: center center;
-        /*background-size: 100% 100%;*/
+        /*background-position: center center;*/
+        background-size: 100% 100%;
         -webkit-clip-path: circle(0% at 50% 50%);
         -o-clip-path: circle(0% at 50% 50%);
         clip-path: circle(0% at 50% 50%);
+    }
+    img.b-inner-img {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        z-index: -1;
     }
     </style>
 </head>
@@ -59,6 +65,7 @@
                     <div id="main">
                         <div class="b-outer">
                             <div class="b-inner"></div>
+                            <img class="b-inner-img" src="./dist/images/phoenix.jpg" alt="">
                         </div>
                     </div>
                 </section>

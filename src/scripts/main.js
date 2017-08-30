@@ -23,6 +23,7 @@ define(function(require, exports, module) {
             });
         },
     });
+    document.querySelector('#main').style.height = document.querySelector('.b-inner-img').getBoundingClientRect().height + 'px';
     var outer = document.querySelector('.b-outer'),
         inner = document.querySelector('.b-inner');
     var value = 'clip-path:circle(10% at 50% 50%);';

@@ -43,3 +43,25 @@
             console.log(p1, p2);
         })
         .catch(err => console.log(err));
+
+#### Promise.race：  
+> 只要p1,p2,p3有一个触发状态改变，p状态也就跟着改变。
+
+    const p = Promise.race(p1, p2, p3);
+
+    p
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+
+## 有用但ES6没有的方法：
+
+#### Promise.finally：
+
+    Promise.prototype.finally = function (callback) {
+        let P = this.constructor;
+        return this.then(
+            value  => P.resolve(callback()).then(() => value),
+            reason => P.resolve(callback()).then(() => { throw reason })
+        );
+    };
+    

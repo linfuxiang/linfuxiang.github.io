@@ -20,8 +20,8 @@
 	// 使用左移运算<<起求2^24，即1<<24
 	// 再使用~~取整
 	// 最后使用toString()方法转换为十六进制
-	[].forEach.call($$("*"),function(a){
-  		a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16);
+	[].forEach.call($$("*"), function(a) {
+  		a.style.outline = "1px solid #" + (~~(Math.random() * (1<<24))).toString(16);
 	});
 
 [参考](https://sdk.cn/news/3025)
@@ -46,6 +46,10 @@
 
 	Object.prototype.toString.call(someObj) === '[object Array]';
 
+#### 类数组对象转化为数组
+
+	Array.prototype.slice.call(someObj);
+
 #### 数组去重
 
 	// ES6
@@ -56,6 +60,50 @@
 	MONEY.toLocaleString('en-US');
 
 	MONEY.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+#### 清除浮动
+1. 添加新元素  
+
+		<div class="outer">
+		    <div class="inner">1</div>
+		    <div class="clear"></div>
+		</div>
+
+		.clear{
+			clear: both; 
+			height: 0; 
+			line-height: 0; 
+			font-size: 0;
+		}
+
+3. 使用`overflow`  
+
+		<div class="outer">
+		    <div class="inner">1</div>
+		</div>
+
+		.outer {		
+			overflow: auto;
+	    	zoom: 1;		// for IE6/7
+		}  
+
+2. 使用`:after`
+
+		<div class="outer">
+		    <div class="inner">1</div>
+		</div>
+
+		.outer {		// for IE6/7
+			zoom:1;
+		}    
+		.outer:after {
+			clear: both;
+			content: '';
+			display:block; 
+			width: 0;
+			height: 0;
+			visibility:hidden;
+		}
 
 #### iframe
 
@@ -71,6 +119,19 @@
     window.addEventListener('message', function(e) {
     	window.top;			// 访问父元素
     });
+
+    // 判断是否iframe中打开页面
+    if(!!window.frameElement) {
+		return true;
+    }
+
+#### mouseover, mouseenter区别
+`mouseover`：鼠标指针穿过被选元素或其子元素，都会触发 `mouseover` 事件。  
+`mouseenter`：只有在鼠标指针穿过被选元素时，才会触发 `mouseenter` 事件。
+
+#### currentTarget, target区别  
+`currentTarget`：绑定事件的元素  
+`target`：触发（例如点击）的元素
 
 #### 笔记本
 
