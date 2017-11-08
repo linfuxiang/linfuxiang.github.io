@@ -35,10 +35,10 @@
                     <ul>
                         <template v-cloak v-for="item in links">
                             <li>
-                                <a :href="item.href">{{item.name}}</a>
+                                <a :href="item.href">{{item.title}}</a>
                                 <ul v-if="header == item.name">
                                     <template v-cloak v-for="innerItem in item.details">
-                                        <li><a :href="innerItem.href" :target="(innerItem.isBlank? '_blank' : '')">{{innerItem.name}}</a></li>
+                                        <li><a :href="innerItem.href" :target="(innerItem.isBlank? '_blank' : '')">{{innerItem.title}}</a></li>
                                     </template>
                                 </ul>
                             </li>

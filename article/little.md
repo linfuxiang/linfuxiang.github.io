@@ -76,7 +76,7 @@
 			font-size: 0;
 		}
 
-3. 使用`overflow`  
+2. 使用`overflow`  
 
 		<div class="outer">
 		    <div class="inner">1</div>
@@ -87,7 +87,7 @@
 	    	zoom: 1;		// for IE6/7
 		}  
 
-2. 使用`:after`
+3. 使用`:after`
 
 		<div class="outer">
 		    <div class="inner">1</div>
@@ -133,6 +133,10 @@
 `currentTarget`：绑定事件的元素  
 `target`：触发（例如点击）的元素
 
+#### getBoundingClientRect()获取元素尺寸信息  
+
+	someEl.getBoundingClientRect()
+
 #### 笔记本
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -155,3 +159,15 @@
 
 2. inline-block标签代码中换行造成元素间空隙  
 **解决办法：**代码不换行或者设置容器`font-size: 0px;`
+
+#### HTML5视频播放&直播  
+`video` + `MSE` + `websocket`
+
+#### BFC  
+1. 根元素或其它包含它的元素
+2. 浮动 (元素的`float`不为`none`)
+3. 绝对定位元素 (元素的`position`为`absolute`或`fixed`)
+4. 行内块`inline-blocks`(元素的 `display: inline-block`)
+5. 表格单元格(元素的`display: table-cell`，`HTML`表格单元格默认属性)
+6. `overflow`的值不为`visible`的元素
+7. 弹性盒 `flex boxes` (元素的`display: flex`或`inline-flex`)

@@ -28,11 +28,11 @@ define(function (require, exports, module) {
             if (n) {
                 for (var j = 0; j < links[i].details.length; j++) {
                     if ('?' + m + '-' + n == links[i].details[j].href) {
-                        document.title = '\u6211\u7684\u535A\u5BA2-' + links[i].details[j].name;
+                        document.title = '\u6211\u7684\u535A\u5BA2-' + links[i].details[j].title;
                     }
                 }
             } else {
-                document.title = '\u6211\u7684\u535A\u5BA2-' + links[i].name;
+                document.title = '\u6211\u7684\u535A\u5BA2-' + links[i].title;
             }
         }
     }
