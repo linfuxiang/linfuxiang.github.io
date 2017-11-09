@@ -68,6 +68,10 @@ define(function(require, exports, module) {
             name: 'interface',
             title: '接口',
             href: '?typescript-interface',
+        },  {
+            name: 'class',
+            title: '类',
+            href: '?typescript-class',
         }, {
             name: 'API',
             title: '开发文档',
