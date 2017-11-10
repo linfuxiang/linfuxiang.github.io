@@ -8,7 +8,7 @@
 
 1. **number**： 数值
 2. **string**： 字符串
-3. **number[]**或者**Array<number>**： 数组，`number`代表数组元素的类型
+3. **number[]**或者**Array&lt;number&gt;**： 数组，`number`代表数组元素的类型
 4. 元组类型  
 
 		let arr: [number, string] = [1, 'tuple'];	
@@ -29,6 +29,8 @@
 
 		enum Color {Red = 1, Green, Blue}
 		let c: Color = Color.Green;
+
+[详细笔记](/htmls/article.html?typescript-enum)
 
 ### 类型断言  
 相当于C语言里的强制类型转换

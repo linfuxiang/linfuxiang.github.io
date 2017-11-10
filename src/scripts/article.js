@@ -24,7 +24,7 @@ define(function(require, exports, module) {
             if (n) {
                 for (var j = 0; j < links[i].details.length; j++) {
                     if (`?${m}-${n}` == links[i].details[j].href) {
-                        document.title = `我的博客-${links[i].details[j].title}`;
+                        document.title = `我的博客-${links[i].title}-${links[i].details[j].title}`;
                     }
                 }
             } else {

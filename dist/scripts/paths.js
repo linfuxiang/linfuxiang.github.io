@@ -75,6 +75,14 @@ define(function (require, exports, module) {
             title: '类',
             href: '?typescript-class'
         }, {
+            name: 'function',
+            title: '函数',
+            href: '?typescript-function'
+        }, {
+            name: 'enum',
+            title: '枚举',
+            href: '?typescript-enum'
+        }, {
             name: 'API',
             title: '开发文档',
             href: 'https://www.tslang.cn/docs/handbook/basic-types.html',
