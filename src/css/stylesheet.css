@@ -513,6 +513,7 @@ a {
 
 a:hover {
     color: #2268b2;
+    text-decoration: none;
 }
 
 header {
