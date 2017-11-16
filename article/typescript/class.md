@@ -64,6 +64,25 @@ TypeScript的类既可以创建构造函数也可以创建实例类型。
 		}
 	}
 
+	// 👇编译结果
+
+	var Boy = /** @class */ (function () {
+	    function Boy() {
+	    }
+	    Object.defineProperty(Boy.prototype, "name", {
+	        get: function () {
+	            return this.__name;
+	        },
+	        set: function (val) {
+	            this.__name = val;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    return Boy;
+	}());
+
+
 ## 静态属性
 
 只能在类内部被访问，访问静态属性需要加上类名，如**Boy.**，而不是**this.**

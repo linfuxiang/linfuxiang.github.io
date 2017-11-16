@@ -29,6 +29,10 @@
 
 先安装模块
 	
+	// 全局安装webpack
+	npm i webpack -g
+
+	// 在开发根目录下
 	npm init
 	npm i typescript ts-loader -D
 
