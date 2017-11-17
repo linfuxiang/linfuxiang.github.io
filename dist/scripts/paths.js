@@ -87,6 +87,14 @@ define(function (require, exports, module) {
             title: '模块',
             href: '?typescript-modules'
         }, {
+            name: 'namespace',
+            title: '命名空间',
+            href: '?typescript-namespace'
+        }, {
+            name: 'jsx',
+            title: 'JSX',
+            href: '?typescript-jsx'
+        }, {
             name: 'API',
             title: '开发文档',
             href: 'https://www.tslang.cn/docs/handbook/basic-types.html',
