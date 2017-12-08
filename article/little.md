@@ -1,4 +1,4 @@
-## Javascript黑科技  
+## zz 
 #### +、~~、|
 
 	+ 1.1 	// 1.1
@@ -10,6 +10,11 @@
 	1.1 | 0 //1
 	'1.1' | 0 //1
 	'1a' | 0 //0
+
+#### 判断奇偶  
+
+	num & 1 === 0 // 偶数
+	num & 1 === 1 // 奇数
 
 #### 调试页面
 
@@ -171,3 +176,7 @@
 5. 表格单元格(元素的`display: table-cell`，`HTML`表格单元格默认属性)
 6. `overflow`的值不为`visible`的元素
 7. 弹性盒 `flex boxes` (元素的`display: flex`或`inline-flex`)
+
+#### Window创建文件
+
+	type nul>[文件名]
