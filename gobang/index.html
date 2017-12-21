@@ -8,9 +8,39 @@
     #canvas {
         border: 2px solid #c3c3c3;
     }
+
     #status {
-    	display: inline-block;
-    	vertical-align: top;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #result {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #result>div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        background-color: #fff;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .result {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 20px;
     }
     </style>
 </head>
@@ -18,7 +48,13 @@
 <body>
     <canvas width="1000" height="1000" id="canvas"></canvas>
     <div id="status"></div>
-    <script src="./bundle.js"></script>
+    <div id="result">
+        <div>
+            <div class="result"></div>
+            <button>再来一局</button>
+        </div>
+    </div>
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

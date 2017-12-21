@@ -21,6 +21,7 @@
         /*height: 600px;*/
         max-width: 100%;
         position: relative;
+        margin-bottom: 25px;
         /*display: none;*/
     }
     div.b-outer,
@@ -61,13 +62,13 @@
         <div id="content-wrapper">
             <div class="inner clearfix">
                 <section id="main-content">
-                    <div v-html="article"></div>
                     <div id="main">
                         <div class="b-outer">
                             <div class="b-inner"></div>
                             <img class="b-inner-img" src="./dist/images/phoenix.jpg" alt="">
                         </div>
                     </div>
+                    <div v-html="article"></div>
                 </section>
                 <aside id="sidebar">
                     <ul>

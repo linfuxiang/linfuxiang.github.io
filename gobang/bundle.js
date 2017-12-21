@@ -72,8 +72,12 @@
 
 var _game = __webpack_require__(1);
 
-window.game = new _game.GAME('#canvas', '#status');
+window.game = new _game.GAME('#canvas', '#status', '.result');
 game.init(20, 20, 1000, 1000);
+document.querySelector('#result button').addEventListener('click', function () {
+	game.init(20, 20, 1000, 1000);
+	document.querySelector('#result').style.display = 'none';
+});
 
 /***/ }),
 /* 1 */
@@ -94,9 +98,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * el 画布元素
  * ctx 画布context
  * statusEl 状态元素
+ * resultEl 游戏结束提示元素
  * player 当前玩家，true白棋，false黑棋
  * firstInit 是否初次渲染
  * waiting 是否游戏已结束，等待初始化
+ * process 游戏过程
+ * lastImg 上一个画布（用于清除s当前棋子的提示）
  * rowNum 行格子数量
  * colNum 列格子数量
  * row 行长度
@@ -105,15 +112,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * chessmanSize 棋子大小
  */
 var GAME = function () {
-    function GAME(canvasSelector, statusSelector) {
+    function GAME(canvasSelector, statusSelector, resultSelector) {
         _classCallCheck(this, GAME);
 
         this.el = document.querySelector(canvasSelector);
         this.ctx = this.el.getContext('2d');
         this.statusEl = document.querySelector(statusSelector);
+        this.resultEl = document.querySelector(resultSelector);
         this.player = false;
         this.firstInit = true; // 是否第一次初始化
         this.waiting = false;
+        this.process = [];
+        this.lastImg = null;
     }
     /**
      * 初始化棋盘
@@ -153,8 +163,8 @@ var GAME = function () {
             // 画背景
             this.ctx.fillStyle = "#FFF";
             this.ctx.fillRect(0, 0, row, col);
-            // 画先跳
-            this.ctx.fillStyle = "#FF0000";
+            // 画线条
+            this.ctx.strokeStyle = "#000";
             this.ctx.beginPath();
             var i = 1;
             while (i < rowNum) {
@@ -173,6 +183,10 @@ var GAME = function () {
                 this.firstInit = false;
                 this.bindEvent();
             }
+            this.statusEl.innerText = '';
+            this.waiting = false;
+            this.player = false;
+            this.process = [];
         }
         /**
          * 创建棋子
@@ -187,11 +201,43 @@ var GAME = function () {
             this.ctx.beginPath();
             this.ctx.arc(station[0], station[1], this.chessmanSize, 0, 2 * Math.PI);
             this.ctx.fill();
-            this.ctx.fillStyle = '#000';
+            this.ctx.strokeStyle = '#000';
             this.ctx.beginPath();
             this.ctx.arc(station[0], station[1], this.chessmanSize, 0, 2 * Math.PI);
             this.ctx.stroke();
             this.ctx.closePath();
+        }
+
+        /**
+         * 创建最后一次下的棋子是哪个的提示
+         * @param  {Array} station [横坐标, 纵坐标]
+         * @param  {Boolean} isClear 是否为清除操作
+         */
+
+    }, {
+        key: 'createCurrentTip',
+        value: function createCurrentTip(station, isClear) {
+            var length = this.chessmanSize / 2;
+            this.ctx.strokeStyle = isClear ? '#fff' : '#f75000';
+            this.ctx.lineJoin = 'miter';
+            this.ctx.beginPath();
+            // 左上角
+            this.ctx.moveTo(station[0] - this.chessmanSize + length, station[1] - this.chessmanSize);
+            this.ctx.lineTo(station[0] - this.chessmanSize, station[1] - this.chessmanSize);
+            this.ctx.lineTo(station[0] - this.chessmanSize, station[1] - this.chessmanSize + length);
+            // 左下角
+            this.ctx.moveTo(station[0] - this.chessmanSize, station[1] + this.chessmanSize - length);
+            this.ctx.lineTo(station[0] - this.chessmanSize, station[1] + this.chessmanSize);
+            this.ctx.lineTo(station[0] - this.chessmanSize + length, station[1] + this.chessmanSize);
+            // 右下角
+            this.ctx.moveTo(station[0] + this.chessmanSize - length, station[1] + this.chessmanSize);
+            this.ctx.lineTo(station[0] + this.chessmanSize, station[1] + this.chessmanSize);
+            this.ctx.lineTo(station[0] + this.chessmanSize, station[1] + this.chessmanSize - length);
+            // 右上角
+            this.ctx.moveTo(station[0] + this.chessmanSize, station[1] - this.chessmanSize + length);
+            this.ctx.lineTo(station[0] + this.chessmanSize, station[1] - this.chessmanSize);
+            this.ctx.lineTo(station[0] + this.chessmanSize - length, station[1] - this.chessmanSize);
+            this.ctx.stroke();
         }
 
         /**
@@ -386,20 +432,27 @@ var GAME = function () {
                     yCount = Math.floor((y - _this.chessGrid / 2) / _this.chessGrid) + 1;
                 // 满足下棋条件之后，下棋并判断是否游戏结束
                 if (xCount && yCount && xCount < _this.rowNum && yCount < _this.colNum && _this.status[xCount - 1][yCount - 1] === null) {
+                    if (_this.process.length) {
+                        _this.ctx.putImageData(_this.lastImg, 0, 0);
+                    }
                     _this.createChessman(_this.player, [_this.chessGrid * xCount, _this.chessGrid * yCount]);
+                    _this.lastImg = _this.ctx.getImageData(0, 0, _this.el.width, _this.el.height);
+                    _this.createCurrentTip([_this.chessGrid * xCount, _this.chessGrid * yCount]);
                     _this.status[xCount - 1][yCount - 1] = _this.player;
                     _this.statusEl.innerHTML += (_this.player ? '白棋' : '黑棋') + '走：(' + xCount + ',' + yCount + ')<br/>';
+                    _this.process.push([xCount, yCount]);
                     // 判断游戏是否结束
                     if (_this.judgeGameOver(xCount - 1, yCount - 1, 1) || _this.judgeGameOver(xCount - 1, yCount - 1, 2) || _this.judgeGameOver(xCount - 1, yCount - 1, 3) || _this.judgeGameOver(xCount - 1, yCount - 1, 4)) {
                         _this.statusEl.innerHTML += (_this.player ? '白棋' : '黑棋') + '胜！';
+                        document.querySelector('#result').style.display = 'block';
+                        _this.resultEl.innerText = (_this.player ? '白棋' : '黑棋') + '胜！';
                         _this.waiting = true;
-                        setTimeout(function () {
-                            _this.statusEl.innerText = '';
-                            _this.init(_this.rowNum, _this.colNum, _this.row, _this.col);
-                            _this.waiting = false;
-                        }, 3000);
+                        // setTimeout(() => {
+                        // this.init(this.rowNum, this.colNum, this.row, this.col);
+                        // }, 3000)
+                    } else {
+                        _this.player = !_this.player;
                     }
-                    _this.player = !_this.player;
                 }
             });
         }
