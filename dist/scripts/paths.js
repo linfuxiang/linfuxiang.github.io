@@ -59,6 +59,19 @@ define(function (require, exports, module) {
             href: '?javascript-ajax'
         }]
     }, {
+        name: 'canvas',
+        title: 'Canvas',
+        href: article + '?canvas',
+        details: [{
+            name: 'shapes',
+            title: '绘制图形',
+            href: '?canvas-shapes'
+        }, {
+            name: 'colors',
+            title: '颜色',
+            href: '?canvas-colors'
+        }]
+    }, {
         name: 'typescript',
         title: 'TypeScript',
         href: article + '?typescript',
