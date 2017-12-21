@@ -300,9 +300,6 @@ var GAME = function () {
                             break;
                         }
                     }
-                    if (count == 5 || flagL && flagR && count == 4) {
-                        return true;
-                    }
                     break;
                 case 2:
                     for (var _i3 = 1; _i3 <= 4; _i3++) {
@@ -326,9 +323,6 @@ var GAME = function () {
                         } else {
                             break;
                         }
-                    }
-                    if (count == 5 || flagL && flagR && count == 4) {
-                        return true;
                     }
                     break;
                 case 3:
@@ -354,9 +348,6 @@ var GAME = function () {
                             break;
                         }
                     }
-                    if (count == 5 || flagL && flagR && count == 4) {
-                        return true;
-                    }
                     break;
                 case 4:
                     for (var _i7 = 1; _i7 <= 4; _i7++) {
@@ -381,10 +372,11 @@ var GAME = function () {
                             break;
                         }
                     }
-                    if (count == 5 || flagL && flagR && count == 4) {
-                        return true;
-                    }
                     break;
+            }
+            //  || (flagL && flagR && count == 4)
+            if (count == 5) {
+                return true;
             }
             /*// 判断横
             if (this.checkIfChess(x - 1, y) || this.checkIfChess(x + 1, y)) {
