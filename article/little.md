@@ -1,4 +1,12 @@
 ## zz 
+#### 图片上传
+
+	var reader = new FileReader();
+    reader.onload = function(e) {
+        // e.target.result 是图片base64编码
+    };
+    reader.readAsDataURL(e.target.files[0]);
+
 #### +、~~、|
 
 	+ 1.1 	// 1.1
