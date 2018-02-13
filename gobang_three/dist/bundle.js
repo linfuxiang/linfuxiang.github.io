@@ -157,6 +157,7 @@ var sceneTest = function () {
                         item.material.opacity = 0;
                     }
                 });
+                _this.tipBox.material.opacity = 0;
                 document.querySelector('#result').style.display = 'none';
             });
         }
