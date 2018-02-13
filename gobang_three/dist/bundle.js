@@ -124,10 +124,10 @@ var sceneTest = function () {
             document.body.appendChild(this.stat.domElement);
             // 渲染器
             this.renderer = new _three2.default.WebGLRenderer();
-            this.renderer.setSize(window.innerWidth - 50, window.innerHeight - 50);
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(this.renderer.domElement);
             this.renderer.setClearColor(0xeeeeee);
-            this.renderer.shadowMapEnabled = true;
+            this.renderer.shadowMap.enabled = true;
 
             this.createScene();
             this.createCamera();
@@ -137,7 +137,7 @@ var sceneTest = function () {
             this.clock = new _three2.default.Clock();
 
             this.createLight();
-            this.createAxes();
+            // this.createAxes();
             this.createPlatform();
             this.createCube();
             this.createCollision();
@@ -152,7 +152,6 @@ var sceneTest = function () {
                         _this.status[i][j] = null;
                     }
                 }
-                console.log(_this.scene);
                 _this.scene.children.forEach(function (item, index) {
                     if (item.geometry && item.geometry instanceof _three2.default.SphereGeometry) {
                         item.material.opacity = 0;
@@ -325,44 +324,113 @@ var sceneTest = function () {
 
             this.raycaster = new _three2.default.Raycaster();
             this.mouse = new _three2.default.Vector2();
-            this.renderer.domElement.addEventListener('click', function (event) {
-                event.preventDefault();
-                _this2.mouse.x = event.clientX / (window.innerWidth - 50) * 2 - 1;
-                _this2.mouse.y = -(event.clientY / (window.innerHeight - 50)) * 2 + 1;
-                _this2.raycaster.setFromCamera(_this2.mouse, _this2.camera);
-                var intersects = _this2.raycaster.intersectObjects(_this2.scene.children);
-
-                var chess = intersects.filter(function (value) {
-                    return value.object.geometry instanceof _three2.default.SphereGeometry;
-                });
-                if (chess.length == 1) {
-                    var position = chess[0].object.name.split('-').map(function (it) {
-                        return +it;
+            this.renderer.domElement.addEventListener('mousedown', function (event) {
+                // this.firstTime = new Date().getTime();
+                _this2.clientX = event.clientX;
+                _this2.clientY = event.clientY;
+                _this2.longestDis = 0;
+            });
+            this.renderer.domElement.addEventListener('mousemove', function (event) {
+                // this.firstTime = true;
+                var dis = Math.pow(event.clientX - _this2.clientX, 2) + Math.pow(event.clientY - _this2.clientY, 2);
+                _this2.longestDis = Math.max(dis, _this2.longestDis);
+            });
+            this.renderer.domElement.addEventListener('mouseup', function (event) {
+                // let lastTime = new Date().getTime();
+                // if ((lastTime - this.firstTime) < 500 && this.longestDis) {
+                if (_this2.longestDis < 5) {
+                    _this2.mouse.x = event.clientX / window.innerWidth * 2 - 1;
+                    _this2.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                    _this2.raycaster.setFromCamera(_this2.mouse, _this2.camera);
+                    var intersects = _this2.raycaster.intersectObjects(_this2.scene.children);
+                    console.log(intersects);
+                    var sphereIdx = false,
+                        platformIdx = false;
+                    for (var i = 0; i < intersects.length; i++) {
+                        if (!sphereIdx && intersects[i].object.geometry instanceof _three2.default.SphereGeometry) {
+                            sphereIdx = i;
+                        }
+                        if (!platformIdx && intersects[i].object.name == 'platform') {
+                            platformIdx = i;
+                        }
+                        if (sphereIdx !== false && platformIdx !== false) {
+                            break;
+                        }
+                    }
+                    var chess = intersects.filter(function (value) {
+                        return value.object.geometry instanceof _three2.default.SphereGeometry;
                     });
-                    // console.log(position);
-                    if (_this2.status[position[0]][position[1]] === null) {
-                        chess[0].object.material.color.setHex(_this2.player ? 0xffffff : 0x000000);
-                        chess[0].object.material.emissive.setHex(_this2.player ? 0xffffff : 0x000000);
-                        _this2.tipBox.material.opacity = 0.3;
-                        _this2.tipBox.position.x = position[0] - 12;
-                        _this2.tipBox.position.z = position[1] - 12;
-                        // console.log(chess[0].object);
-                        chess[0].object.material.opacity = 1;
-                        _this2.status[position[0]][position[1]] = _this2.player;
-                        if (_this2.judgeGameOver(position[0], position[1], 1) || _this2.judgeGameOver(position[0], position[1], 2) || _this2.judgeGameOver(position[0], position[1], 3) || _this2.judgeGameOver(position[0], position[1], 4)) {
-                            // this.statusEl.innerHTML += (this.player ? '白棋' : '黑棋') + '胜！';
-                            document.querySelector('#result').style.display = 'block';
-                            _this2.resultEl.innerText = (_this2.player ? '白棋' : '黑棋') + '胜！';
-                            // this.waiting = true;
-                            // setTimeout(() => {
-                            // this.init(this.rowNum, this.colNum, this.row, this.col);
-                            // }, 3000)
-                        } else {
-                            _this2.player = !_this2.player;
+                    if (sphereIdx !== false && platformIdx !== false && sphereIdx < platformIdx && chess.length == 1) {
+                        // console.log(this.scene.getObjectByName('platform'));
+                        var position = chess[0].object.name.split('-').map(function (it) {
+                            return +it;
+                        });
+                        // console.log(position);
+                        if (_this2.status[position[0]][position[1]] === null) {
+                            chess[0].object.material.color.setHex(_this2.player ? 0xffffff : 0x000000);
+                            chess[0].object.material.emissive.setHex(_this2.player ? 0xffffff : 0x000000);
+                            _this2.tipBox.material.opacity = 0.3;
+                            _this2.tipBox.position.x = position[0] - 12;
+                            _this2.tipBox.position.z = position[1] - 12;
+                            // console.log(chess[0].object);
+                            chess[0].object.material.opacity = 1;
+                            _this2.status[position[0]][position[1]] = _this2.player;
+                            if (_this2.judgeGameOver(position[0], position[1], 1) || _this2.judgeGameOver(position[0], position[1], 2) || _this2.judgeGameOver(position[0], position[1], 3) || _this2.judgeGameOver(position[0], position[1], 4)) {
+                                // this.statusEl.innerHTML += (this.player ? '白棋' : '黑棋') + '胜！';
+                                document.querySelector('#result').style.display = 'block';
+                                _this2.resultEl.innerText = (_this2.player ? '白棋' : '黑棋') + '胜！';
+                                // this.waiting = true;
+                                // setTimeout(() => {
+                                // this.init(this.rowNum, this.colNum, this.row, this.col);
+                                // }, 3000)
+                            } else {
+                                _this2.player = !_this2.player;
+                            }
                         }
                     }
                 }
-            }, false);
+            });
+            // this.renderer.domElement.addEventListener('click', (event) => {
+            //     event.preventDefault();
+            //     this.mouse.x = (event.clientX / (window.innerWidth)) * 2 - 1;
+            //     this.mouse.y = -(event.clientY / (window.innerHeight)) * 2 + 1;
+            //     this.raycaster.setFromCamera(this.mouse, this.camera);
+            //     let intersects = this.raycaster.intersectObjects(this.scene.children);
+
+            //     let chess = intersects.filter(function(value) {
+            //         return value.object.geometry instanceof THREE.SphereGeometry;
+            //     });
+            //     if (chess.length == 1) {
+            //         let position = chess[0].object.name.split('-').map((it) => {
+            //             return +it;
+            //         });
+            //         // console.log(position);
+            //         if (this.status[position[0]][position[1]] === null) {
+            //             chess[0].object.material.color.setHex(this.player ? 0xffffff : 0x000000);
+            //             chess[0].object.material.emissive.setHex(this.player ? 0xffffff : 0x000000);
+            //             this.tipBox.material.opacity = 0.3;
+            //             this.tipBox.position.x = position[0] - 12;
+            //             this.tipBox.position.z = position[1] - 12;
+            //             // console.log(chess[0].object);
+            //             chess[0].object.material.opacity = 1;
+            //             this.status[position[0]][position[1]] = this.player;
+            //             if (this.judgeGameOver(position[0], position[1], 1) ||
+            //                 this.judgeGameOver(position[0], position[1], 2) ||
+            //                 this.judgeGameOver(position[0], position[1], 3) ||
+            //                 this.judgeGameOver(position[0], position[1], 4)) {
+            //                 // this.statusEl.innerHTML += (this.player ? '白棋' : '黑棋') + '胜！';
+            //                 document.querySelector('#result').style.display = 'block';
+            //                 this.resultEl.innerText = (this.player ? '白棋' : '黑棋') + '胜！';
+            //                 // this.waiting = true;
+            //                 // setTimeout(() => {
+            //                 // this.init(this.rowNum, this.colNum, this.row, this.col);
+            //                 // }, 3000)
+            //             } else {
+            //                 this.player = !this.player;
+            //             }
+            //         }
+            //     }
+            // }, false);
         }
         // 场景
 
@@ -414,6 +482,7 @@ var sceneTest = function () {
                 color: 0xEE7942,
                 emissive: 0xEE7942
             }));
+            this.platform.name = 'platform';
             this.platform.position.y = -0.6;
 
             // 平面
