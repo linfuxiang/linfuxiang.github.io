@@ -114,6 +114,11 @@ define(function (require, exports, module) {
             isBlank: true
         }]
     }, {
+        name: 'Jest',
+        title: 'Jest',
+        href: article + '?jest',
+        details: []
+    }, {
         name: 'sea',
         title: 'Sea',
         href: article + '?sea',
