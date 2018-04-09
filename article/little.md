@@ -1,4 +1,8 @@
-## zz 
+## zzzzz
+#### 快排算法
+
+[快排算法](/quickSort) 
+
 #### 图片上传
 
 	var reader = new FileReader();
