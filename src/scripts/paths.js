@@ -9,6 +9,23 @@ define(function(require, exports, module) {
         indexhref: './',
         href: '/'
     }, {
+        name: 'parcel',
+        title: 'Parcel',
+        href: article + '?parcel',
+        details: [{
+            name: 'js',
+            title: 'JS编译',
+            href: '?parcel-js'
+        }, {
+            name: 'css',
+            title: 'CSS编译',
+            href: '?parcel-css'
+        }, {
+            name: 'vue',
+            title: 'Vue单文件组件',
+            href: '?parcel-vue'
+        }]
+    }, {
         name: 'wxblue',
         title: '微信硬件蓝牙api（前端开发）',
         href: article + '?wxblue',
