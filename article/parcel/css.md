@@ -1,5 +1,5 @@
 # CSS打包
-在编写CSS时可能会用到，在此举例使用**PostCSS**和**autoprefixer**。
+在编写CSS时可能会用到，在此举例使用**PostCSS** 和 **autoprefixer**。
 
 ### PostCSS  
 
