@@ -26,6 +26,7 @@
 **index.js**
 
 	import './index.css'
+	console.log(Hello Parcel!)
 
 **index.css**
 
@@ -38,6 +39,6 @@
 
 ![image](/dist/images/parcel/hello.jpg)
 
-[官方文档](https://parceljs.org/)
-[文章: 关于 Parcel 你所需知道的一切：超快的Web应用打包器](http://www.css88.com/archives/9187)
-[实例](https://github.com/linfuxiang/parcel-test)
+[官方文档](https://parceljs.org/)  
+[文章: 关于 Parcel 你所需知道的一切：超快的Web应用打包器](http://www.css88.com/archives/9187)  
+[实例](https://github.com/linfuxiang/parcel-test)  
