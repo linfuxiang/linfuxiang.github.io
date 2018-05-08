@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>快排算法</title>
+</head>
+<body>
+	随机生成<input id="addNum" type="number" min="2">个正整数
+	<br>
+	<button id="add">生成数组</button>
+	<button id="clear">清空</button>
+	<br>
+	<button class="run">执行</button>
+	<div>
+		<span>原数组：</span>
+		<span id="resource"></span>
+	</div>
+	<div>
+		<span>原生排序结果：</span>
+		<span class="result native"></span>
+	</div>
+	<div>
+		<span>冒泡排序结果：</span>
+		<span class="result mao"></span>
+	</div>
+	<div>
+		<span>快速排序结果：</span>
+		<span class="result kuai"></span>
+	</div>
+	<script src="jquery.min.js"></script>
+	<script src="sort.js"></script>
+</body>
+</html>
