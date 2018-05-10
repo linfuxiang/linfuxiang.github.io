@@ -35,9 +35,13 @@ define(function(require, exports, module) {
         title: 'Vue2.x',
         href: article + '?vue2',
         details: [{
-            name: 'vue2-diff',
-            title: '2.0与1.0的差异',
-            href: '?vue2-diff'
+            name: 'vue2-lifecycle',
+            title: '生命周期',
+            href: '?vue2-lifecycle'
+        // }, {
+        //     name: 'vue2-diff',
+        //     title: '2.0与1.0的差异',
+        //     href: '?vue2-diff'
         }, {
             name: 'vue2-components',
             title: 'Components',

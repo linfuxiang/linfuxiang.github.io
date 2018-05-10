@@ -17,11 +17,11 @@ var handleError = function(err) {
     gutil.log('plugin: ' + colors.yellow(err.plugin));
 };
 gulp.task('default', function() {
-    gulp.src('src/scripts/')
+    gulp.src('src/scripts/**/')
         .pipe(babel())
         // .pipe(uglifyJs())
         .pipe(gulp.dest('dist/scripts/'));
-    gulp.src('src/css/')
+    gulp.src('src/css/**/')
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'Android >= 4.0'],
             cascade: true,
@@ -29,7 +29,7 @@ gulp.task('default', function() {
         }))
         .pipe(minifyCss())
         .pipe(gulp.dest('dist/css/'));
-    gulp.watch('src/scripts/*.js', function(event) {
+    gulp.watch('src/scripts/**/*.js', function(event) {
         var paths = watchPath(event, 'src/scripts/', 'dist/scripts/');
         var combined = combiner.obj([
             gulp.src(paths.srcPath),
@@ -39,7 +39,7 @@ gulp.task('default', function() {
         ]);
         combined.on('error', handleError);
     });
-    gulp.watch('src/css/*.css', function(event) {
+    gulp.watch('src/css/**/*.css', function(event) {
         var paths = watchPath(event, 'src/css/', 'dist/css/');
         var combined = combiner.obj([
             gulp.src(paths.srcPath),

@@ -57,6 +57,10 @@ define(function (require, exports, module) {
                     document.querySelectorAll('#main-content a').forEach(function (item, index) {
                         item.setAttribute('target', '_blank');
                     });
+                    hljs.initHighlightingOnLoad();
+                    document.querySelectorAll('pre code').forEach(function (item) {
+                        hljs.highlightBlock(item);
+                    });
                 });
                 // 响应成功回调
             }, function (response) {

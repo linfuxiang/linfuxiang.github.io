@@ -621,11 +621,11 @@ aside a.button {
 
 code,
 pre {
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-    font-size: 13px;
+    font-size: 14px;
     /*color: #222;*/
-    color: green;
+    /*color: green;*/
 }
 
 code {
@@ -635,11 +635,11 @@ code {
 }
 
 pre {
-    padding: 20px;
+    /*padding: 20px;
     overflow: auto;
     text-shadow: none;
     background: #fff;
-    border: solid 1px #f2f2f2;
+    border: solid 1px #f2f2f2;*/
 }
 
 pre code {
