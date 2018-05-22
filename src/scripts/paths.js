@@ -172,47 +172,10 @@ define(function(require, exports, module) {
         href: article + '?little',
         details: []
     }, {
-        name: 'vue',
-        title: 'Vue1.x',
-        href: article + '?vue',
-        details: [{
-            name: 'dataBinding',
-            title: '数据绑定',
-            href: '?vue-dataBinding'
-        }, {
-            name: 'computed',
-            title: '计算属性computed',
-            href: '?vue-computed'
-        }, {
-            name: 'class',
-            title: 'Class 与 Style',
-            href: '?vue-class'
-        }, {
-            name: 'conditional',
-            title: '条件判断',
-            href: '?vue-conditional'
-        }, {
-            name: 'list',
-            title: '列表渲染',
-            href: '?vue-list'
-        }, {
-            name: 'events',
-            title: '事件处理器',
-            href: '?vue-events'
-        }, {
-            name: 'components',
-            title: '组件',
-            href: '?vue-components'
-        }, {
-            name: 'vue-cli',
-            title: 'vue脚手架',
-            href: '?vue-cli'
-        }, {
-            name: 'API',
-            title: 'API',
-            href: 'http://cn.vuejs.org/api/',
-            isBlank: true
-        }]
+        name: 'net',
+        title: '网络相关',
+        href: article + '?net',
+        details: []
     }, ];
     // exports.links = a;
     module.exports = a;

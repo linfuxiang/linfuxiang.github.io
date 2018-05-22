@@ -178,7 +178,9 @@
 **解决办法：**代码不换行或者设置容器`font-size: 0px;`
 
 #### HTML5视频播放&直播  
-`video` + `MSE` + `websocket`
+`video` + `MSE` + `websocket`  
+[h5视频](/pdf/html5-video-page-dev-summary.pdf)  
+[flash->html5](/pdf/web-video-from-flash-to-html5.pdf)  
 
 #### BFC  
 1. 根元素或其它包含它的元素
