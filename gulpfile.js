@@ -19,7 +19,9 @@ var handleError = function(err) {
 gulp.task('default', function() {
     gulp.src('src/scripts/**/')
         .pipe(babel())
-        // .pipe(uglifyJs())
+        .pipe(uglifyJs({
+            mangle: { reserved : ['require', 'exports', 'module', '$'] } //排除混淆关键字  
+        }))
         .pipe(gulp.dest('dist/scripts/'));
     gulp.src('src/css/**/')
         .pipe(autoprefixer({
@@ -34,7 +36,9 @@ gulp.task('default', function() {
         var combined = combiner.obj([
             gulp.src(paths.srcPath),
             babel(),
-            // uglifyJs(),
+            uglifyJs({
+                mangle: { reserved : ['require', 'exports', 'module', '$'] } //排除混淆关键字  
+            }),
             gulp.dest(paths.distDir)
         ]);
         combined.on('error', handleError);
