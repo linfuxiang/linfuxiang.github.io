@@ -194,3 +194,7 @@
 #### Window创建文件
 
 	type nul>[文件名]
+
+#### 输出目录结构树  
+
+	tree /f>list.txt

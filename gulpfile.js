@@ -18,7 +18,9 @@ var handleError = function(err) {
 };
 gulp.task('default', function() {
     gulp.src('src/scripts/**/')
-        .pipe(babel())
+        .pipe(babel({
+            ignore: ['vue2.5.2.js']
+        }))
         .pipe(uglifyJs({
             mangle: { reserved : ['require', 'exports', 'module', '$'] } //排除混淆关键字  
         }))
@@ -35,7 +37,9 @@ gulp.task('default', function() {
         var paths = watchPath(event, 'src/scripts/', 'dist/scripts/');
         var combined = combiner.obj([
             gulp.src(paths.srcPath),
-            babel(),
+            babel({
+                ignore: ['vue2.5.2.js']
+            }),
             uglifyJs({
                 mangle: { reserved : ['require', 'exports', 'module', '$'] } //排除混淆关键字  
             }),
