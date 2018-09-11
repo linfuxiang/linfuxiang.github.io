@@ -72,8 +72,11 @@
                 </section>
                 <aside id="sidebar">
                     <ul>
-                        <template v-cloak v-for="item in links">
-                            <li><a :href="item.href">{{item.title}}</a></li>
+                        <template v-cloak v-for="(item, index) in links">
+                            <li><a 
+                                :style="{color: index == 0 ? 'red' : ''}" 
+                                :href="item.href"
+                                >{{item.title}}</a></li>
                         </template>
                     </ul>
                 </aside>

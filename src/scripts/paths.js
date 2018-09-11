@@ -9,6 +9,26 @@ define(function(require, exports, module) {
         indexhref: './',
         href: '/'
     }, {
+        name: 'vuecli3',
+        title: 'Vue-CLI3',
+        href: article + '?vuecli3',
+        details: [{
+                name: 'theory',
+                title: '分析',
+                href: '?vuecli3-theory'
+            },
+            {
+                name: 'plugin',
+                title: '插件系统',
+                href: '?vuecli3-plugin'
+            },
+        ]
+    }, {
+        name: 'postcss',
+        title: 'PostCSS',
+        href: article + '?postcss',
+        details: []
+    }, {
         name: 'parcel',
         title: 'Parcel',
         href: article + '?parcel',
@@ -38,10 +58,10 @@ define(function(require, exports, module) {
             name: 'vue2-lifecycle',
             title: '生命周期',
             href: '?vue2-lifecycle'
-        // }, {
-        //     name: 'vue2-diff',
-        //     title: '2.0与1.0的差异',
-        //     href: '?vue2-diff'
+            // }, {
+            //     name: 'vue2-diff',
+            //     title: '2.0与1.0的差异',
+            //     href: '?vue2-diff'
         }, {
             name: 'vue2-components',
             title: 'Components',

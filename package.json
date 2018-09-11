@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel js-es6 --out-dir js-es5"
+    "build": "babel js-es6 --out-dir js-es5",
+    "dev": "gulp"
   },
   "author": "lfx",
   "license": "ISC",

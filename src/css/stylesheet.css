@@ -629,9 +629,13 @@ pre {
 }
 
 code {
-    padding: 0 3px;
-    background-color: #f2f8fc;
-    border: solid 1px #dbe7f3;
+    color: #476582;
+    padding: 4px 8px;
+    margin: 0;
+    /*font-size: .85em;*/
+    background-color: rgba(27,31,35,.05);
+    border-radius: 3px;
+    margin: 0 3px;
 }
 
 pre {

@@ -1,0 +1,14 @@
+# EditorConfig
+
+# 表明是最顶层的配置文件
+root = true
+# 正则*匹配所有文件
+[*]
+# 编码格式
+charset = utf-8
+# 定义换行符
+end_of_line = lf
+# 缩进空格数
+indent_size = 1
+# 缩进方式
+indent_style = tab

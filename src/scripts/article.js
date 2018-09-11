@@ -33,7 +33,7 @@ define(function(require, exports, module) {
         }
     }
 
-    let vm = new Vue({
+    window.vm = new Vue({
         el: '#main',
         data: {
             header: m,
@@ -43,8 +43,11 @@ define(function(require, exports, module) {
             items: [
 
             ],
+            name: '',
         },
         mounted() {
+            let search = location.search.slice(1).split('-');
+            this.name = search[search.length - 1];
             this.$http.get(url).then((response) => {
                 let converter = new Markdown.Converter();
                 let htm = converter.makeHtml(response.body);
