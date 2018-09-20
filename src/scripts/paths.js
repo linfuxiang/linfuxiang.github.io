@@ -55,7 +55,7 @@ define(function(require, exports, module) {
         title: 'Vue2.x',
         href: article + '?vue2',
         details: [{
-            name: 'vue2-lifecycle',
+            name: 'lifecycle',
             title: '生命周期',
             href: '?vue2-lifecycle'
             // }, {
@@ -63,7 +63,7 @@ define(function(require, exports, module) {
             //     title: '2.0与1.0的差异',
             //     href: '?vue2-diff'
         }, {
-            name: 'vue2-components',
+            name: 'components',
             title: 'Components',
             href: '?vue2-components'
         }]
@@ -72,7 +72,7 @@ define(function(require, exports, module) {
         title: 'CSS3',
         href: article + '?css3',
         details: [{
-            name: 'clip-path',
+            name: 'clippath',
             title: 'Clippath',
             href: '?css3-clippath'
         }, {
@@ -85,6 +85,10 @@ define(function(require, exports, module) {
         title: 'JavaScript',
         href: article + '?javascript',
         details: [{
+            name: 'es6',
+            title: 'ES6',
+            href: '?javascript-es6',
+        },{
             name: 'promise',
             title: 'Promise',
             href: '?javascript-promise',
