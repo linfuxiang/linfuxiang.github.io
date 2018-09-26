@@ -1,4 +1,7 @@
 # Promise  
+#### 状态  
+**pending** , **fulfilled** , **rejected**  
+
 #### 最简单用法：
 
 	var promise = new Promise(function(resolve, reject) {
@@ -53,9 +56,8 @@
     .then(response => console.log(response))
     .catch(error => console.log(error));
 
-## 有用但ES6没有的方法：
-
 #### Promise.finally：
+> ES2018 引入标准。  
 
     Promise.prototype.finally = function (callback) {
         let P = this.constructor;

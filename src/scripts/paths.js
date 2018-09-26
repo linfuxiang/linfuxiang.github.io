@@ -85,10 +85,14 @@ define(function(require, exports, module) {
         title: 'JavaScript',
         href: article + '?javascript',
         details: [{
-            name: 'es6',
-            title: 'ES6',
-            href: '?javascript-es6',
-        },{
+            name: 'es',
+            title: 'ES',
+            href: '?javascript-es',
+        }, {
+            name: 'object',
+            title: '对象',
+            href: '?javascript-object',
+        }, {
             name: 'promise',
             title: 'Promise',
             href: '?javascript-promise',
