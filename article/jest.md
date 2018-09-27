@@ -3,34 +3,74 @@
 > [安装及入门参考文档](https://facebook.github.io/jest/docs/en/getting-started.html)  
 > [Testing Vue with Jest](https://alexjoverm.github.io/series/Unit-Testing-Vue-js-Components-with-the-Official-Vue-Testing-Tools-and-Jest/)
 
-## Matchers匹配器
+## 使用示例  
 
-`.toBe()`  
-`.toEqual()` 一般用来检测数组、对象是否一致  
-`.not` 反向规则
+	describe('index.js', () => {
 
-#### Truthiness
-`toBeNull()`  
-`toBeUndefined()`  
-`toBeDefined()`  
-`toBeTruthy()`  
-`toBeFalsy()`  
+	    it('test add', () => {
+	        expect(index.add()).toBe(3)
+	        expect(index.add(4, 5)).toBe(9)
+	    })
 
-#### Numbers
-`toBeGreaterThan()`  
-`toBeGreaterThanOrEqual()`  
-`toBeLessThan()`  
-`toBeLessThanOrEqual()`  
-`toBeCloseTo()` 可用于忽略浮点数计算产生的细微的差异
+	    // test simple timeout
+	    it('test simple timeout', done => {
+	        index.asyncFunc1((data) => {
+	            expect(data).toBe(5)
+	            done()
+	        })
+	    })
 
-#### Strings
-`toMatch()` 可使用正则
+	    // test promise
+	    it('test promise', () => {
+	        expect.assertions(1)
+	        // 'return' is neccesary
+	        return index.asyncFunc2().then(data => {
+	            expect(data).toBe(5)
+	        })
+	    })
+	    // test promise with .resolves/.rejects(available in Jest 20.0.0+)
+	    it('test promise with .resolves/.rejects', () => {
+	        expect.assertions(1)
+	        return expect(index.asyncFunc2()).resolves.toBe(5)
+	    })
+	    // test promise with async/await
+	    it('test promise with async/await', async() => {
+	        expect.assertions(1)
+	        expect(await index.asyncFunc2()).toBe(5)
+	    })
+	    // test promise with async/await & .resolves/.rejects(available in Jest 20.0.0+)
+	    it('test promise with async/await & .resolves/.rejects', async() => {
+	        expect.assertions(1)
+	        await expect(index.asyncFunc2()).resolves.toBe(5)
+	    })
 
-#### Arrays
-`toContain()` 
+	    // test async/await, the same as promise
+	    it('test async/await', async() => {
+	        expect.assertions(1)
+	        expect(await index.asyncFunc3()).toBe(10)
+	    })
 
-#### Exceptions
-`toThrow()`
+	    it('test mock function', () => {
+	        let mockCb = jest.fn()
+	        index.firstFunc(mockCb)
+	        expect(mockCb.mock.calls.length).toBe(1)
+	    })
+
+	    it('fetch sth from API', () => {
+	        let mockRes = {
+	            code: 1000,
+	            data: {
+	                name: 'Ronald Cheng'
+	            }
+	        }
+	        axios.get.mockResolvedValue(mockRes)
+
+	        return index.fetch_api('/abc.txt').then(res => {
+	            expect(res.code).toBe(1000)
+	            expect(res.data.name).toBe('Ronald Cheng')
+	        })
+	    })
+	})
 
 ## Setup & Teardown
 
