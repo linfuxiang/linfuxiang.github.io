@@ -161,7 +161,7 @@ define(function(require, exports, module) {
             isBlank: true
         }, ]
     }, {
-        name: 'Jest',
+        name: 'jest',
         title: 'Jest',
         href: article + '?jest',
         details: []
