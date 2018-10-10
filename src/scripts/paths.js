@@ -104,6 +104,10 @@ define(function(require, exports, module) {
             name: 'ajax',
             title: 'Ajax',
             href: '?javascript-ajax',
+        }, {
+            name: 'summary',
+            title: 'Summary',
+            href: '?javascript-summary',
         }]
     }, {
         name: 'canvas',
@@ -196,7 +200,7 @@ define(function(require, exports, module) {
         details: []
     }, {
         name: 'little',
-        title: '小东西',
+        title: 'Something',
         href: article + '?little',
         details: []
     }, {

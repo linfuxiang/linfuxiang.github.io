@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <link rel="stylesheet" href="a.css">
+    <link rel="stylesheet" href="b.css">
+    <link rel="stylesheet" href="c.css">
+    <link rel="stylesheet" href="d.css">
+</head>
+
+<body>
+    <div id="a"></div>
+    <!-- <script src="vue.js"></script> -->
+    <!-- <script src="a.js"></script> -->
+    <!-- <script>
+        document.addEventListener('readystatechange', () => console.log(document.readyState));
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log('DOMContentLoaded---', document.getElementById('a').offsetWidth);
+        });
+        window.addEventListener("load", function () {
+            console.log('load---', document.getElementById('a').offsetHeight);
+        });
+    </script> -->
+    <!-- <div class="app">
+        {{ a }} {{ b }}
+        <test></test>
+        <test2></test2>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+    // Vue.component('test', )
+    Vue.config.performance = true;
+    let vm1 = new Vue({
+        el: '.app',
+        data() {
+            return {
+                a: 1,
+                b: 2,
+            }
+        },
+        provide: {
+            foo: this.a
+        },
+        beforeCreate() {
+            console.log('father beforeCreate');
+        },
+        created() {
+            console.log('father created');
+        },
+        beforeMount() {
+            console.log('father beforeMount');
+        },
+        mounted() {
+            console.log('father mounted');
+        },
+        components: {
+            test: {
+                data() {
+                    return {
+                        ab: 3,
+                    }
+                },
+                template: `<div>
+                {{ ab }}
+                </div>`,
+                provide: {
+                    foo1: 'bar1'
+                },
+                inject: ['foo'],
+                beforeCreate() {
+                    console.log('child beforeCreate');
+                },
+                created() {
+                    console.log('child created');
+                },
+                beforeMount() {
+                    console.log('child beforeMount');
+                },
+                mounted() {
+                    console.log('child mounted');
+                },
+            },
+            test2: {
+                data() {
+                    return {
+                        ab: 3,
+                    }
+                },
+                template: `<div>
+                {{ ab }}
+                </div>`,
+                provide: {
+                    foo1: 'bar1'
+                },
+                inject: ['foo'],
+                beforeCreate() {
+                    console.log('child2 beforeCreate');
+                },
+                created() {
+                    console.log('child2 created');
+                },
+                beforeMount() {
+                    console.log('child2 beforeMount');
+                },
+                mounted() {
+                    console.log('child2 mounted');
+                },
+            }
+        }
+    })
+    </script>
+ -->
+</html>
