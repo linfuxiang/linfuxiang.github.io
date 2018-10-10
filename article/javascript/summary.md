@@ -25,17 +25,19 @@
 2. TCP连接  
 3. HTTP请求（HTTPS则需先进行SSL/TSL加密）  
 4. 浏览器解析HTML构建DOM树，解析CSS构建CSS的渲染树，将两者合并成一个渲染树，然后把它渲染到浏览器窗口上（如果有CSS或JS资源插在其中则会被阻塞）  
-5. JS加载和执行（defer延迟执行和async异步执行）  
-	defer：延迟到HTML解析完成之后执行，会阻塞DOMContentLoaded  
-	async：异步加载，加载好马上执行  
+5. JS加载和执行（defer延迟执行和async异步加载）
+	默认： 解析到script标签中断HTML的渲染，去加载和执行JS 
+	defer：异步加载JS，延迟到HTML解析完成之后执行，会阻塞DOMContentLoaded  
+	async：异步加载JS，加载好马上中断HTML的渲染，并执行  
 	
 ### DOMContentLoaded, load, readystatechange
-**DOMContentLoaded**：在页面被解析完成和静态JS执行完成（JS执行依赖CSS）触发  
+**DOMContentLoaded**：在页面被解析完成和静态JS执行完成（JS执行依赖CSS）触发，如果没有JS则在外部CSS加载之前触发  
 **load**：在所有静态资源被加载并执行完成包括（CSS、图片、JS等）  
-**readystatechange**： **document.readyState**有三种状态  
-	loading：加载中  
-	interactive：页面解析完成，时间上和 DOMContentLoaded 同时发生，不过顺序在它之前  
-	complete：页面上的资源都已加载完毕，时间上和 window.onload 同时发生，不过顺序在他之前  
+**readystatechange**： **document.readyState**有三种状态↓  
+
+		loading：加载中  
+		interactive：页面解析完成，时间上和 DOMContentLoaded 同时发生，不过顺序在它之前  
+		complete：页面上的资源都已加载完毕，时间上和 window.onload 同时发生，不过顺序在他之前  
 
 ### reflow和repaint：
 回流必定重绘，重绘不一定回流  
