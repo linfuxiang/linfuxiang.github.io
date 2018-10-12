@@ -4,7 +4,10 @@
 
 `cd [路径]` 进入某个路径   
 `ls` 或 `dir` 查看该目录下的文件  
+`touch` 创建新文件  
 `mkdir [dir]` 创建目录  
+
+`chmod [777|+x|...]` 配置文件操作权限  
 
 `vim [file]` 或 `vi [file]` 创建文件  
 　`i`命令进入insert模式　`ESC`命令退出insert模式  

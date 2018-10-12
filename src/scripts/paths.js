@@ -63,6 +63,10 @@ define(function(require, exports, module) {
             //     title: '2.0与1.0的差异',
             //     href: '?vue2-diff'
         }, {
+            name: 'ssr',
+            title: 'SSR',
+            href: '?vue2-ssr'
+        }, {
             name: 'components',
             title: 'Components',
             href: '?vue2-components'
