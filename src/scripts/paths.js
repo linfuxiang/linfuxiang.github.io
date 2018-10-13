@@ -46,11 +46,6 @@ define(function(require, exports, module) {
             href: '?parcel-vue'
         }]
     }, {
-        name: 'wxblue',
-        title: '微信硬件蓝牙api（前端开发）',
-        href: article + '?wxblue',
-        details: []
-    }, {
         name: 'vue2',
         title: 'Vue2.x',
         href: article + '?vue2',
@@ -71,6 +66,40 @@ define(function(require, exports, module) {
             title: 'Components',
             href: '?vue2-components'
         }]
+    }, {
+        name: 'vuex',
+        title: 'Vuex',
+        href: article + '?vuex',
+        details: [{
+            name: 'state',
+            title: 'State',
+            href: '?vuex-state'
+        }, {
+            name: 'getter',
+            title: 'Getter',
+            href: '?vuex-getter'
+        }, {
+            name: 'mutation',
+            title: 'Mutation',
+            href: '?vuex-mutation'
+        },  {
+            name: 'action',
+            title: 'Action',
+            href: '?vuex-action'
+        },  {
+            name: 'module',
+            title: 'Module',
+            href: '?vuex-module'
+        }, ]
+    }, {
+        name: 'vueRouter',
+        title: 'Vue-Router',
+        href: '?vue2-vueRouter'
+    }, {
+        name: 'wxblue',
+        title: '微信硬件蓝牙api（前端开发）',
+        href: article + '?wxblue',
+        details: []
     }, {
         name: 'css3',
         title: 'CSS3',
