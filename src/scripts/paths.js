@@ -82,14 +82,22 @@ define(function(require, exports, module) {
             name: 'mutation',
             title: 'Mutation',
             href: '?vuex-mutation'
-        },  {
+        }, {
             name: 'action',
             title: 'Action',
             href: '?vuex-action'
-        },  {
+        }, {
             name: 'module',
             title: 'Module',
             href: '?vuex-module'
+        }, {
+            name: 'plugins',
+            title: '插件',
+            href: '?vuex-plugins'
+        },  {
+            name: 'more',
+            title: '其他',
+            href: '?vuex-more'
         }, ]
     }, {
         name: 'vueRouter',

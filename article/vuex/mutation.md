@@ -1,5 +1,9 @@
 ## Mutation  
-想要改变**State**的值，只能通过提交**mutation**，而且其操作必须是同步的。
+想要改变**State**的值，只能通过提交**mutation**，对此，官方提出规则：  
+
+> 提交**mutation**是更改状态的唯一方法，并且这个过程是同步的。  
+
+事实上，即使在**mutation**中执行了异步方法，而且异步方法中修改了状态，也是成功的。但是假如使用了[devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)，它是没办法追踪到异步方法中的状态变化，这也是**Vuex**的初衷。
 
 	new Vuex.Store({
 		state: {
