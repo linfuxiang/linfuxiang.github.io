@@ -1,7 +1,10 @@
 # Vuex  
 > 一个**Vue**专属的状态管理工具。
 
-[Vuex文档](https://vuex.vuejs.org/zh/)
+简单来说，就是当我们的应用的多个组件需要依赖同一个状态，或者不同页面的视图需要改变同一状态时，为了更好地管理应用，就需要状态管理工具了。  
+它的基本思想：数据存储在State中，通过 **dispatch('Action')** （支持异步）或者直接 **commit('Mutation')** （仅支持同步）来改变State的状态，最后再渲染到视图中。
+
+![vuex原理图](/dist/images/vuex/vuex.png)
 
 简单示例：  
 
@@ -57,3 +60,4 @@
 	<style lang="scss">
 	</style>
 
+[Vuex文档](https://vuex.vuejs.org/zh/)
