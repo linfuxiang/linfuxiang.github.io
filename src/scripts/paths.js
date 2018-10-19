@@ -58,6 +58,10 @@ define(function(require, exports, module) {
             //     title: '2.0与1.0的差异',
             //     href: '?vue2-diff'
         }, {
+            name: 'transition',
+            title: 'Transition',
+            href: '?vue2-transition'
+        }, {
             name: 'ssr',
             title: 'SSR',
             href: '?vue2-ssr'
@@ -65,7 +69,7 @@ define(function(require, exports, module) {
             name: 'components',
             title: 'Components',
             href: '?vue2-components'
-        }]
+        }, ]
     }, {
         name: 'vuex',
         title: 'Vuex',
@@ -94,7 +98,7 @@ define(function(require, exports, module) {
             name: 'plugins',
             title: '插件',
             href: '?vuex-plugins'
-        },  {
+        }, {
             name: 'more',
             title: '其他',
             href: '?vuex-more'
@@ -102,7 +106,12 @@ define(function(require, exports, module) {
     }, {
         name: 'vueRouter',
         title: 'Vue-Router',
-        href: '?vue2-vueRouter'
+        href: '?vueRouter',
+        details: [{
+            name: 'state',
+            title: 'State',
+            href: '?vuex-state'
+        }, ]
     }, {
         name: 'wxblue',
         title: '微信硬件蓝牙api（前端开发）',
