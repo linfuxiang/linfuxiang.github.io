@@ -37,10 +37,10 @@
 		getters: { ... }
 	}
 
-**state**本来就是分成模块的，通过**rootState.moduleName.name**访问  
-**getters**在局部化的情况下通过**rootGetters[moduleName/name]**访问  
-**mutations**在局部化的情况下通过**commit('moduleName/someMutation', null, { root: true })**调用  
-**actions**在局部化的情况下通过**dispatch('moduleName/someAction', null, { root: true })**调用  
+`state`本来就是分成模块的，通过`rootState.moduleName.name`访问  
+`getters`在局部化的情况下通过`rootGetters[moduleName/name]`访问  
+`mutations`在局部化的情况下通过`commit('moduleName/someMutation', null, { root: true })`调用  
+`actions`在局部化的情况下通过`dispatch('moduleName/someAction', null, { root: true })`调用  
 
 #### 带命名空间的绑定函数  
 
@@ -57,7 +57,7 @@
 		])
 	}
 
-还可以通过**createNamespacedHelpers**来创建某个模块的绑定函数
+还可以通过`createNamespacedHelpers`来创建某个模块的绑定函数
 
 	import { createNamespacedHelpers } from 'vuex'
 	const { mapState, ... } = createNamespacedHelpers('moduleA')

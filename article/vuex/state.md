@@ -1,5 +1,5 @@
 ## State  
-**mapState**辅助函数使用方法：  
+`mapState`辅助函数使用方法：  
 
 	import { mapState } from 'vuex'
 	

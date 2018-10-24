@@ -629,11 +629,11 @@ pre {
 }
 
 code {
-    color: #476582;
+    color: #2e7bcf;
     padding: 4px 8px;
     margin: 0;
     /*font-size: .85em;*/
-    background-color: rgba(27,31,35,.05);
+    background-color: rgba(27, 31, 35, .05);
     border-radius: 3px;
     margin: 0 3px;
 }
@@ -651,6 +651,11 @@ pre code {
     color: #2879d0;
     background-color: #fff;
     border: none;
+}
+
+em {
+    font-weight: bold;
+    /*color: #2e7bcf;*/
 }
 
 ul,
@@ -814,6 +819,10 @@ ul {
     list-style-position: inside;
     list-style: disc;
     padding-left: 20px;
+}
+
+ul>li>ul {
+    list-style: circle;
 }
 
 ol {

@@ -62,6 +62,14 @@ define(function(require, exports, module) {
             title: 'Transition',
             href: '?vue2-transition'
         }, {
+            name: 'directive',
+            title: '指令',
+            href: '?vue2-directive'
+        }, {
+            name: 'plugin',
+            title: '插件',
+            href: '?vue2-plugin'
+        }, {
             name: 'ssr',
             title: 'SSR',
             href: '?vue2-ssr'

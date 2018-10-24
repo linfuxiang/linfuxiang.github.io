@@ -1,5 +1,5 @@
 ## Action  
-用于异步操作和提交**mutation**。
+用于异步操作和提交`mutation`。
 
 	new Vuex.Store({
 		state: {
@@ -22,7 +22,7 @@
 
 同样地，可以传参  
 
-同样地，也有**mapActions**  
+同样地，也有`mapActions`  
 
 #### 链式异步操作  
 
@@ -41,7 +41,7 @@
 		// ...
 	})
 
-还可以用**async/await**：
+还可以用`async/await`：
 
 	actions: {
 		async actionA ({ commit }) {
