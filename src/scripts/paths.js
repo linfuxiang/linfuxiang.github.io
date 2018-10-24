@@ -118,7 +118,7 @@ define(function(require, exports, module) {
         details: [{
             name: 'state',
             title: 'State',
-            href: '?vuex-state'
+            href: '?vueRouter-state'
         }, ]
     }, {
         name: 'wxblue',
@@ -130,6 +130,10 @@ define(function(require, exports, module) {
         title: 'CSS3',
         href: article + '?css3',
         details: [{
+            name: 'animation',
+            title: '动画',
+            href: '?css3-animation'
+        }, {
             name: 'clippath',
             title: 'Clippath',
             href: '?css3-clippath'
