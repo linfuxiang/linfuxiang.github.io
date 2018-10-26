@@ -1,7 +1,7 @@
 # Vue Router  
 > 一个Vue专属的路由管理器。
 
-实例  
+简单的实例：  
 
 	import Vue from 'vue'
 	import VueRouter from 'vue-router'
@@ -24,9 +24,13 @@
 
 如果需要在组件中访问路由器，可通过`this.$route`访问
 
-TODO：
-动态路由匹配 path: '/index/:id', cmp: index
-嵌套路由
+### 动态路由匹配  
+
+TODO.
+[//]: # (path: '/index/:id', cmp: index)
+
+### 嵌套路由
+
 	children: [{
         path: 'sub',
         name: 'sub',
@@ -39,7 +43,8 @@ TODO：
             import('@/views/sub2.vue'),
     }, 
 
-编程式导航
+### 编程式导航
+
 	router.push
 		// 字符串
 		router.push('home')
@@ -57,4 +62,44 @@ TODO：
 	router.replace
 	router.go
 
-命名视图
+### 命名视图 
+	<router-view name="a"></router-view>
+
+	{
+        path: 'sub',
+        component: {
+        	default: index,	
+        	a: a,	
+    	},
+    }
+
+### 重定向和别名
+#### 重定向
+	redirect
+
+#### 别名
+	alias
+
+### 路由组件传参
+
+为了和`$route`解耦，可设置路由的`props`属性为`true`
+
+	{
+        path: 'sub',
+        component: sub,
+        props: true,
+    }
+
+如果有命名视图的路由，必须为每个视图添加`props`
+
+	{
+        path: 'sub',
+        component: {
+        	default: index,	
+        	a: a,	
+    	},
+    	props: { 
+    		default: true, 
+    		a: true 
+    	}
+    }

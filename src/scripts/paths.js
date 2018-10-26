@@ -116,9 +116,9 @@ define(function(require, exports, module) {
         title: 'Vue-Router',
         href: '?vueRouter',
         details: [{
-            name: 'state',
-            title: 'State',
-            href: '?vueRouter-state'
+            name: 'more',
+            title: '进阶',
+            href: '?vueRouter-more'
         }, ]
     }, {
         name: 'wxblue',
