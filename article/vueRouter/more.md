@@ -75,7 +75,7 @@
 8. 触发全局的`beforeResolve`(2.5+)
 9. 导航被确认
 10. 触发全局的`afterEach`
-11. DOM更新
+11. 开始组件实例的生命周期，DOM更新
 12. 如果传给`beforeRouteEnter`的next有回调函数，则调用
 
 ### 滚动行为  

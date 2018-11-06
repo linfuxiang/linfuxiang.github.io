@@ -44,6 +44,28 @@
 	<transition enter-active-class="..." ...>
 	</transition>
 
+### 过渡事件钩子  
+
+    <transition
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        v-on:after-enter="afterEnter"
+        v-on:enter-cancelled="enterCancelled"
+
+        v-on:before-leave="beforeLeave"
+        v-on:leave="leave"
+        v-on:after-leave="afterLeave"
+        v-on:leave-cancelled="leaveCancelled"
+    >
+        <!-- ... -->
+    </transition>
+    
+    beforeEnter: function (el) {
+        // ...
+    },
+
+`enter`和`leave`方法会有`done`方法作为第二个参数，需要手动执行。
+
 ### 过渡模式  
 `out-in`当前元素先过渡离开，完成之后新元素过渡进入  
 `in-out`新元素先过渡进入，完成之后当前元素过渡离开  
