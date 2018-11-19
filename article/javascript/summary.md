@@ -11,7 +11,7 @@
 1. 响应行（协议版本，状态码-200,404，状态描述）  
 2. 响应头（Content-Type,Cache-Control,Server...）  
 3. 响应数据  
-  
+
 ## HTTPS
 在建立TCP/IP链接后对数据进行SSL/TSL加密  
 1. 服务端从证书颁发机构获取证书（公钥、私钥）  
@@ -29,6 +29,15 @@
 	`默认`： 解析到script标签中断HTML的渲染，去加载和执行JS  
 	`defer`：异步加载JS，延迟到HTML解析完成之后执行，会阻塞DOMContentLoaded  
 	`async`：异步加载JS，加载好马上中断HTML的渲染，并执行  
+
+## DOMContentLoaded, load, readystatechange
+`DOMContentLoaded`：在页面被解析完成和静态JS执行完成（JS执行依赖CSS）触发，如果没有JS则在外部CSS加载之前触发  
+`load`：在所有静态资源被加载并执行完成包括（CSS、图片、JS等）  
+`readystatechange`： `document.readyState`有三种状态↓  
+
+		loading：加载中  
+		interactive：页面解析完成，时间上和 DOMContentLoaded 同时发生，不过顺序在它之前  
+		complete：页面上的资源都已加载完毕，时间上和 window.onload 同时发生，不过顺序在他之前  
 
 ## Preload、Prefetch、Preconnect  
 #### Preload  
@@ -54,17 +63,8 @@
 		<link rel="preconnect" href="http://example.com">
 
 
-[相关文章1](https://juejin.im/post/58e8acf10ce46300585a7a42)
+[相关文章1](https://juejin.im/post/58e8acf10ce46300585a7a42)  
 [相关文章2](http://bubkoo.com/2015/11/19/prefetching-preloading-prebrowsing/)
-	
-## DOMContentLoaded, load, readystatechange
-`DOMContentLoaded`：在页面被解析完成和静态JS执行完成（JS执行依赖CSS）触发，如果没有JS则在外部CSS加载之前触发  
-`load`：在所有静态资源被加载并执行完成包括（CSS、图片、JS等）  
-`readystatechange`： `document.readyState`有三种状态↓  
-
-		loading：加载中  
-		interactive：页面解析完成，时间上和 DOMContentLoaded 同时发生，不过顺序在它之前  
-		complete：页面上的资源都已加载完毕，时间上和 window.onload 同时发生，不过顺序在他之前  
 
 ## reflow和repaint：
 回流必定重绘，重绘不一定回流  
