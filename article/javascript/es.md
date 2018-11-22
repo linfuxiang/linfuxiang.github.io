@@ -1,5 +1,5 @@
 ## ES2015  
-#### Array  
+### Array  
 1. Array.from()  
 2. Array.of()  
 3. copyWithin()
@@ -7,7 +7,7 @@
 5. fill()  
 6. entries(), keys(), values()  
 
-#### Set  
+### Set  
 
 	Set.prototype.size
 
@@ -16,15 +16,35 @@
 	has(value)
 	clear()
 
-###### 遍历  
+#### 遍历  
 
 	keys()：返回键名的遍历器
 	values()：返回键值的遍历器
 	entries()：返回键值对的遍历器
 	forEach()：使用回调函数遍历每个成员
 
-#### Proxy & Reflect  
-##### Proxy  
+### Map   
+
+	let m1 = new Map()
+	let m2 = new Map([
+		['key1', 1],
+		['key2', 2],
+	])
+
+属性：
+
+	m2.size // 2
+
+实例方法：  
+
+	get()
+	set()
+	has()
+	delete()
+	clear()
+
+### Proxy & Reflect  
+#### Proxy  
 	new Proxy(target, handler)
 
 实例：
@@ -34,7 +54,7 @@
 	}
 	let proxy = new Proxy(obj, {
 		get(target, key, receiver) {
-			// 拦截 proxy.a 或 proxy['a'] 
+			// 拦截 proxy.a 或 proxy['a']
 		},
 		set(target, key, value, receiver) {
 			// 拦截 proxy.a = 1 或 proxy['a'] = 1
@@ -46,44 +66,44 @@
 			// 拦截 delete proxy.a
 		},
 		ownKeys(target) {
-			// 拦截 
+			// 拦截
 			// Object.getOwnPropertyNames(proxy)
 			// Object.getOwnPropertySymbols(proxy)
 			// Object.keys(proxy)
 			// for...in
 		},
 		getOwnPropertyDescriptor(target, key) {
-			
+
 		},
 		defineProperty(target, key, propDesc) {
-			// 拦截 
+			// 拦截
 			// Object.defineProperty()
 			// Object.defineProperties()
 		},
 		preventExtensions(target) {
-			
+
 		},
 		getPrototypeOf(target) {
 			// 拦截 Object.getPrototypeOf(proxy)
 		},
 		isExtensible(target) {
-			
+
 		},
 		setPrototypeOf(target, proto) {
-			
+
 		},
 		apply(target, object, args) {
-			
+
 		},
 		construct(target, args) {
 			// 拦截 new proxy()
 		}
 	})
 
-##### Reflect  
+#### Reflect  
 **Reflect** 的方法与 **Proxy** 是相同且对应的
 
-##### Iterator  
+#### Iterator  
 
 	let iter = [1, 2, 3][Symbol.iterator]();
 	iter.next(); // {value: 1, done: false}
