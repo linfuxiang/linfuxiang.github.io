@@ -167,6 +167,10 @@ define(function(require, exports, module) {
 				title: 'Ajax',
 				href: '?javascript-ajax',
 			}, {
+				name: 'clone',
+				title: '深克隆',
+				href: '?javascript-clone',
+			}, {
 				name: 'summary',
 				title: 'Summary',
 				href: '?javascript-summary',

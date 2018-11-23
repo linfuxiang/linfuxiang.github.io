@@ -1,18 +1,15 @@
-## ES6  
-#### Set  
+## 对象
+`Object.assign()`  
+`Object.create()`  
+`Object.defineProperty()`  
+`Object.entries()`  
+`Object.keys()`  
+`Object.getOwnPropertyDescriptor()` 返回对象的属性配置  
+`Object.getOwnPropertyNames()` 返回所有对象属性名  
+`Object.getOwnPropertySymbols()` 返回所有类型为Symbol的属性名  
+`Object.getPrototypeOf()` 返回所有原型对象  
 
-	Set.prototype.size
 
-	add(value)
-	delete(value)
-	has(value)
-	clear()
-
-###### 遍历  
-
-	keys()：返回键名的遍历器
-	values()：返回键值的遍历器
-	entries()：返回键值对的遍历器
-	forEach()：使用回调函数遍历每个成员
-
-#### Proxy & Reflect
+`Object.prototype.hasOwnProperty()` 判断对象是否有实例属性  
+`Object.prototype.isPrototypeOf()` 判断是否有对象的原型  
+`Object.prototype.propertyIsEnumerable()` 判断某个属性是否可枚举  
