@@ -797,6 +797,11 @@ h6:before {
 
 p {
     margin-bottom: 20px;
+    line-height: 2;
+}
+
+li {
+    line-height: 2;
 }
 
 a {

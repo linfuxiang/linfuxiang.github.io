@@ -185,7 +185,7 @@ define(function(require, exports, module) {
 				href: '?webpack-loader',
 			}, {
 				name: 'plugin',
-				title: '插件',
+				title: 'Plugin',
 				href: '?webpack-plugin',
 			}, ]
 		}, {
