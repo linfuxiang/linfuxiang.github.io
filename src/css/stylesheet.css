@@ -804,6 +804,10 @@ li {
     line-height: 2;
 }
 
+#sidebar li {
+    line-height: inherit;
+}
+
 a {
     text-decoration: none;
 }
