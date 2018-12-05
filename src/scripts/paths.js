@@ -189,6 +189,11 @@ define(function(require, exports, module) {
 				href: '?webpack-plugin',
 			}, ]
 		}, {
+			name: 'chrome',
+			title: 'Chrome扩展程序',
+			href: article + '?chrome',
+			details: []
+		}, {
 			name: 'canvas',
 			title: 'Canvas',
 			href: article + '?canvas',
@@ -248,12 +253,14 @@ define(function(require, exports, module) {
 			title: 'Jest',
 			href: article + '?jest',
 			details: []
-		}, {
-			name: 'sea',
-			title: 'Sea',
-			href: article + '?sea',
-			details: []
-		}, {
+		},
+		//  {
+		// 	name: 'sea',
+		// 	title: 'Sea',
+		// 	href: article + '?sea',
+		// 	details: []
+		// },
+		{
 			name: 'node',
 			title: 'Node.js',
 			href: article + '?node',
