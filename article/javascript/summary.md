@@ -79,5 +79,9 @@ OSI五层（七层）协议物理层、数据链路层、网络层、传输层�
 过期后验证资源是否有更新（通过Etag）  
 
 ## Vue 3.0  
-1. Proxy  
-2. 新的Virtual DOM  
+- Proxy（取代对属性进行代理时需要多个Object.defineProperty带来的性能提升，并支持数组的[index]修改和lenth修改）  
+- 新的Virtual DOM（编译时对静态节点做更多优化，来减少运行时的消耗）  
+- Tree-shaking  
+- 响应式数据监听API（observable, effect）  
+- Hooks取代Mixin  
+- Time Slicing Support（大量的计算）
