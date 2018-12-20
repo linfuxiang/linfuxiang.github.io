@@ -289,6 +289,11 @@ define(function(require, exports, module) {
 			title: '网络相关',
 			href: article + '?net',
 			details: []
+		}, {
+			name: 'security',
+			title: '前端安全相关',
+			href: article + '?security',
+			details: []
 		},
 		// {
 		//     name: 'little',
