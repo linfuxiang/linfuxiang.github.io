@@ -78,6 +78,16 @@ OSI五层（七层）协议物理层、数据链路层、网络层、传输层�
 设置Cache-Control为max-age=...或no-cache或no-store或must-revalidate  
 过期后验证资源是否有更新（通过Etag）  
 
+- 强缓存  
+	`Expire`(HTTP/1.0)和`Cache-Control:max-age=123456`(HTTP/1.1)，如果还没到达有效期，则直接使用缓存的文件，返回`200(from disk cache)`或`200(from memory cache)`  
+- 协商缓存  
+	`Last-Modified`和`ETag`，如果前面的强缓存判断过期了，则会在此次请求的请求头带上`If-Moified-Since`和`If-None-Match`，去判断是否有更新，如果有则返回`200`和新内容，如果没有则返回`304`  
+- 启发式缓存  
+	如果没有确定缓存时间的字段，浏览器会触发启发式缓存，取`Date`和`Last-Modified`差值的**10%**作为缓存时间。
+
+
+[参考文章](https://juejin.im/post/5a6c87c46fb9a01ca560b4d7)
+
 ## Vue 3.0  
 - Proxy（取代对属性进行代理时需要多个Object.defineProperty带来的性能提升，并支持数组的[index]修改和lenth修改）  
 - 新的Virtual DOM（编译时对静态节点做更多优化，来减少运行时的消耗）  
