@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>生日快乐我的小可爱~</title>
+	<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+
+	canvas {
+		background: white;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+	</style>
+</head>
+
+<body>
+	<canvas id="birthday" width="300" height="300"></canvas>
+	<script>
+	var w = 16;
+	var wh = 300;
+
+	var width = document.documentElement.clientWidth;
+	var height = document.documentElement.clientHeight;
+	document.getElementById("birthday").setAttribute("width", width);
+	document.getElementById("birthday").setAttribute("height", height);
+
+	//开始画  
+	var x0 = width / 2;
+	var y0 = width / 2;
+	var ctx = document.getElementById("birthday").getContext("2d");
+
+	ctx.fillStyle = "pink";
+	var x, y;
+	for (var t = -3; t <= 3; t = t + 0.001) {
+		x = 16 * Math.pow(Math.sin(t), 3);
+		y = 13 * Math.cos(t) - 5 * Math.cos(t * 2) - 2 * Math.cos(t * 3) - Math.cos(t * 4);
+		// 倍数
+		x = x * w;
+		y = y * w;
+		// 屏幕中心为原点  
+		ctx.fillRect(x + x0, y0 - y, 1, 1);
+	}
+
+	// ctx.translate(-75, 0);
+	ctx.font = "20px Georgia";
+	ctx.fillStyle = 'red';
+	ctx.fillText("小可爱 & 大帅哥", x0 - 70, y0);
+	</script>
+</body>
+
+</html>
