@@ -3,44 +3,72 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>生日快乐我的小可爱~</title>
-	<style>
-	* {
-		padding: 0;
-		margin: 0;
-	}
-
-	canvas {
-		background: white;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		-ms-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-	}
-	</style>
+	<link rel="stylesheet" href="./birthday/main.css">
 </head>
 
 <body>
-	<canvas id="birthday" width="300" height="300"></canvas>
+	<div id="first">
+		<canvas id="birthday" width="300" height="300"></canvas>
+		<img src="/dist/img_sp/bg.webp" class="bg-img" alt="">
+		<div class="bottom">
+			<div class="_1"></div>
+			<div class="_2"></div>
+			<div class="_3"></div>
+		</div>
+	</div>
+	<div id="second">
+		<div></div>
+	</div>
 	<script>
-	var w = 16;
+	var w = 8;
 	var wh = 300;
 
-	var width = document.documentElement.clientWidth;
-	var height = document.documentElement.clientHeight;
-	document.getElementById("birthday").setAttribute("width", width);
-	document.getElementById("birthday").setAttribute("height", height);
+	var width = Math.min(document.documentElement.clientWidth, 375);
+	var height = Math.min(document.documentElement.clientHeight, 400);
+	var $canvas = document.getElementById("birthday");
+	$canvas.setAttribute("width", width);
+	$canvas.setAttribute("height", height);
 
 	//开始画  
 	var x0 = width / 2;
-	var y0 = width / 2;
-	var ctx = document.getElementById("birthday").getContext("2d");
+	var y0 = height / 2;
+	var ctx = $canvas.getContext("2d");
 
-	ctx.fillStyle = "pink";
-	var x, y;
-	for (var t = -3; t <= 3; t = t + 0.001) {
+	ctx.fillStyle = "rgb(232, 116, 116)";
+	// var x, y;
+
+	var t = -3,
+		_t = 3;
+	var interval = setInterval(function() {
+		if (t > 0) {
+			clearInterval(interval);
+			$canvas.className = 'floating';
+		} else {
+			print(ctx, t);
+			t = t + 0.005;
+			print(ctx, _t);
+			_t = _t - 0.005;
+		}
+	}, 10);
+	// for (var t = -3; t <= 3; t = t + 0.001) {
+	// 	x = 16 * Math.pow(Math.sin(t), 3);
+	// 	y = 13 * Math.cos(t) - 5 * Math.cos(t * 2) - 2 * Math.cos(t * 3) - Math.cos(t * 4);
+	// 	// 倍数
+	// 	x = x * w;
+	// 	y = y * w;
+	// 	// 屏幕中心为原点  
+	// 	ctx.fillRect(x + x0, y0 - y, 1, 1);
+	// }
+
+	// ctx.translate(-75, 0);
+	ctx.font = "20px Rubik";
+	ctx.fillStyle = 'rgb(232, 116, 116)';
+	ctx.fillText("致我的小可爱", x0 - 60, y0);
+
+	function print(ctx, t) {
+		var x, y;
 		x = 16 * Math.pow(Math.sin(t), 3);
 		y = 13 * Math.cos(t) - 5 * Math.cos(t * 2) - 2 * Math.cos(t * 3) - Math.cos(t * 4);
 		// 倍数
@@ -49,11 +77,36 @@
 		// 屏幕中心为原点  
 		ctx.fillRect(x + x0, y0 - y, 1, 1);
 	}
+	</script>
+	<script>
+	var x, y;
 
-	// ctx.translate(-75, 0);
-	ctx.font = "20px Georgia";
-	ctx.fillStyle = 'red';
-	ctx.fillText("小可爱 & 大帅哥", x0 - 70, y0);
+	function start() {
+		console.log('start');
+		// document.querySelector('#first').style.display = 'none';
+		document.querySelector('#first').className = 'left';
+	}
+	document.querySelector('.bottom').addEventListener('click', function() {
+		start();
+	});
+	document.documentElement.addEventListener('touchstart', function(e) {
+		var touch = e.targetTouches && e.targetTouches[0];
+		x = touch.clientX;
+		y = touch.clientY;
+		console.log(x, y);
+	});
+	document.documentElement.addEventListener('touchmove', function(e) {
+		// console.log(e.targetTouches[0])
+	});
+	document.documentElement.addEventListener('touchend', function(e) {
+		var touch = e.changedTouches && e.changedTouches[0];
+		var _x = touch.clientX;
+		var _y = touch.clientY;
+		console.log(_x, _y);
+		if (_y - y < -50) {
+			start();
+		}
+	});
 	</script>
 </body>
 
