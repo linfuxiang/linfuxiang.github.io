@@ -12,49 +12,7 @@ body {
 }
 
 canvas.floating {
-	-webkit-animation: floating 2s ease 0s infinite normal both running;
-	;
-	-o-animation: floating 2s ease 0s infinite normal both running;
-	;
 	animation: floating 2s ease 0s infinite normal both running;
-	;
-}
-
-@keyframes floating {
-	0% {
-		-webkit-transform: scaleX(1);
-		transform: scaleX(1);
-	}
-
-	30% {
-		-webkit-transform: scale3d(1.25, .75, 1);
-		transform: scale3d(1.25, .75, 1);
-	}
-
-	40% {
-		-webkit-transform: scale3d(.75, 1.25, 1);
-		transform: scale3d(.75, 1.25, 1);
-	}
-
-	50% {
-		-webkit-transform: scale3d(1.15, .85, 1);
-		transform: scale3d(1.15, .85, 1);
-	}
-
-	65% {
-		-webkit-transform: scale3d(.95, 1.05, 1);
-		transform: scale3d(.95, 1.05, 1);
-	}
-
-	75% {
-		-webkit-transform: scale3d(1.05, .95, 1);
-		transform: scale3d(1.05, .95, 1);
-	}
-
-	100% {
-		-webkit-transform: scaleX(1);
-		transform: scaleX(1);
-	}
 }
 
 .bg-img {
@@ -63,42 +21,34 @@ canvas.floating {
 	top: 0;
 	left: 0;
 	z-index: -1;
-
 }
 
 @keyframes floating {
 	0% {
-		-webkit-transform: scaleX(1);
 		transform: scaleX(1);
 	}
 
 	30% {
-		-webkit-transform: scale3d(1.25, .75, 1);
 		transform: scale3d(1.25, .75, 1);
 	}
 
 	40% {
-		-webkit-transform: scale3d(.75, 1.25, 1);
 		transform: scale3d(.75, 1.25, 1);
 	}
 
 	50% {
-		-webkit-transform: scale3d(1.15, .85, 1);
 		transform: scale3d(1.15, .85, 1);
 	}
 
 	65% {
-		-webkit-transform: scale3d(.95, 1.05, 1);
 		transform: scale3d(.95, 1.05, 1);
 	}
 
 	75% {
-		-webkit-transform: scale3d(1.05, .95, 1);
 		transform: scale3d(1.05, .95, 1);
 	}
 
 	100% {
-		-webkit-transform: scaleX(1);
 		transform: scaleX(1);
 	}
 }
@@ -160,11 +110,23 @@ canvas.floating {
 @keyframes left {
 	from {
 		/*transform: rotateX(0deg);*/
-		/*-webkit-transform: rotateX(0deg);*/
 	}
 
 	to {
 		transform: rotateX(90deg);
-		-webkit-transform: rotateX(90deg);
 	}
+}
+
+.list-icon {
+	position: relative;
+}
+
+.list-icon-ver {
+	position: absolute;
+	left: 0;
+}
+
+.list-icon-hor {
+	position: absolute;
+	left: 50px;
 }

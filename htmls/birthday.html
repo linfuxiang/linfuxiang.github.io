@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>生日快乐我的小可爱~</title>
-	<link rel="stylesheet" href="./birthday/main.css">
+	<link rel="stylesheet" href="/dist/css/birthday.css">
 </head>
 
 <body>
@@ -19,7 +19,13 @@
 		</div>
 	</div>
 	<div id="second">
-		<div></div>
+		<div class="list-icon">
+			<div class="list-icon-ver"></div>
+			<div class="list-icon-hor"></div>
+		</div>
+		<div class="list-date">
+			2018.12.25.
+		</div>
 	</div>
 	<script>
 	var w = 8;
@@ -83,8 +89,12 @@
 
 	function start() {
 		console.log('start');
+		var $first = document.querySelector('#first');
 		// document.querySelector('#first').style.display = 'none';
-		document.querySelector('#first').className = 'left';
+		$first.className = 'left';
+		$first.addEventListener("animationend", function(e) {
+			$first.style.display = 'none';
+		});
 	}
 	document.querySelector('.bottom').addEventListener('click', function() {
 		start();
