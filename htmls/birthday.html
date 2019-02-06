@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<title>生日快乐我的小可爱~</title>
+	<title>情人节快乐宝宝</title>
 	<link rel="stylesheet" href="/dist/css/birthday.css">
 </head>
 
@@ -18,14 +18,10 @@
 			<div class="_3"></div>
 		</div>
 	</div>
-	<div id="second">
-		<div class="list-icon">
-			<div class="list-icon-ver"></div>
-			<div class="list-icon-hor"></div>
-		</div>
-		<div class="list-date">
-			2018.12.25.
-		</div>
+	<ul id="second">
+	</ul>
+	<div class="img-default">
+		
 	</div>
 	<script>
 	var w = 8;
@@ -57,7 +53,7 @@
 			print(ctx, _t);
 			_t = _t - 0.005;
 		}
-	}, 10);
+	}, 16);
 	// for (var t = -3; t <= 3; t = t + 0.001) {
 	// 	x = 16 * Math.pow(Math.sin(t), 3);
 	// 	y = 13 * Math.cos(t) - 5 * Math.cos(t * 2) - 2 * Math.cos(t * 3) - Math.cos(t * 4);
@@ -84,40 +80,7 @@
 		ctx.fillRect(x + x0, y0 - y, 1, 1);
 	}
 	</script>
-	<script>
-	var x, y;
-
-	function start() {
-		console.log('start');
-		var $first = document.querySelector('#first');
-		// document.querySelector('#first').style.display = 'none';
-		$first.className = 'left';
-		$first.addEventListener("animationend", function(e) {
-			$first.style.display = 'none';
-		});
-	}
-	document.querySelector('.bottom').addEventListener('click', function() {
-		start();
-	});
-	document.documentElement.addEventListener('touchstart', function(e) {
-		var touch = e.targetTouches && e.targetTouches[0];
-		x = touch.clientX;
-		y = touch.clientY;
-		console.log(x, y);
-	});
-	document.documentElement.addEventListener('touchmove', function(e) {
-		// console.log(e.targetTouches[0])
-	});
-	document.documentElement.addEventListener('touchend', function(e) {
-		var touch = e.changedTouches && e.changedTouches[0];
-		var _x = touch.clientX;
-		var _y = touch.clientY;
-		console.log(_x, _y);
-		if (_y - y < -50) {
-			start();
-		}
-	});
-	</script>
+	<script src="/dist/scripts/birthday.js"></script>
 </body>
 
 </html>
