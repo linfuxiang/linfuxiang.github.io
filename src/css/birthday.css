@@ -165,6 +165,10 @@ li.li {
 	margin-top: 10px;
 }
 
+.list-img:last-of-type {
+	margin-bottom: 10px;
+}
+
 .list-desc {}
 
 .img-default {
