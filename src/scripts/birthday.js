@@ -158,7 +158,7 @@ function start() {
 						y = rect.y,
 						height = rect.height;
 					// console.log(i, rect, y, scrollY);
-					console.log(i);
+					// console.log(i);
 					if (y + height > 0 && y < clientHeight - 30) {
 						list[i].img.forEach(function(item) {
 							item.src = item.getAttribute('data-src');
@@ -189,7 +189,7 @@ document.documentElement.addEventListener('touchstart', function(e) {
 	var touch = e.targetTouches && e.targetTouches[0];
 	x = touch.clientX;
 	y = touch.clientY;
-	console.log(x, y);
+	// console.log(x, y);
 });
 // document.documentElement.addEventListener('touchmove', function(e) {
 // console.log(e.targetTouches[0])
@@ -202,8 +202,25 @@ document.documentElement.addEventListener('touchend', function(e) {
 	var touch = e.changedTouches && e.changedTouches[0];
 	var _x = touch.clientX;
 	var _y = touch.clientY;
-	console.log(_x, _y);
+	// console.log(_x, _y);
 	if (_y - y < -50) {
 		start();
 	}
+});
+
+// 背景音乐相关
+let $music = document.querySelector('#music'),
+	$icon = document.querySelector('#icon');
+
+$music.addEventListener('canplay', function() {
+	$icon.style.display = 'block';
+	$icon.addEventListener('click', function() {
+		if (this.className) {
+			this.className = '';
+			$music.play();
+		} else {
+			this.className = 'paused';
+			$music.pause();
+		}
+	});
 });
