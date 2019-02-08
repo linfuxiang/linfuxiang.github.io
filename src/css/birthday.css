@@ -187,6 +187,7 @@ li.li {
 	max-width: 80%;
 	max-height: 350px;
 	margin-top: 10px;
+	display: block;
 }
 
 .list-img:last-of-type {
