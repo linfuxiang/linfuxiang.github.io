@@ -14,17 +14,17 @@ const list = [{
 		'/dist/img_sp/20181118_1.jpg',
 		'/dist/img_sp/20181118_2.jpg',
 	],
-	desc: '那个时候我经常流鼻血，鼻炎也一直拖着不好，你陪我去医院，让我感受到了温暖，同时也保留下了我第一张黑照。',
+	desc: '那个时候我经常流鼻血，鼻炎也一直拖着不好，你硬是拉着我说陪我去医院，现在想起来真是个暖宝宝呢，嘻嘻。',
 	init: false,
 }, {
 	date: '2018.11.25.',
 	img: '/dist/img_sp/20181125.jpg',
-	desc: '我们去了云台花园和白云山，第一次牵了你的手。',
+	desc: '天下着毛毛细雨，我们依然坚持去了云台花园和白云山，我抱着害羞又激动的心情问你：“我可以牵着你吗”，没想到这一整天的大手牵小手，让我“难受”了一整天，我连抱着你都不敢靠太近（害羞脸）。',
 	init: false,
 }, {
 	date: '2018.12.09.',
 	img: '/dist/img_sp/20181209.jpg',
-	desc: '我们第一次去红专厂拍照。',
+	desc: '谢谢你和我拍了很多好看的照片，我会继续进修我的拍照技术。',
 	init: false,
 }, {
 	date: '2018.12.25.',
@@ -33,7 +33,7 @@ const list = [{
 		'/dist/img_sp/20181225_2.jpg',
 		'/dist/img_sp/20181225_3.jpg',
 	],
-	desc: '圣诞节',
+	desc: '我们过的第一个有意义的节日，在夜色的陪伴下，我们坐在华工运动场，我把你的礼物拆开之后，我对你的好感突然就升华成喜欢了，忍不住跟你表了白，还第一次亲吻了你涂满口红的嘴唇（害我一嘴红）和...（嘻嘻）。',
 	init: false,
 }, {
 	date: '2019.01.01.',
@@ -41,22 +41,22 @@ const list = [{
 		'/dist/img_sp/20190101_1.jpg',
 		'/dist/img_sp/20190101_2.jpg',
 	],
-	desc: '元旦',
+	desc: '元旦，你来了我家，我们做饭吃，看电影，看跨年晚会，看你的朱老师，喝早茶……',
 	init: false,
 }, {
 	date: '2019.01.17.',
 	img: '/dist/img_sp/20190117.jpg',
-	desc: '第二天你就要回湖北了，超级不舍，所以给你留了纪念。',
+	desc: '第二天你就要回湖北了，超级不舍，所以给你留了点纪念。',
 	init: false,
 }, {
 	date: '2019.01.19.',
 	img: '/dist/img_sp/20190119.jpg',
-	desc: '我们第一次视频聊天，我看到了一个不一样的你。',
+	desc: '我们第一次视频聊天，一聊就坚持了十几天，我看到了一个不一样的你，我这个p得还不错吧（骄傲脸）。',
 	init: false,
 }, {
 	date: '未来',
 	img: '/dist/img_sp/love.png',
-	desc: '想跟你留下更多回忆，想跟你一直走下去。',
+	desc: '想跟你留下更多回忆，想跟你一直走下去。（本来想在这里贴朱老师和二硕的照片的，还是算了，看本帅宝就行了）',
 	init: false,
 }]
 
@@ -153,13 +153,11 @@ function start() {
 						list[i].img = list[i].el.querySelectorAll('img');
 					}
 					let li = list[i].el;
-					// console.log(li.getBoundingClientRect());
+					// rect.x和rect.y在微信中不能使用
 					let rect = li.getBoundingClientRect(),
-						y = rect.y,
+						top = rect.top,
 						height = rect.height;
-					// console.log(i, rect, y, scrollY);
-					// console.log(i);
-					if (y + height > 0 && y < clientHeight - 30) {
+					if (top + height > 0 && top < clientHeight - 30) {
 						list[i].img.forEach(function(item) {
 							item.src = item.getAttribute('data-src');
 						});
