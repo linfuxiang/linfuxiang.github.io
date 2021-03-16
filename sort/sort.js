@@ -86,4 +86,53 @@ function quickSort(arr, left, right) {
 	quickSort(arr, i + 1, right);
 	return arr;
 }
-quickSort([1, 2, 0, 5, 3, 8, 6, 4, 7, 9], 0, 9);
+
+// 希尔排序
+function shellSort(arr) {
+    var len = arr.length,
+        temp,
+        gap = 1;
+    while(gap < len/3) {          //动态定义间隔序列
+        gap =gap*3+1;
+    }
+    for (gap; gap > 0; gap = Math.floor(gap/3)) {
+        for (var i = gap; i < len; i++) {
+            temp = arr[i];
+            for (var j = i-gap; j >= 0 && arr[j] > temp; j-=gap) {
+                arr[j+gap] = arr[j];
+            }
+            arr[j+gap] = temp;
+        }
+    }
+    return arr;
+}
+
+// 归并
+function mergeSort(arr) {
+	var len = arr.length;
+	if (len < 2) {
+		return arr;
+	}
+	var middle = Math.floor(len / 2),
+		left = arr.slice(0, middle),
+		right = arr.slice(middle);
+	returnmerge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+	var result = [];
+
+	while (left.length > 0 && right.length > 0) {
+		if (left[0] <= right[0]) {
+			result.push(left.shift());
+		} else {
+			result.push(right.shift());
+		}
+	}
+
+	while (left.length) result.push(left.shift());
+
+	while (right.length) result.push(right.shift());
+
+	return result;
+}

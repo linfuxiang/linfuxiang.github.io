@@ -11,22 +11,22 @@
   "author": "lfx",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^7.0.0",
-    "gulp-clean-css": "^3.7.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "gulp-watch-path": "^0.1.0",
-    "stream-combiner2": "^1.1.1"
+    "babel-core": "6.26.0",
+    "babel-preset-env": "1.6.0",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "4.0.0",
+    "gulp-babel": "7.0.0",
+    "gulp-clean-css": "3.7.0",
+    "gulp-uglify": "3.0.0",
+    "gulp-util": "3.0.8",
+    "gulp-watch-path": "0.1.0",
+    "stream-combiner2": "1.1.1"
   },
   "dependencies": {
-    "echarts": "^3.6.2",
-    "jquery": "^3.2.1",
-    "sea": "^1.0.2",
-    "vue": "^2.4.2",
-    "vue-resource": "^1.3.4"
+    "echarts": "3.6.2",
+    "jquery": "3.2.1",
+    "sea": "1.0.2",
+    "vue": "2.4.2",
+    "vue-resource": "1.3.4"
   }
 }
