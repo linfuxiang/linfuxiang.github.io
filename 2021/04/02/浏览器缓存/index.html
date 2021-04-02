@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Long&#39;s Blog">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="浏览器缓存分为强缓存和协商缓存 强缓存强缓存是客户端对服务器上一次返回的响应头中的cache-control和expires进行时间判断，如果未过期，则使用已缓存资源，如果过期了，执行协商缓存策略。    字段 实例 优先级 HTTP 版本    Pragma pragma: no-cache（只有这个值） 更高 1.0   Cache-Control cache-control: max-age">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存">
+<meta property="og:url" content="http://example.com/2021/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/index.html">
 <meta property="og:site_name" content="Long&#39;s Blog">
+<meta property="og:description" content="浏览器缓存分为强缓存和协商缓存 强缓存强缓存是客户端对服务器上一次返回的响应头中的cache-control和expires进行时间判断，如果未过期，则使用已缓存资源，如果过期了，执行协商缓存策略。    字段 实例 优先级 HTTP 版本    Pragma pragma: no-cache（只有这个值） 更高 1.0   Cache-Control cache-control: max-age">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-02T08:59:22.000Z">
+<meta property="article:modified_time" content="2021-04-02T09:45:16.914Z">
 <meta property="article:author" content="Long Lin">
+<meta property="article:tag" content="缓存">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/2021/">
+<link rel="canonical" href="http://example.com/2021/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Long's Blog</title>
+  <title>浏览器缓存 | Long's Blog</title>
   
 
 
@@ -149,150 +154,156 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 6 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Long Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Long's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浏览器缓存
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-02 16:59:22 / 修改时间：17:45:16" itemprop="dateCreated datePublished" datetime="2021-04-02T16:59:22+08:00">2021-04-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-02T16:59:22+08:00"
-              content="2021-04-02">
-          04-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" itemprop="url">
-            <span itemprop="name">浏览器缓存</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-02T14:47:47+08:00"
-              content="2021-04-02">
-          04-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/02/performance/optimization/" itemprop="url">
-            <span itemprop="name">性能优化</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-02T14:47:13+08:00"
-              content="2021-04-02">
-          04-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/02/performance/web_virtals/" itemprop="url">
-            <span itemprop="name">性能指标</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-01T21:29:15+08:00"
-              content="2021-04-01">
-          04-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/01/Svga/" itemprop="url">
-            <span itemprop="name">Svga使用</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-01T15:54:27+08:00"
-              content="2021-04-01">
-          04-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/01/%E4%B8%80%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">一些设计模式</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-01T15:24:26+08:00"
-              content="2021-04-01">
-          04-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/01/%E9%87%8D%E6%96%B0%E5%87%BA%E5%8F%91/" itemprop="url">
-            <span itemprop="name">重新出发</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>浏览器缓存分为<strong>强缓存</strong>和<strong>协商缓存</strong></p>
+<h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>强缓存是客户端对服务器上一次返回的响应头中的<code>cache-control</code>和<code>expires</code>进行时间判断，如果未过期，则使用已缓存资源，如果过期了，执行协商缓存策略。</p>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">实例</th>
+<th align="center">优先级</th>
+<th align="center">HTTP 版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Pragma</td>
+<td align="center">pragma: no-cache（只有这个值）</td>
+<td align="center">更高</td>
+<td align="center">1.0</td>
+</tr>
+<tr>
+<td align="center">Cache-Control</td>
+<td align="center">cache-control: max-age=60</td>
+<td align="center">高</td>
+<td align="center">1.1</td>
+</tr>
+<tr>
+<td align="center">Expires</td>
+<td align="center">expires: Mon, 28 Mar 2022 21:37:27 GMT</td>
+<td align="center">低</td>
+<td align="center">1.0</td>
+</tr>
+</tbody></table>
+<h3 id="Cache-Control-特殊指令"><a href="#Cache-Control-特殊指令" class="headerlink" title="Cache-Control 特殊指令"></a>Cache-Control 特殊指令</h3><ul>
+<li><code>no-cache</code>把请求提交给服务器，进行协商缓存验证</li>
+<li><code>no-store</code>不进行任何缓存操作</li>
+</ul>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存是客户端和服务器进行协商是否使用缓存，从而判断是重新加载资源（200）还是使用本地缓存（304）</p>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">对应字段</th>
+<th align="center">值</th>
+<th align="center">含义</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Etag</td>
+<td align="center">If-None-Match</td>
+<td align="center">hash/文件信息</td>
+<td align="center">服务器资源文件信息或文件内容生成的哈希值</td>
+<td>高</td>
+</tr>
+<tr>
+<td align="center">If-None-Match</td>
+<td align="center">Etag</td>
+<td align="center">hash/文件信息</td>
+<td align="center">上次响应头中的 Etag</td>
+<td>高</td>
+</tr>
+<tr>
+<td align="center">Last-Modified</td>
+<td align="center">If-Modified-Since</td>
+<td align="center">时间</td>
+<td align="center">服务器资源最后修改时间</td>
+<td>低</td>
+</tr>
+<tr>
+<td align="center">If-Modified-Since</td>
+<td align="center">Last-Modified</td>
+<td align="center">时间</td>
+<td align="center">上次响应头中的 Last-Modified</td>
+<td>低</td>
+</tr>
+</tbody></table>
+<h3 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h3><p>Etag 是被请求资源的摘要标识，可以使服务器识别出内容是否被修改过</p>
+<p>Nginx 生成 Etag 是由 <code>last_modified</code> 和 <code>content_length</code> ，比如 <code>W/&quot;6062c869-5ade&quot;</code>，由 十六进制的上次修改时间戳（秒级） 和 十六进制的文件大小 组合而成的。</p>
+<p>要注意的是，Nginx 的方案并不能保证文件有修改，Etag 一定会发生改变，因为存在一种情况是在 1 秒内修改了文件，但是文件大小并没有改变，这时候 Etag 是没有变化的。但是这种情况极少发生，并且考虑到性能较高，依然采用了这种方案。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%93%E5%AD%98/" rel="tag"># 缓存</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/02/performance/optimization/" rel="prev" title="性能优化">
+      <i class="fa fa-chevron-left"></i> 性能优化
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -345,6 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">1.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-Control-%E7%89%B9%E6%AE%8A%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">Cache-Control 特殊指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">2.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Etag"><span class="nav-number">2.1.</span> <span class="nav-text">Etag</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

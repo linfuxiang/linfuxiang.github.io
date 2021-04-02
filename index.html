@@ -113,6 +113,16 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -141,6 +151,279 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Long Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Long's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">浏览器缓存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-02 16:59:22 / 修改时间：17:45:16" itemprop="dateCreated datePublished" datetime="2021-04-02T16:59:22+08:00">2021-04-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>浏览器缓存分为<strong>强缓存</strong>和<strong>协商缓存</strong></p>
+<h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>强缓存是客户端对服务器上一次返回的响应头中的<code>cache-control</code>和<code>expires</code>进行时间判断，如果未过期，则使用已缓存资源，如果过期了，执行协商缓存策略。</p>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">实例</th>
+<th align="center">优先级</th>
+<th align="center">HTTP 版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Pragma</td>
+<td align="center">pragma: no-cache（只有这个值）</td>
+<td align="center">更高</td>
+<td align="center">1.0</td>
+</tr>
+<tr>
+<td align="center">Cache-Control</td>
+<td align="center">cache-control: max-age=60</td>
+<td align="center">高</td>
+<td align="center">1.1</td>
+</tr>
+<tr>
+<td align="center">Expires</td>
+<td align="center">expires: Mon, 28 Mar 2022 21:37:27 GMT</td>
+<td align="center">低</td>
+<td align="center">1.0</td>
+</tr>
+</tbody></table>
+<h3 id="Cache-Control-特殊指令"><a href="#Cache-Control-特殊指令" class="headerlink" title="Cache-Control 特殊指令"></a>Cache-Control 特殊指令</h3><ul>
+<li><code>no-cache</code>把请求提交给服务器，进行协商缓存验证</li>
+<li><code>no-store</code>不进行任何缓存操作</li>
+</ul>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存是客户端和服务器进行协商是否使用缓存，从而判断是重新加载资源（200）还是使用本地缓存（304）</p>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">对应字段</th>
+<th align="center">值</th>
+<th align="center">含义</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Etag</td>
+<td align="center">If-None-Match</td>
+<td align="center">hash/文件信息</td>
+<td align="center">服务器资源文件信息或文件内容生成的哈希值</td>
+<td>高</td>
+</tr>
+<tr>
+<td align="center">If-None-Match</td>
+<td align="center">Etag</td>
+<td align="center">hash/文件信息</td>
+<td align="center">上次响应头中的 Etag</td>
+<td>高</td>
+</tr>
+<tr>
+<td align="center">Last-Modified</td>
+<td align="center">If-Modified-Since</td>
+<td align="center">时间</td>
+<td align="center">服务器资源最后修改时间</td>
+<td>低</td>
+</tr>
+<tr>
+<td align="center">If-Modified-Since</td>
+<td align="center">Last-Modified</td>
+<td align="center">时间</td>
+<td align="center">上次响应头中的 Last-Modified</td>
+<td>低</td>
+</tr>
+</tbody></table>
+<h3 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h3><p>Etag 是被请求资源的摘要标识，可以使服务器识别出内容是否被修改过</p>
+<p>Nginx 生成 Etag 是由 <code>last_modified</code> 和 <code>content_length</code> ，比如 <code>W/&quot;6062c869-5ade&quot;</code>，由 十六进制的上次修改时间戳（秒级） 和 十六进制的文件大小 组合而成的。</p>
+<p>要注意的是，Nginx 的方案并不能保证文件有修改，Etag 一定会发生改变，因为存在一种情况是在 1 秒内修改了文件，但是文件大小并没有改变，这时候 Etag 是没有变化的。但是这种情况极少发生，并且考虑到性能较高，依然采用了这种方案。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/02/performance/optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Long Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Long's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/02/performance/optimization/" class="post-title-link" itemprop="url">性能优化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-02 14:47:47 / 修改时间：14:57:13" itemprop="dateCreated datePublished" datetime="2021-04-02T14:47:47+08:00">2021-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%A7%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">性能</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/02/performance/web_virtals/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Long Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Long's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/02/performance/web_virtals/" class="post-title-link" itemprop="url">性能指标</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-02 14:47:13 / 修改时间：14:58:40" itemprop="dateCreated datePublished" datetime="2021-04-02T14:47:13+08:00">2021-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%A7%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">性能</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="First-Input-Delay-FID"><a href="#First-Input-Delay-FID" class="headerlink" title="First Input Delay (FID)"></a>First Input Delay (FID)</h3><h3 id="Cumulative-Layout-Shift-CLS"><a href="#Cumulative-Layout-Shift-CLS" class="headerlink" title="Cumulative Layout Shift (CLS)"></a>Cumulative Layout Shift (CLS)</h3><h3 id="Largest-Contentful-Paint-LCP"><a href="#Largest-Contentful-Paint-LCP" class="headerlink" title="Largest Contentful Paint (LCP)"></a>Largest Contentful Paint (LCP)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lcp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> po = <span class="keyword">new</span> PerformanceObserver(<span class="function"><span class="params">entryList</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> entries = entryList.getEntries();</span><br><span class="line">  <span class="keyword">const</span> lastEntry = entries[entries.length - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  lcp = lastEntry.renderTime || lastEntry.loadTime;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">po.observe(&#123; <span class="attr">type</span>: <span class="string">&#x27;largest-contentful-paint&#x27;</span>, <span class="attr">buffered</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line">addEventListener(</span><br><span class="line">  <span class="string">&#x27;visibilitychange&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (lcp &amp;&amp; <span class="built_in">document</span>.visibilityState === <span class="string">&#x27;hidden&#x27;</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;LCP:&#x27;</span>, lcp);</span><br><span class="line">      removeEventListener(<span class="string">&#x27;visibilitychange&#x27;</span>, fn, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="First-Contentful-Paint-FCP"><a href="#First-Contentful-Paint-FCP" class="headerlink" title="First Contentful Paint (FCP)"></a>First Contentful Paint (FCP)</h3><p>首个内容返回<code>performance.getEntries()</code></p>
+<h3 id="Time-to-First-Byte-TTFB"><a href="#Time-to-First-Byte-TTFB" class="headerlink" title="Time to First Byte (TTFB)"></a>Time to First Byte (TTFB)</h3><p>首个字节返回的时延<code>performance.timing.responseStart</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -475,13 +758,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">标签</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
