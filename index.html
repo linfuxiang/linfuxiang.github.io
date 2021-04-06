@@ -178,10 +178,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-02 16:59:22 / 修改时间：17:45:16" itemprop="dateCreated datePublished" datetime="2021-04-02T16:59:22+08:00">2021-04-02</time>
+              <time title="创建时间：2021-04-02 16:59:22" itemprop="dateCreated datePublished" datetime="2021-04-02T16:59:22+08:00">2021-04-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-06 09:54:01" itemprop="dateModified" datetime="2021-04-06T09:54:01+08:00">2021-04-06</time>
+              </span>
 
           
 
@@ -195,83 +201,14 @@
 
       
           <p>浏览器缓存分为<strong>强缓存</strong>和<strong>协商缓存</strong></p>
-<h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>强缓存是客户端对服务器上一次返回的响应头中的<code>cache-control</code>和<code>expires</code>进行时间判断，如果未过期，则使用已缓存资源，如果过期了，执行协商缓存策略。</p>
-<table>
-<thead>
-<tr>
-<th align="center">字段</th>
-<th align="center">实例</th>
-<th align="center">优先级</th>
-<th align="center">HTTP 版本</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Pragma</td>
-<td align="center">pragma: no-cache（只有这个值）</td>
-<td align="center">更高</td>
-<td align="center">1.0</td>
-</tr>
-<tr>
-<td align="center">Cache-Control</td>
-<td align="center">cache-control: max-age=60</td>
-<td align="center">高</td>
-<td align="center">1.1</td>
-</tr>
-<tr>
-<td align="center">Expires</td>
-<td align="center">expires: Mon, 28 Mar 2022 21:37:27 GMT</td>
-<td align="center">低</td>
-<td align="center">1.0</td>
-</tr>
-</tbody></table>
-<h3 id="Cache-Control-特殊指令"><a href="#Cache-Control-特殊指令" class="headerlink" title="Cache-Control 特殊指令"></a>Cache-Control 特殊指令</h3><ul>
-<li><code>no-cache</code>把请求提交给服务器，进行协商缓存验证</li>
-<li><code>no-store</code>不进行任何缓存操作</li>
-</ul>
-<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存是客户端和服务器进行协商是否使用缓存，从而判断是重新加载资源（200）还是使用本地缓存（304）</p>
-<table>
-<thead>
-<tr>
-<th align="center">字段</th>
-<th align="center">对应字段</th>
-<th align="center">值</th>
-<th align="center">含义</th>
-<th>优先级</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Etag</td>
-<td align="center">If-None-Match</td>
-<td align="center">hash/文件信息</td>
-<td align="center">服务器资源文件信息或文件内容生成的哈希值</td>
-<td>高</td>
-</tr>
-<tr>
-<td align="center">If-None-Match</td>
-<td align="center">Etag</td>
-<td align="center">hash/文件信息</td>
-<td align="center">上次响应头中的 Etag</td>
-<td>高</td>
-</tr>
-<tr>
-<td align="center">Last-Modified</td>
-<td align="center">If-Modified-Since</td>
-<td align="center">时间</td>
-<td align="center">服务器资源最后修改时间</td>
-<td>低</td>
-</tr>
-<tr>
-<td align="center">If-Modified-Since</td>
-<td align="center">Last-Modified</td>
-<td align="center">时间</td>
-<td align="center">上次响应头中的 Last-Modified</td>
-<td>低</td>
-</tr>
-</tbody></table>
-<h3 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h3><p>Etag 是被请求资源的摘要标识，可以使服务器识别出内容是否被修改过</p>
-<p>Nginx 生成 Etag 是由 <code>last_modified</code> 和 <code>content_length</code> ，比如 <code>W/&quot;6062c869-5ade&quot;</code>，由 十六进制的上次修改时间戳（秒级） 和 十六进制的文件大小 组合而成的。</p>
-<p>要注意的是，Nginx 的方案并不能保证文件有修改，Etag 一定会发生改变，因为存在一种情况是在 1 秒内修改了文件，但是文件大小并没有改变，这时候 Etag 是没有变化的。但是这种情况极少发生，并且考虑到性能较高，依然采用了这种方案。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/02/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -313,10 +250,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-02 14:47:47 / 修改时间：14:57:13" itemprop="dateCreated datePublished" datetime="2021-04-02T14:47:47+08:00">2021-04-02</time>
+              <time title="创建时间：2021-04-02 14:47:47" itemprop="dateCreated datePublished" datetime="2021-04-02T14:47:47+08:00">2021-04-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-06 17:20:44" itemprop="dateModified" datetime="2021-04-06T17:20:44+08:00">2021-04-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -338,7 +281,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>性能优化可以做的事情</p>
+<p>普遍的：</p>
+<ol>
+<li>html、css、js 资源混淆压缩，图片压缩</li>
+<li>合理利用 CDN 和浏览器缓存（强缓存，协商缓存，Service Worker，storage，indexedDB）</li>
+<li>DNS 预解析，预先建立连接</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://longlin.com&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preconnect&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://longlin.com&quot;</span> <span class="attr">crossorigin</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// prefetch</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span>(<span class="comment">/* webpackPrefetch: true */</span> <span class="string">&#x27;./sub1.js&#x27;</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>长列表使用虚拟滚动优化</li>
+<li>防止事件监听回调执行时间过长，导致原生事件执行延迟了</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这段特性检测的方法很巧妙</span></span><br><span class="line"><span class="keyword">let</span> supportsPassive = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> opts = <span class="built_in">Object</span>.defineProperty(&#123;&#125;, <span class="string">&#x27;passive&#x27;</span>, &#123;</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      supportsPassive = <span class="literal">true</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;testPassive&#x27;</span>, <span class="literal">null</span>, opts);</span><br><span class="line">  <span class="built_in">window</span>.removeEventListener(<span class="string">&#x27;testPassive&#x27;</span>, <span class="literal">null</span>, opts);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(</span><br><span class="line">  <span class="string">&#x27;touchstart&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 做了一些操作……</span></span><br><span class="line">  &#125;,</span><br><span class="line">  supportsPassive ? &#123; <span class="attr">passive</span>: <span class="literal">true</span> &#125; : <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>合理使用防抖和节流函数</li>
+<li>大任务使用 web-worker 或者分片任务（<code>requestAnimationFrame</code>和<code>requestIdleCallback</code>）</li>
+<li>使用</li>
+<li>利用服务端渲染（SSR，可细分为 HTML SSR 和 Data SSR）</li>
+<li>避免闭包引发的内存泄漏</li>
+<li>减少回流操作，尽量给元素定宽高</li>
+<li>图片尝试使用<code>Webp</code></li>
+</ol>
+<p>Webpack：</p>
+<ol>
+<li>资源懒加载，拆分异步组件，利用骨架屏或良好的 loading 做提示</li>
+<li>SDK 等常用而且不会经常变化的资源，抽出来（<code>optimization.splitChunks</code>或<code>externals</code>），加载</li>
+<li>Tree Shaking（已默认支持）</li>
+</ol>
+<p>React：</p>
+<ol>
+<li>为列表增加 key</li>
+<li>非事务操作中，减少 setState 次数</li>
+<li>合理利用<code>React.useMemo</code>和<code>React.memo</code></li>
+</ol>
+
       
     </div>
 
@@ -380,10 +359,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-02 14:47:13 / 修改时间：14:58:40" itemprop="dateCreated datePublished" datetime="2021-04-02T14:47:13+08:00">2021-04-02</time>
+              <time title="创建时间：2021-04-02 14:47:13" itemprop="dateCreated datePublished" datetime="2021-04-02T14:47:13+08:00">2021-04-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-06 17:53:28" itemprop="dateModified" datetime="2021-04-06T17:53:28+08:00">2021-04-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -405,11 +390,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="First-Input-Delay-FID"><a href="#First-Input-Delay-FID" class="headerlink" title="First Input Delay (FID)"></a>First Input Delay (FID)</h3><h3 id="Cumulative-Layout-Shift-CLS"><a href="#Cumulative-Layout-Shift-CLS" class="headerlink" title="Cumulative Layout Shift (CLS)"></a>Cumulative Layout Shift (CLS)</h3><h3 id="Largest-Contentful-Paint-LCP"><a href="#Largest-Contentful-Paint-LCP" class="headerlink" title="Largest Contentful Paint (LCP)"></a>Largest Contentful Paint (LCP)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> lcp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> po = <span class="keyword">new</span> PerformanceObserver(<span class="function"><span class="params">entryList</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> entries = entryList.getEntries();</span><br><span class="line">  <span class="keyword">const</span> lastEntry = entries[entries.length - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  lcp = lastEntry.renderTime || lastEntry.loadTime;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">po.observe(&#123; <span class="attr">type</span>: <span class="string">&#x27;largest-contentful-paint&#x27;</span>, <span class="attr">buffered</span>: <span class="literal">true</span> &#125;);</span><br><span class="line"></span><br><span class="line">addEventListener(</span><br><span class="line">  <span class="string">&#x27;visibilitychange&#x27;</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (lcp &amp;&amp; <span class="built_in">document</span>.visibilityState === <span class="string">&#x27;hidden&#x27;</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;LCP:&#x27;</span>, lcp);</span><br><span class="line">      removeEventListener(<span class="string">&#x27;visibilitychange&#x27;</span>, fn, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h3 id="First-Contentful-Paint-FCP"><a href="#First-Contentful-Paint-FCP" class="headerlink" title="First Contentful Paint (FCP)"></a>First Contentful Paint (FCP)</h3><p>首个内容返回<code>performance.getEntries()</code></p>
-<h3 id="Time-to-First-Byte-TTFB"><a href="#Time-to-First-Byte-TTFB" class="headerlink" title="Time to First Byte (TTFB)"></a>Time to First Byte (TTFB)</h3><p>首个字节返回的时延<code>performance.timing.responseStart</code></p>
-
+          <p>部分性能指标</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/02/performance/web_virtals/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -459,7 +448,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-02 14:39:23" itemprop="dateModified" datetime="2021-04-02T14:39:23+08:00">2021-04-02</time>
+                <time title="修改时间：2021-04-06 09:54:01" itemprop="dateModified" datetime="2021-04-06T09:54:01+08:00">2021-04-06</time>
               </span>
 
           
@@ -475,48 +464,14 @@
       
           <pre><code>背景：需要实现跑车进场的动画，有闪电、跑车抖动等效果
 </code></pre>
-<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>分别思考和对比了四种方案，GIF、CSS3 帧动画、Lottie、Svga，权衡下最终选择了Svga</p>
-<h4 id="GIF"><a href="#GIF" class="headerlink" title="GIF"></a>GIF</h4><p>优点：</p>
-<ul>
-<li>前端只需要像替换图片，替换 img 图片即可</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>GIF 文件大</li>
-<li>播放效果差，而且耗内存和性能</li>
-<li>不同跑车只能用不同的 GIF，资源浪费</li>
-</ul>
-<h4 id="CSS3-帧动画"><a href="#CSS3-帧动画" class="headerlink" title="CSS3 帧动画"></a>CSS3 帧动画</h4><p>优点：</p>
-<ul>
-<li>性能表现相对 GIF 较好</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>生成的图片也是非常大</li>
-<li>动画改变时，有重新开发和发版的时间成本</li>
-<li>与 GIF 一样，不同跑车只能用不同的序列帧图片，资源浪费</li>
-</ul>
-<h4 id="Lottie"><a href="#Lottie" class="headerlink" title="Lottie"></a>Lottie</h4><p>优点：</p>
-<ul>
-<li>性能表现较好（动画播放时，CPU 占用率提升不到 10%）</li>
-<li>不同跑车之间可复用（支持替换某个图片资源）</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>可能不支持某些效果</li>
-<li>资源包比后面的Svga大一倍左右（json文件+img文件夹）</li>
-</ul>
-<h4 id="Svga"><a href="#Svga" class="headerlink" title="Svga"></a>Svga</h4><p>优点：</p>
-<ul>
-<li>性能表现较好（动画播放时，CPU 占用率提升不到 10%）</li>
-<li>Svga 文件尺寸相对较小，不同跑车之间可复用（支持替换某个图片资源），而且可以缓存到 db</li>
-<li>动画效果的修改简单快速，无额外开发成本</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>可能不支持某些效果</li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/01/Svga/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -566,7 +521,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-02 14:39:23" itemprop="dateModified" datetime="2021-04-02T14:39:23+08:00">2021-04-02</time>
+                <time title="修改时间：2021-04-06 09:54:01" itemprop="dateModified" datetime="2021-04-06T09:54:01+08:00">2021-04-06</time>
               </span>
 
           
@@ -580,45 +535,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h2><p>封装一个统一、简洁、易用的接口/方法，比如封装一个可以兼容各浏览器版本的绑定 DOM 事件的方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绑定事件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">element, event, handler</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">    element.addEventListener(event, handler, <span class="literal">false</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123;</span><br><span class="line">    element.attachEvent(<span class="string">&#x27;on&#x27;</span> + event, handler);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    element[<span class="string">&#x27;on&#x27;</span> + event] = fn;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>增加对一个对象的访问控制，比如 ES6 的<code>Proxy</code></p>
-<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式，顾名思义，就是我们告诉工厂需要什么，工厂就给我们生产什么，可以细分为三种：简单工厂模式、工厂方法模式和抽象工厂模式。</p>
-<details>
-<summary>简单工厂模式</summary>
-
-<p>需要什么，就只执行对应的方法，下面的代码是一种简单工厂模式，这种方法存在一个问题：新增类型时，需要频繁修改类内部的实现，违背了<strong>开闭原则</strong> <em>（对扩展开放，对修改关闭）</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car1</span> </span>&#123;</span><br><span class="line">  wheel = <span class="number">4</span>;</span><br><span class="line">  color = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car2</span> </span>&#123;</span><br><span class="line">  wheel = <span class="number">4</span>;</span><br><span class="line">  color = <span class="string">&#x27;yellow&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CarFactory</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">getCar</span>(<span class="params">type</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Car1();</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Car2();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</details>
-
-<details>
-<summary>工厂模式</summary>
-
-<p>对于上面提到的问题，工厂模式能解决</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  wheel = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car1</span> <span class="keyword">extends</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">  color = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car2</span> </span>&#123;</span><br><span class="line">  color = <span class="string">&#x27;yellow&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CarFactory</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">getCar</span>(<span class="params">type</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Car1();</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Car2();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</details>
-
-<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>只对类进行一次实例化</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> NormalCar = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> storage;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getCar: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (!storage) &#123;</span><br><span class="line">        storage = <span class="keyword">new</span> Car();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> storage;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> car = NormalCar.getCar();</span><br><span class="line"><span class="keyword">const</span> car = NormalCar.getCar();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(car === car); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><h2 id="发布订阅模式（观察者模式）"><a href="#发布订阅模式（观察者模式）" class="headerlink" title="发布订阅模式（观察者模式）"></a>发布订阅模式（观察者模式）</h2><p>观察者主动订阅事件消息，当被观察对象发生改变或被观察事件触发时，会通知到该观察者，比如给 DOM 元素绑定事件的<code>addEventListener()</code>方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target.addEventListener(type, listener [, options]);</span><br></pre></td></tr></table></figure>
-
-<p>target 就是被观察对象，listener 观察者</p>
-<h2 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h2><p>中介者模式和发布订阅模式其实是类似的，都是发送和接收消息，不同的是中介者模式可以管理对象（用户）之间的关系，谁能接收消息，谁不能接收消息，相当于是存在一个消息的中转站，而发布订阅模式，发布和订阅都是直接点对点的<br>聊天室就是很典型的中介者模式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Member</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">name</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.chatroom = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 发送消息</span></span><br><span class="line">  <span class="function"><span class="title">send</span>(<span class="params">message, toMember</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.chatroom.send(message, <span class="built_in">this</span>, toMember);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 接受消息</span></span><br><span class="line">  <span class="function"><span class="title">receive</span>(<span class="params">message, fromMember</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;fromMember.name&#125;</span> to <span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>: <span class="subst">$&#123;message&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chatroom</span> </span>&#123;</span><br><span class="line">  members = &#123;&#125;;</span><br><span class="line">  <span class="function"><span class="title">addMember</span>(<span class="params">member</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.members[member.name] = member;</span><br><span class="line">    member.chatroom = <span class="built_in">this</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 发送消息</span></span><br><span class="line">  <span class="function"><span class="title">send</span>(<span class="params">message, fromMember, toMember</span>)</span> &#123;</span><br><span class="line">    toMember.receive(message, fromMember);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><p>ES6 的迭代器（Array，Set，Map，String，arguments 等）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iterator</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">items</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.items = items;</span><br><span class="line">    <span class="built_in">this</span>.index = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">hasNext</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.index &lt; <span class="built_in">this</span>.items.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">next</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.index++];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> iterator = <span class="keyword">new</span> Iterator(item);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(iterator.next()); <span class="comment">// 1, 2, 3, 4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ES6 的一个</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  [<span class="built_in">Symbol</span>.iterator]: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      next: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          value: <span class="number">1</span>,</span><br><span class="line">          done: <span class="literal">true</span>,</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h2><p>访问者模式</p>
-
+          <p>整理部分设计模式</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/01/%E4%B8%80%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -660,10 +585,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-01 15:24:26 / 修改时间：21:11:18" itemprop="dateCreated datePublished" datetime="2021-04-01T15:24:26+08:00">2021-04-01</time>
+              <time title="创建时间：2021-04-01 15:24:26" itemprop="dateCreated datePublished" datetime="2021-04-01T15:24:26+08:00">2021-04-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-06 09:54:01" itemprop="dateModified" datetime="2021-04-06T09:54:01+08:00">2021-04-06</time>
+              </span>
 
           
 
@@ -676,7 +607,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>放弃<a target="_blank" rel="noopener" href="https://lfxzzz.github.io/">以前的Blog</a>，重新出发</p>
+          <p>放弃<a target="_blank" rel="noopener" href="https://lfxzzz.github.io/">以前的 Blog</a>，重新出发</p>
 
       
     </div>
