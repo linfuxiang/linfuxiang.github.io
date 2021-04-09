@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Long&#39;s Blog">
-<meta property="og:url" content="http://example.com/categories/%E6%80%A7%E8%83%BD/index.html">
+  <meta name="description" content="总体流程：  客户端发起请求 服务端返回证书信息和公钥 客户端验证证书，并生成一个随机串密码，通过公钥加密，带上签名发送给服务端 服务端使用私钥解出随机串密码  验证证书：  CA 把证书内容和签名颁发给服务端； 服务端把公钥和证书给客户端； 客户端使用本地证书公钥解密签名（服务端把证书指纹 hash 和指纹算法通过私钥加密）得到证书内容+指纹 hash，再通过指纹算法计算证书内容得到另一个 ha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTPS">
+<meta property="og:url" content="http://example.com/2021/04/09/%E7%BD%91%E7%BB%9C/HTTPS/index.html">
 <meta property="og:site_name" content="Long&#39;s Blog">
+<meta property="og:description" content="总体流程：  客户端发起请求 服务端返回证书信息和公钥 客户端验证证书，并生成一个随机串密码，通过公钥加密，带上签名发送给服务端 服务端使用私钥解出随机串密码  验证证书：  CA 把证书内容和签名颁发给服务端； 服务端把公钥和证书给客户端； 客户端使用本地证书公钥解密签名（服务端把证书指纹 hash 和指纹算法通过私钥加密）得到证书内容+指纹 hash，再通过指纹算法计算证书内容得到另一个 ha">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-09T09:21:56.000Z">
+<meta property="article:modified_time" content="2021-04-09T09:30:24.962Z">
 <meta property="article:author" content="Long Lin">
+<meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/categories/%E6%80%A7%E8%83%BD/">
+<link rel="canonical" href="http://example.com/2021/04/09/%E7%BD%91%E7%BB%9C/HTTPS/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: 性能 | Long's Blog</title>
+  <title>HTTPS | Long's Blog</title>
   
 
 
@@ -149,71 +154,102 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">性能
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/09/%E7%BD%91%E7%BB%9C/HTTPS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Long Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Long's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTTPS
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-09 17:21:56 / 修改时间：17:30:24" itemprop="dateCreated datePublished" datetime="2021-04-09T17:21:56+08:00">2021-04-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-02T14:47:47+08:00"
-              content="2021-04-02">
-          04-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/02/performance/optimization/" itemprop="url">
-            <span itemprop="name">性能优化</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-02T14:47:13+08:00"
-              content="2021-04-02">
-          04-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/02/performance/web_virtals/" itemprop="url">
-            <span itemprop="name">性能指标</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <p>总体流程：</p>
+<ol>
+<li>客户端发起请求</li>
+<li>服务端返回证书信息和公钥</li>
+<li>客户端验证证书，并生成一个随机串密码，通过公钥加密，带上签名发送给服务端</li>
+<li>服务端使用私钥解出随机串密码</li>
+</ol>
+<p>验证证书：</p>
+<ol>
+<li>CA 把证书内容和签名颁发给服务端；</li>
+<li>服务端把公钥和证书给客户端；</li>
+<li>客户端使用本地证书公钥解密签名（服务端把证书指纹 hash 和指纹算法通过私钥加密）得到证书内容+指纹 hash，再通过指纹算法计算证书内容得到另一个 hash，两个 hash 比对；并验证 Url 是否一致、是否超出过期时间</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012196642">参考 1</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fengf233/p/11775415.html">参考 2</a></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"># 网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/09/%E7%BD%91%E7%BB%9C/TCP/" rel="prev" title="TCP">
+      <i class="fa fa-chevron-left"></i> TCP
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
